@@ -1,12 +1,23 @@
-version: '3.9'
+version: '3'
 services:
-  mongodb:
-    image: mongo:5.0
-    ports:
-      - 27017:27017
-    volumes:
-      - /data/db:~/apps/mongo
   flask:  
-    image: ati-img-flask
+    build: .
+    depends_on:
+      - mongodb
     ports:
       - 5000:5000
+    volumes:
+      - ./src:/project/src
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+
+  mongodb:
+    image: mongo:5.0
+    environment:
+      - MONGO_INITDB_DATABASE=thedbname
+      - MONGO_INITDB_ROOT_USERNAME=userforthedb
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - ./mongodb-volume:/data/db
+    ports:
+      - 27017:27017
