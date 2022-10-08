@@ -1,1 +1,7 @@
-mongodb-volume/*
+mongodb-volume/WiredTiger
+mongodb-volume/journal
+mongodb-volume/diagnostic.data
+mongodb-volume/*.wt
+mongodb-volume/*.turtle
+mongodb-volume/*.lock
+mongodb-volume/*.bson
