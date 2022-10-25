@@ -1,11 +1,35 @@
-#!/usr/bin/env python
-import flask
+from flask import Flask, jsonify
+import pymongo
+from pymongo import MongoClient
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
+
+def get_db():
+    client = MongoClient(host='test_mongodb',
+                         port=27017,
+                         username='root',
+                         password='pass',
+                        authSource="admin")
+    db = client["users_db"]
+    return db
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!\n'
+def ping_server():
+    return "hi again"
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0')     # open for everyone
+@app.route('/listUsers')
+def fetch_users():
+    db=""
+    try:
+        db = get_db()
+        _users = db.users_tb.find()
+        users = [{"name": user["name"], "password": user["password"]} for user in _users]
+        return jsonify({"users": users})
+    except:
+        print("error fetching users")
+    finally:
+        if type(db)==MongoClient:
+            db.close()
+
+if __name__=='__main__':
+    app.run(host="0.0.0.0", port=5000, debug=True)

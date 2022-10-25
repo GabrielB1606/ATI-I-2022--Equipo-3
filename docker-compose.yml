@@ -1,23 +1,22 @@
 version: '3'
 services:
-  flask:  
+  app:
     build: .
-    depends_on:
-      - mongodb
+    command: python -u app.py
     ports:
-      - 5000:5000
+      - "5000:5000"
     volumes:
-      - ./src:/project/src
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
-
-  mongodb:
-    image: mongo:5.0
+      - ./src:/app
+    links:
+      - db
+  db:
+    image: mongo:6.0
+    hostname: test_mongodb
     environment:
-      - MONGO_INITDB_DATABASE=thedbname
-      - MONGO_INITDB_ROOT_USERNAME=userforthedb
-      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=users_db
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass
     volumes:
-      - ./mongodb-volume:/data/db
+      - ./init-db.js:/docker-entrypoint-initdb.d/init-db.js:ro
     ports:
       - 27017:27017
