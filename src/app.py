@@ -16,7 +16,7 @@ def get_db():
 
 # home route
 @app.route('/')
-def ping_server():
+def index():
     return render_template("index.html")
 
 # demo for fetching mongoDB data
