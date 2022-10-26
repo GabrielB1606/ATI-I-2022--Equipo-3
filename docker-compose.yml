@@ -7,6 +7,7 @@ services:
       - "5000:5000"
     volumes:
       - ./src:/app
+      - ./templates:/app/templates
     links:
       - db
   db:

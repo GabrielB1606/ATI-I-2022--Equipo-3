@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import pymongo
 from pymongo import MongoClient
 
@@ -15,7 +15,7 @@ def get_db():
 
 @app.route('/')
 def ping_server():
-    return "hi again"
+    return render_template("index.html")
 
 @app.route('/listUsers')
 def fetch_users():

@@ -5,3 +5,5 @@ mongodb-volume/*.wt
 mongodb-volume/*.turtle
 mongodb-volume/*.lock
 mongodb-volume/*.bson
+.vscode
+.fleet
