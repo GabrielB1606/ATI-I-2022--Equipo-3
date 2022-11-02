@@ -1,25 +1,51 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{url_for('index')}}">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<header class="p-3 mb-3 border-bottom">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <!-- logo -->
+            <a href="{{url_for('index')}}" class="d-flex me-lg-3 col-lg-3 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                <i class="fa-solid fa-hippo fa-2xl"></i>
+            </a>
+
+            <!-- search bar -->
+            <form class="col-12 col-lg-4 me-lg-4 mb-3 mb-lg-0" role="search">
+                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            </form>
+
+            <!-- icons -->
+            <ul class="nav col-12 col-lg-4 me-lg-4 mb-2 justify-content-end mb-md-0 mr-0 pr-0">
+                <li>
+                    <a href="#" class="nav-link px-2 link-secondary">
+                    <i class="fa-solid fa-inbox"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link px-2 link-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </a>
+                </li>
+                <li>
+                    <div class="dropdown text-end" style="margin-left: 0.3rem;">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!--<li><a href="#" class="nav-link px-2 link-dark"> <i class="fa-regular fa-paper-plane"></i> </a></li>-->
+                <!--    <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>-->
+                <!--    <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>-->
+            </ul>
+
+        </div>
     </div>
-  </div>
-</nav>
+</header>
