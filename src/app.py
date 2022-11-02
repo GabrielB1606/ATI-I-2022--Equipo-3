@@ -19,6 +19,36 @@ def get_db():
 def index():
     return render_template("index.html")
 
+# login route
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+# profile route
+@app.route('/user')
+def profile():
+    return render_template("profile.html")
+
+# chat route
+@app.route('/chat')
+def chat():
+    return render_template("chat.html")
+
+# config route
+@app.route('/config')
+def config_page():
+    return render_template("config.html")
+
+# updates route
+@app.route('/notifications')
+def notifications():
+    return render_template("notifications.html")
+
+# search all users route
+@app.route('/search')
+def search_users():
+    return render_template("search.html")
+
 # demo for fetching mongoDB data
 @app.route('/listUsers')
 def fetch_users():
