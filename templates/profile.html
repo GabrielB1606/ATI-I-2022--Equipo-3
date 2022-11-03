@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/post.css') }}">
 
 <div class="container">
     <!-- Configuration Toggle -->
@@ -57,12 +58,27 @@
         <!-- User Publications-->
         <div class="col-lg-8">
             {% with user_name='Charles Plant', post_time='2 days ago',
-            title='Titulo 1', text='Example text 1', comments_field='Comments', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
+            text='Example text 1', comments_field='Comments', 
+            profile_url='#',
+            profile_img_url='https://github.com/mdo.png',
+            img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
                 {% include 'post.html' %}
             {% endwith %}
-    
+            
             {% with user_name='Charles Plant', post_time='5 days ago',
-            title='Titulo 2', text='Example text 2', comments_field='Comments', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg' %}
+            text='Example text 2', comments_field='Comments', 
+            profile_url='#',
+            profile_img_url='https://github.com/mdo.png',
+            img_display='d-none',
+            img_url=''%}
+                {% include 'post.html' %}
+            {% endwith %}
+
+            {% with user_name='Charles Plant', post_time='5 days ago',
+            text='Example text 3', comments_field='Comments', 
+            profile_url='#',
+            profile_img_url='https://github.com/mdo.png',
+            img_url='https://www.akc.org/wp-content/uploads/2019/02/NomNomNow_Pembroke_Welsh_Corgis.jpeg'%}
                 {% include 'post.html' %}
             {% endwith %}
         </div>
