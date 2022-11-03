@@ -6,7 +6,7 @@
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>            
+              <li class="breadcrumb-item"><a href="{{url_for('index')}}">Home</a></li>            
               <li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
             </ol>
         </nav>
@@ -20,7 +20,7 @@
                         <!-- Icons -->
                         <nav class="nav flex-column nav-pills nav-gap-y-1">
                             <!-- Security -->
-                            <a href="{{url_for('index')}}" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded ">
+                            <a href="#security" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded ">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Security
                             </a>
 
