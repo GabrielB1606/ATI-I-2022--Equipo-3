@@ -1,5 +1,7 @@
+// all sub-sections in the menu
 let submenus = ["security", "profile", "notification", "language"];
 
+// on click interaction function
 function activateSubMenu( submenu_name ) {
 
     submenus.forEach(
@@ -16,6 +18,7 @@ function activateSubMenu( submenu_name ) {
     
 }
 
+// assign on click to each menu element
 submenus.forEach(
     submenu => {
         $("#menu-"+submenu+"-mb").click( () => activateSubMenu(submenu) );
