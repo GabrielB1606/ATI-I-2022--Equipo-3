@@ -10,3 +10,7 @@ a, a:hover{
     text-emphasis: none;
     text-decoration: none;
 }
+
+img{
+    object-fit: cover;
+}
