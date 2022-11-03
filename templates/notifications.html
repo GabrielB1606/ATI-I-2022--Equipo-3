@@ -1,5 +1,67 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is the root directory</h1>
+    <h1>Notificactions</h1>
+    
+    <!--Notifications stack-->
+    <ul class="list-group list-group-light">
+        <br>
+        <!--Notification #1-->
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center mx-auto pt-2 pb-2">
+                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="Profile picture" style="width: 45px; height: 45px" class="rounded-circle" />
+                <div class="ms-3">
+                    <p class="fw-bold mb-0">John Doe ha solicitado seguirte</p>
+                    
+                    <!--Buttons-->
+                    <div class="col-md-12 text-center  mt-1">
+                        <button type="button" class="btn btn-outline-dark me-2">Aceptar</button>
+                        <button type="button" class="btn btn-secondary me-1">Rechazar</button>
+                    </div>    
+                         
+                </div>
+            </div>
+            <span class="badge rounded-pill badge-success">Active</span>
+        </li>
+        <br>
+        
+        <!--Notification #2-->
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center mx-auto pt-2 pb-2">
+                <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" alt="Profile picture" style="width: 45px; height: 45px" class="rounded-circle" />
+                <div class="ms-3">
+                    <p class="fw-bold mb-0">Carissa Ray quiere enviarte un mensaje</p>
+                    
+                    <!--Buttons-->
+                    <div class="col-md-12 text-center  mt-1">
+                        <button type="button" class="btn btn-outline-dark me-2">Aceptar</button>
+                        <button type="button" class="btn btn-secondary me-1">Rechazar</button>
+                    </div>                
+                </div>
+            </div>
+            <span class="badge rounded-pill badge-success">Active</span>
+        </li>
+        <br>
+
+        <!--Notification #3-->
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center mx-auto pt-2 pb-2">
+                <img src="https://mdbootstrap.com/img/new/avatars/5.jpg" alt="Profile picture" style="width: 45px; height: 45px" class="rounded-circle" />
+                <div class="ms-3">
+                    <p class="fw-bold mb-0">Jessica ha hecho un comentario en tu muro</p>
+                    
+                    <!--Buttons-->
+                    <div class="col-md-12 text-center mt-1">                        
+                        <button type="button" class="btn btn-secondary me-1">Ver comentario</button>
+                    </div>                
+                </div>
+            </div>
+            <span class="badge rounded-pill badge-success">Active</span>
+        </li>
+        <br>    
+
+        
+    </ul>
+    <br>
+    
 {% endblock %}
