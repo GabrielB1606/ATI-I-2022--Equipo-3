@@ -4,17 +4,18 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style/chat.css') }}">
 
-    <section>
-        <div class="container py-5">
 
-            <div class="row">
+    <div class="container py-0" id="chat-component">
 
-            <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+        <div class="row">
 
-                <h5 class="font-weight-bold mb-3 text-center text-lg-start">Friends</h5>
+            <!-- friends -->
+            <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0" >
+
+                <h2 class="font-weight-bold mb-3 text-center text-lg-start">Friends</h2>
 
                 <!-- contact list -->
-                <div class="card">
+                <div class="card" >
                     <div class="card-body">
                         <ul class="list-unstyled mb-0" id="contact-list">
                             
@@ -63,10 +64,10 @@
             <!-- current chat -->
             <div class="col-md-6 col-lg-7 col-xl-8">
 
-                <ul class="list-unstyled">
+                <ul class="list-unstyled" id="chat-container">
                     <!-- messages of the current chat -->
 
-                    {% with user_name='Charles Plant', sent_by_me=True, message='Thanks 🥰', timestamp='12 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
+                    {% with user_name='Charles Plant', sent_by_me=True, message='Hey!', timestamp='12 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
                             {% include 'chat_components/message.html' %}
                     {% endwith %}
 
@@ -74,19 +75,19 @@
                             {% include 'chat_components/message.html' %}
                     {% endwith %}
 
-                    {% with user_name='Charles Plant', sent_by_me=True, message='Thanks 🥰', timestamp='8 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
+                    {% with user_name='Charles Plant', sent_by_me=True, message='Etiam in vehicula justo, nec vulputate nisi. Nulla quis sapien id dui tempus sagittis porttitor quis eros. Pellentesque bibendum mi nec ligula dapibus mattis. Integer libero eros, suscipit ut purus sed, fringilla auctor felis.', timestamp='8 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
                             {% include 'chat_components/message.html' %}
                     {% endwith %}
 
-                    {% with user_name='James Brown', sent_by_me=False, message='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', timestamp='10 minutes ago', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp'%}
+                    {% with user_name='James Brown', sent_by_me=False, message='Mauris tellus lacus, luctus quis mattis et, imperdiet a nunc.', timestamp='10 minutes ago', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp'%}
                             {% include 'chat_components/message.html' %}
                     {% endwith %}
 
-                    {% with user_name='Charles Plant', sent_by_me=True, message='Thanks 🥰', timestamp='8 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
+                    {% with user_name='Charles Plant', sent_by_me=True, message='Cras dui nisi, congue dignissim odio vel, lobortis lobortis turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', timestamp='6 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
                             {% include 'chat_components/message.html' %}
                     {% endwith %}
 
-                    {% with user_name='James Brown', sent_by_me=False, message='Let\'s do it', timestamp='10 minutes ago', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp'%}
+                    {% with user_name='James Brown', sent_by_me=False, message='Let\'s do it', timestamp='5 minutes ago', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp'%}
                             {% include 'chat_components/message.html' %}
                     {% endwith %}
 
@@ -106,8 +107,9 @@
 
             </div>
 
-            </div>
-
         </div>
-    </section>
+
+    </div>
+
+    <script src="{{url_for('static', filename='js/chat.js')}}"></script>
 {% endblock %}
