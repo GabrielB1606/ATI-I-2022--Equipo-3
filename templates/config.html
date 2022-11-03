@@ -1,5 +1,231 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is the root directory</h1>
+    
+    <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>            
+              <li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
+            </ol>
+        </nav>
+        
+        <!-- Content-->
+        <div class="row gutters-sm">
+            <!-- Left Bar -->
+            <div class="col-md-4 d-none d-md-block">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Icons -->
+                        <nav class="nav flex-column nav-pills nav-gap-y-1">
+                            <!-- Security -->
+                            <a href="{{url_for('index')}}" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Security
+                            </a>
+
+                            <!-- Profile Information -->
+                            <a href="#profile" role="tab" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Profile Information
+                            </a>
+
+                            <!-- Notifications -->
+                            <a href="#notification" role="tab" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell mr-2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>Notification
+                            </a>
+
+                            <!-- Language -->
+                            <a href="#language" role="tab" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings mr-2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>Language
+                            </a> 
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Bar -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header border-bottom mb-3 d-flex d-md-none">
+                        <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
+                            <!--Security-->
+                            <li class="nav-item">
+                                <a href="#security" role="tab" data-toggle="tab" class="nav-link has-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></a>
+                            </li>
+        
+                            <!--Profile Information-->
+                            <li class="nav-item">
+                                <a href="#profile" role="tab" data-toggle="tab" class="nav-link has-icon active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a>
+                            </li>
+        
+                            <!--Notifications-->
+                            <li class="nav-item">
+                                <a href="#notification" role="tab" data-toggle="tab" class="nav-link has-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></a>
+                            </li>
+        
+                            <!--Language-->
+                            <li class="nav-item">
+                                <a href="#language" role="tab" data-toggle="tab" class="nav-link has-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></a>
+                            </li>                
+                        
+                        </ul>
+                    </div>
+
+                   
+                    
+                    <div class="card-body tab-content">
+
+                        <!--Security-->
+                        <div role="tabpanel" class="tab-pane" id="security">
+                            <h6>SECURITY INFORMATION</h6>
+                            <hr>
+                            <form>
+                                <!--Current Password-->
+                                <div class="form-group">                                
+                                    <input type="password" class="form-control" id="current-pass" placeholder="Current password">
+                                </div>
+                                <br>
+                                <hr>
+                                
+                                <!--New Password-->
+                                <div class="form-group">                                
+                                    <input type="password" class="form-control" id="new-pass" placeholder="New password">
+                                </div>
+                                <br>
+
+                                <div class="form-group">                                
+                                    <input type="password" class="form-control" id="confirm-pass" placeholder="Confirm password">
+                                </div>
+                                <br>
+
+                                <div class="col-md-12 text-center">
+                                    <button type="button" class="btn btn-primary center">Change Password</button>
+                                </div>                                
+                            </form>
+                            
+                        </div>
+
+                        <!-- Profile -->
+                        <div role="tabpanel" class="tab-pane active" id="profile">
+                            <h6>PROFILE INFORMATION</h6>
+                            <hr>
+                            <form>
+                                <!-- Name -->
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp" placeholder="Enter your fullname" value="Meredith Smith">
+                                    <small id="fullNameHelp" class="form-text text-muted">Your name may appear around here where you are mentioned. You can change or remove it at any time.</small>
+                                </div>
+                                <br>
+
+                                <!-- Biography -->
+                                <div class="form-group">
+                                    <label for="bio">Biography</label>
+                                    <textarea class="form-control autosize" id="bio" placeholder="Write something about you" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 62px;">A front-end developer that focus more on user interface design, a web interface wizard, a connector of awesomeness.</textarea>
+                                </div>
+                                <br>
+
+                                <!-- Birthday -->
+                                <div class="form-group">
+                                    <label for="birthday">Birthday</label>
+                                    <input type="date" class="form-control" id="birthday">
+                                </div>
+                                <br>
+
+                                <!-- Videogames -->
+                                <div class="form-group">
+                                    <label for="videogames">Favorite Videogames</label>
+                                    <input type="text" class="form-control" id="videogames" placeholder="Enter your favorite videogames" value="MineSweeper, Counter Strike, Pokemon">
+                                </div>
+                                <br>
+
+                                <!-- Music -->
+                                <div class="form-group">
+                                    <label for="music">Favorite Music</label>
+                                    <input type="text" class="form-control" id="music" placeholder="Enter your favorite music" value="Alternative, Pop-Rock">
+                                </div>
+                                <br>
+
+                                <!-- Book -->
+                                <div class="form-group">
+                                    <label for="book">Favorite Book</label>
+                                    <input type="text" class="form-control" id="book" placeholder="Enter your favorite book" value="The Bible">
+                                </div>
+                                <br>
+
+                                <!-- Color -->
+                                <div class="form-group">
+                                    <label for="book">Favorite Color</label>
+                                    <input type="text" class="form-control" id="color" placeholder="Enter your favorite color" value="Blue">
+                                </div>
+                                <br>
+
+                                <button type="button" class="btn btn-primary">Update Profile</button>
+                                <button type="reset" class="btn btn-light">Reset Changes</button>
+                            </form>
+                        </div>                 
+
+                        <!--Notifications-->
+                        <div role="tabpanel" class="tab-pane" id="notification">
+                            <h6>NOTIFICATION SETTINGS</h6>
+                            <hr>
+                            <form>                              
+                                <div class="form-group mb-0">
+                                    <label class="d-block">Receive notifications via email</label>
+                                    <br>
+                                    <ul class="list-group list-group-sm">
+                                        <!--Chat Messages-->
+                                        <li class="list-group-item has-icon">                                    
+                                            <div class="custom-control custom-control-nolabel custom-switch ml-auto">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitch1" checked=""> 
+                                                Chat Messages                                     
+                                            </div>
+                                        </li>
+                                        
+                                        <!--Comments-->
+                                        <li class="list-group-item has-icon">                                    
+                                            <div class="custom-control custom-control-nolabel custom-switch ml-auto">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitch2" checked=""> 
+                                                Comments                                     
+                                            </div>
+                                        </li>
+                                        
+                                        <!--Friend Requests-->
+                                        <li class="list-group-item has-icon">                                    
+                                            <div class="custom-control custom-control-nolabel custom-switch ml-auto">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitch3"> 
+                                                Friend Requests                                     
+                                            </div>
+                                        </li>                             
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!--Language-->
+                        <div class="tab-pane" id="language">
+                            <h6>LANGUAGE SETTINGS</h6>
+                            <hr>
+
+                            <div class="form-group">
+                                <label for="Language">Set your preffered language</label>
+                            </div>
+                            <br>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Language
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                  <li><button class="dropdown-item" type="button">English</button></li>
+                                  <li><button class="dropdown-item" type="button">Spanish</button></li>
+                                  <li><button class="dropdown-item" type="button">Portuguese</button></li>
+                                </ul>
+                            </div>                        
+                        </div>
+                        
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
 {% endblock %}
