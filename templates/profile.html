@@ -1,5 +1,87 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is the root directory</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='style/post.css') }}">
+
+<div class="container">
+    <!-- Configuration Toggle -->
+    <div class="invisible">
+        <i class="fa-solid fa-gear fa-2xl"></i>
+    </div>
+    <div class="row gx-5">
+
+        <!-- Profile Information -->
+        <div class="col-lg-4">
+
+            <div class="text-center">
+                <img src="https://github.com/mdo.png" alt="mdo" width="256" height="256" class="rounded-circle mb-4">
+                <h3> Charles Plant </h5> 
+                <p> Lover of dogs, even bigger lover of corgis. </p>
+                <p> C/C++ - Java - Python - JavaScript </p>
+            </div>
+            
+            <hr>
+
+            <table>
+                <tr>
+                    <td><i class="fa-solid fa-gift"></i></td>
+                    <td> 31/02/2000</td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-gamepad"></i></td>
+                    <td>MineSweeper, Counter Strike, Pokemon</td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-music"></i></td>
+                    <td>Barbra Streisand </td>
+                </tr>
+
+                  <tr>
+                    <td><i class="fa-solid fa-book"></i></td>
+                    <td>The Bible</td>
+                  </tr>
+
+                  <tr>
+                    <td><i class="fa-solid fa-star"></i></td>
+                    <td>Blue</td>
+                  </tr>
+            </table>
+
+            <hr>
+
+            <!-- Chat Request -->
+            <div class="invisible">
+                <i class="fa-regular fa-envelope mb-4"></i>  Send chat request
+            </div>
+        </div>
+
+        <!-- User Publications-->
+        <div class="col-lg-8">
+            {% with user_name='Charles Plant', post_time='2 days ago',
+            text='Example text 1', comments_field='Comments', 
+            profile_url='#',
+            profile_img_url='https://github.com/mdo.png',
+            img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
+                {% include 'post.html' %}
+            {% endwith %}
+            
+            {% with user_name='Charles Plant', post_time='5 days ago',
+            text='Example text 2', comments_field='Comments', 
+            profile_url='#',
+            profile_img_url='https://github.com/mdo.png',
+            img_display='d-none',
+            img_url=''%}
+                {% include 'post.html' %}
+            {% endwith %}
+
+            {% with user_name='Charles Plant', post_time='5 days ago',
+            text='Example text 3', comments_field='Comments', 
+            profile_url='#',
+            profile_img_url='https://github.com/mdo.png',
+            img_url='https://www.akc.org/wp-content/uploads/2019/02/NomNomNow_Pembroke_Welsh_Corgis.jpeg'%}
+                {% include 'post.html' %}
+            {% endwith %}
+        </div>
+    </div>
+</div>
 {% endblock %}
