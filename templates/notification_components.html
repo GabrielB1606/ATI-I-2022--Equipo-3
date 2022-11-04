@@ -1,0 +1,26 @@
+<li class="list-group-item d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center mx-auto pt-2 pb-2">
+        <img src="{{profile_img_url}}" alt={{user_name}} style="width: 45px; height: 45px" class="rounded-circle" />
+        <div class="ms-3">
+            <p class="fw-bold mb-0">{{user_name}} {{message_request}}</p>
+            
+            <!--Follow Request || Message Request-->
+            {% if (type == "follow_request") or (type == "message_request") %}
+            <div class="col-md-12 text-center  mt-1">
+                <button type="button" class="btn btn-outline-dark me-2">Aceptar</button>
+                <button type="button" class="btn btn-secondary me-1">Rechazar</button>
+            </div>    
+            {% endif %}
+
+            <!--Comment notification -->
+            {% if type == "comment_notification" %}
+            <div class="col-md-12 text-center mt-1">                        
+                <button type="button" class="btn btn-secondary me-1">Ver comentario</button>
+            </div>  
+            {% endif %}
+
+        </div>
+    </div>
+    <span class="badge rounded-pill badge-success">Active</span>
+</li>
+<br>
