@@ -24,8 +24,8 @@
                                 {% include 'chat_components/contact.html' %}
                             {% endwith %}
 
-                            {% with user_name='Charles Plant', state='Online',
-                            new_messages=1, last_message='Hey!', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
+                            {% with user_name='Charles Myers', state='Online',
+                            new_messages=1, last_message='Hey!', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-7.webp'%}
                                 {% include 'chat_components/contact.html' %}
                             {% endwith %}
 
@@ -62,9 +62,9 @@
             </div>
             
             <!-- current chat -->
-            <div class="col-md-6 col-lg-7 col-xl-8">
+            <div class="col-md-6 col-lg-7 col-xl-8 d-none" >
 
-                <ul class="list-unstyled" id="chat-container">
+                <ul class="list-unstyled" id="chat-container" >
                     <!-- messages of the current chat -->
 
                     {% with user_name='Charles Plant', sent_by_me=True, message='Hey!', timestamp='12 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
@@ -75,7 +75,7 @@
                             {% include 'chat_components/message.html' %}
                     {% endwith %}
 
-                    {% with user_name='Charles Plant', sent_by_me=True, message='Etiam in vehicula justo, nec vulputate nisi. Nulla quis sapien id dui tempus sagittis porttitor quis eros. Pellentesque bibendum mi nec ligula dapibus mattis. Integer libero eros, suscipit ut purus sed, fringilla auctor felis.', timestamp='8 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
+                    {% with user_name='Charles Myers', sent_by_me=True, message='Etiam in vehicula justo, nec vulputate nisi. Nulla quis sapien id dui tempus sagittis porttitor quis eros. Pellentesque bibendum mi nec ligula dapibus mattis. Integer libero eros, suscipit ut purus sed, fringilla auctor felis.', timestamp='8 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
                             {% include 'chat_components/message.html' %}
                     {% endwith %}
 
