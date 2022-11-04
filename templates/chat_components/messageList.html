@@ -1,4 +1,4 @@
-<ul class="list-unstyled d-none" id="chat-{{chat.user_from|replace(' ', '-')|lower}}" >
+<ul class="list-unstyled messageList row d-none" id="chat-{{chat.user_from|replace(' ', '-')|lower}}" >
     {% for message in chat.messages %}
         {% with user_name=user_name if message.sent_by_me else chat.user_from , sent_by_me=message.sent_by_me , message=message.text, timestamp=message.timestamp, img_url=img_url if message.sent_by_me else chat.img_url %}
             {% include 'chat_components/message.html' %}

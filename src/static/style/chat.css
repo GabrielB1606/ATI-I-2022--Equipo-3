@@ -15,15 +15,20 @@ img{
     object-fit: cover;
 }
 
-#chat-container{
-    height: 72vh;
+.messageList{
+    height: 69vh;
     overflow-y: scroll;
     padding-right: 2vw;
 }
 
 #contact-list{
-    height: 68vh;
+    height: 72vh;
     overflow-y: scroll;
+}
+
+#contact-list-container{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 footer{
@@ -32,4 +37,8 @@ footer{
 
 h2{
     padding-top: 0.5rem;
+}
+
+.messageList{
+    margin-top: 1rem;
 }

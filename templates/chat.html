@@ -12,10 +12,10 @@
             <!-- friends -->
             <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0" >
 
-                <h2 class="font-weight-bold mb-3 text-center text-lg-start">Friends</h2>
+                <!-- <h2 class="font-weight-bold mb-3 text-center text-lg-start">Friends</h2> -->
 
                 <!-- contact list -->
-                <div class="card" >
+                <div class="card" id="contact-list-container" >
                     <div class="card-body">
                         <ul class="list-unstyled mb-0" id="contact-list">
                             
@@ -34,7 +34,7 @@
             </div>
             
             <!-- current chat -->
-            <div class="col-md-6 col-lg-7 col-xl-8 d-none " >
+            <div class="col-md-6 col-lg-7 col-xl-8 d-block d-flex justify-content-end flex-column" id="chat-div-container" >
 
                 {% for chat in chatList %}
                     {% with user_name='Charles Plant', chat=chat, img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
@@ -43,7 +43,7 @@
                 {% endfor %}
 
                 <!-- send message form -->
-                <form class="row g-3 d-flex justify-content-center">
+                <form class="row g-3 d-flex justify-content-center align-self-end w-100" id="message-form-input">
                     <div class="col-10">
                         <input type="text" class="form-control" id="inputPassword2" placeholder="Message...">
                     </div>
