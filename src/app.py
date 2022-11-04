@@ -30,6 +30,11 @@ def login():
 def profile():
     return render_template("profile.html")
 
+# profile route
+@app.route('/friend')
+def profileFriend():
+    return render_template("friend.html")
+
 # chat route
 @app.route('/chat')
 def chat():
