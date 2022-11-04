@@ -1,5 +1,7 @@
 #chat-component{
     background-color: #eee;
+    /* padding: 0.5rem; */
+    height: max-content;
 }
 
 .contact-list > .active{
@@ -26,9 +28,9 @@ img{
     overflow-y: scroll;
 }
 
-#contact-list-container{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+#friends-list{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 footer{
