@@ -10,12 +10,12 @@
         <div class="row">
 
             <!-- friends -->
-            <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0" >
+            <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0 d-md-block" id="friends-list">
 
                 <!-- <h2 class="font-weight-bold mb-3 text-center text-lg-start">Friends</h2> -->
 
                 <!-- contact list -->
-                <div class="card" id="contact-list-container" >
+                <div class="card" >
                     <div class="card-body">
                         <ul class="list-unstyled mb-0" id="contact-list">
                             
@@ -34,12 +34,14 @@
             </div>
             
             <!-- current chat -->
-            <div class="col-md-6 col-lg-7 col-xl-8 d-block d-flex justify-content-end flex-column" id="chat-div-container" >
+            <div class="col-md-6 col-lg-7 col-xl-8 d-block d-flex justify-content-end flex-column d-none" id="chat-div-container" >
 
                 <div class="d-flex justify-content-between d-sm-block d-md-none" id="mb-chat-header">
-                    <button class="btn btn-info col-1" >
-                        <i class="fa-solid fa-arrow-left" style="color: white;"></i>
-                    </button>   
+                    <a href="#friends-list">
+                        <button class="btn btn-info col-1" id="mb-chat-out">
+                            <i class="fa-solid fa-arrow-left" style="color: white;"></i>
+                        </button>   
+                    </a>
                     <!-- <h3 >Chat with</h3> -->
                 </div>
 

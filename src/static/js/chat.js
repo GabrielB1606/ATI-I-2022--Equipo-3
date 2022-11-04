@@ -14,11 +14,19 @@ function selectChat(id_contact) {
     chat_element.addClass("d-block");
     chat_element.scrollTop( chat_element.height() );
 
+    $("#friends-list").addClass("d-none");
+
 }
 
 $(".contact").each( (idx)=>{
         let id_contact = $(".contact")[idx].id;
-        console.log( id_contact ) ;
+        // console.log( id_contact ) ;
         $("#"+id_contact ).click( () => selectChat(id_contact) );
     } 
 );
+
+$("#mb-chat-out").click( () => {
+    $("#friends-list").removeClass("d-none");
+    $( "#chat-div-container" ).removeClass("d-block");
+    $("#chat-div-container").addClass("d-none");
+} )
