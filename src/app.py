@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, render_template
 import pymongo
 from pymongo import MongoClient
+import json
 
 app = Flask(__name__)
 
@@ -32,7 +33,8 @@ def profile():
 # chat route
 @app.route('/chat')
 def chat():
-    return render_template("chat.html")
+    chats = json.load( open("data/dummy/chats.json") )
+    return render_template("chat.html", chatList = chats)
 
 # config route
 @app.route('/config')

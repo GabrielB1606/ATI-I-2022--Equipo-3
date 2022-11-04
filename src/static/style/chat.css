@@ -1,0 +1,50 @@
+#chat-component{
+    background-color: #eee;
+    /* padding: 0.5rem; */
+    height: max-content;
+}
+
+.contact-list > .active{
+    background-color: #eee;
+}
+
+a, a:hover{
+    text-emphasis: none;
+    text-decoration: none;
+}
+
+img{
+    object-fit: cover;
+}
+
+.messageList{
+    height: 69vh;
+    overflow-y: scroll;
+    padding-right: 2vw;
+}
+
+#contact-list{
+    height: 72vh;
+    overflow-y: scroll;
+}
+
+#friends-list{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+footer{
+    display: none;
+}
+
+h2{
+    padding-top: 0.5rem;
+}
+
+.messageList{
+    margin-top: 1rem;
+}
+
+#mb-chat-header{
+    margin-top: 1rem;
+}

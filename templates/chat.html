@@ -1,5 +1,74 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is the root directory</h1>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/chat.css') }}">
+
+
+    <div class="container py-0" id="chat-component">
+
+        <div class="row">
+
+            <!-- friends -->
+            <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0 d-md-block" id="friends-list">
+
+                <!-- <h2 class="font-weight-bold mb-3 text-center text-lg-start">Friends</h2> -->
+
+                <!-- contact list -->
+                <div class="card" >
+                    <div class="card-body">
+                        <ul class="list-unstyled mb-0" id="contact-list">
+                            
+                            {% for chat in chatList %}
+                                {% with user_name=chat.user_from, state=chat.status,
+                            new_messages=chat.new_messages, last_message=chat.messages[-1].text if chat.messages|length >= 1 else ""  , img_url=chat.img_url %}
+                                    {% include 'chat_components/contact.html' %}
+                                {% endwith %}
+                            {% endfor %}
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- current chat -->
+            <div class="col-md-6 col-lg-7 col-xl-8 d-block d-flex justify-content-end flex-column d-none" id="chat-div-container" >
+
+                <div class="d-flex justify-content-between d-sm-block d-md-none" id="mb-chat-header">
+                    <a href="#friends-list">
+                        <button class="btn btn-info col-1" id="mb-chat-out">
+                            <i class="fa-solid fa-arrow-left" style="color: white;"></i>
+                        </button>   
+                    </a>
+                    <!-- <h3 >Chat with</h3> -->
+                </div>
+
+
+                {% for chat in chatList %}
+                    {% with user_name='Charles Plant', chat=chat, img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
+                        {% include 'chat_components/messageList.html' %}
+                    {% endwith %}
+                {% endfor %}
+
+                <!-- send message form -->
+                <form class="row g-3 d-flex justify-content-center align-self-end w-100" id="message-form-input">
+                    <div class="col-10">
+                        <input type="text" class="form-control" id="inputPassword2" placeholder="Message...">
+                    </div>
+                    <div class="col-1">
+                        <button class="btn btn-info mb-3">
+                            <i class="fa-solid fa-paper-plane" style="color: white;"></i>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="{{url_for('static', filename='js/chat.js')}}"></script>
 {% endblock %}
