@@ -36,6 +36,14 @@
             <!-- current chat -->
             <div class="col-md-6 col-lg-7 col-xl-8 d-block d-flex justify-content-end flex-column" id="chat-div-container" >
 
+                <div class="d-flex justify-content-between d-sm-block d-md-none" id="mb-chat-header">
+                    <button class="btn btn-info col-1" >
+                        <i class="fa-solid fa-arrow-left" style="color: white;"></i>
+                    </button>   
+                    <!-- <h3 >Chat with</h3> -->
+                </div>
+
+
                 {% for chat in chatList %}
                     {% with user_name='Charles Plant', chat=chat, img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
                         {% include 'chat_components/messageList.html' %}
