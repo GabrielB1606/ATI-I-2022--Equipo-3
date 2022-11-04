@@ -1,0 +1,11 @@
+{
+    "notification": "Notificaciones",
+    "message": "quiere enviarte un mensaje",
+    "follow": "ha solicitdado seguirte",
+    "comment": "ha hecho un comentario en tu muro",
+    "notification_buttons":{
+        "accept": "Aceptar",
+        "decline": "Rechazar",
+        "see": "Ver comentario"
+    }
+}
