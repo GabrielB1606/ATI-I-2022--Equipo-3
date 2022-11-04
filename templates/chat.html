@@ -19,40 +19,12 @@
                     <div class="card-body">
                         <ul class="list-unstyled mb-0" id="contact-list">
                             
-                            {% with user_name='James Brown', state='Online',
-                            new_messages=0, last_message='Let\'s do it', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp'%}
-                                {% include 'chat_components/contact.html' %}
-                            {% endwith %}
-
-                            {% with user_name='Charles Myers', state='Online',
-                            new_messages=1, last_message='Hey!', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-7.webp'%}
-                                {% include 'chat_components/contact.html' %}
-                            {% endwith %}
-
-                            {% with user_name='John Doe', state='Online',
-                            new_messages=2, last_message='Hello, Are you there?', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-8.webp'%}
-                                {% include 'chat_components/contact.html' %}
-                            {% endwith %}
-
-                            {% with user_name='Danny Smith', state='Offline',
-                            new_messages=0, last_message='me: Ok!', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-1.webp'%}
-                                {% include 'chat_components/contact.html' %}
-                            {% endwith %}
-
-                            {% with user_name='Alex Steward', state='Online',
-                            new_messages=1, last_message='yeah... Who is Kate??', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-2.webp'%}
-                                {% include 'chat_components/contact.html' %}
-                            {% endwith %}
-
-                            {% with user_name='Ashley Williams', state='Online',
-                            new_messages=1, last_message='Did you tell her that!?', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp'%}
-                                {% include 'chat_components/contact.html' %}
-                            {% endwith %}
-
-                            {% with user_name='Kate Moss', state='Offline',
-                            new_messages=0, last_message='Thanks 🥰', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-4.webp'%}
-                                {% include 'chat_components/contact.html' %}
-                            {% endwith %}
+                            {% for chat in chatList %}
+                                {% with user_name=chat.user_from, state=chat.status,
+                            new_messages=chat.new_messages, last_message=chat.messages[-1].text if chat.messages|length >= 1 else ""  , img_url=chat.img_url %}
+                                    {% include 'chat_components/contact.html' %}
+                                {% endwith %}
+                            {% endfor %}
 
                         </ul>
 
@@ -62,36 +34,13 @@
             </div>
             
             <!-- current chat -->
-            <div class="col-md-6 col-lg-7 col-xl-8 d-none" >
+            <div class="col-md-6 col-lg-7 col-xl-8 d-none " >
 
-                <ul class="list-unstyled" id="chat-container" >
-                    <!-- messages of the current chat -->
-
-                    {% with user_name='Charles Plant', sent_by_me=True, message='Hey!', timestamp='12 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
-                            {% include 'chat_components/message.html' %}
+                {% for chat in chatList %}
+                    {% with user_name='Charles Plant', chat=chat, img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
+                        {% include 'chat_components/messageList.html' %}
                     {% endwith %}
-
-                    {% with user_name='James Brown', sent_by_me=False, message='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', timestamp='10 minutes ago', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp'%}
-                            {% include 'chat_components/message.html' %}
-                    {% endwith %}
-
-                    {% with user_name='Charles Myers', sent_by_me=True, message='Etiam in vehicula justo, nec vulputate nisi. Nulla quis sapien id dui tempus sagittis porttitor quis eros. Pellentesque bibendum mi nec ligula dapibus mattis. Integer libero eros, suscipit ut purus sed, fringilla auctor felis.', timestamp='8 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
-                            {% include 'chat_components/message.html' %}
-                    {% endwith %}
-
-                    {% with user_name='James Brown', sent_by_me=False, message='Mauris tellus lacus, luctus quis mattis et, imperdiet a nunc.', timestamp='10 minutes ago', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp'%}
-                            {% include 'chat_components/message.html' %}
-                    {% endwith %}
-
-                    {% with user_name='Charles Plant', sent_by_me=True, message='Cras dui nisi, congue dignissim odio vel, lobortis lobortis turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', timestamp='6 minutes ago', img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
-                            {% include 'chat_components/message.html' %}
-                    {% endwith %}
-
-                    {% with user_name='James Brown', sent_by_me=False, message='Let\'s do it', timestamp='5 minutes ago', img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp'%}
-                            {% include 'chat_components/message.html' %}
-                    {% endwith %}
-
-                </ul>
+                {% endfor %}
 
                 <!-- send message form -->
                 <form class="row g-3 d-flex justify-content-center">

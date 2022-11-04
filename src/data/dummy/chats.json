@@ -1,0 +1,111 @@
+[
+    {
+        "user_from": "James Brown",
+        "img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp",
+        "status": "Online",
+        "new_messages": 0,
+        "messages": [
+            {
+                "sent_by_me": true,
+                "text": "Hey!",
+                "timestamp": "10 minutes ago"
+            },
+            {
+                "sent_by_me": false,
+                "text": "Hello!",
+                "timestamp": "8 minutes ago"
+            },
+            {
+                "sent_by_me": true,
+                "text": "How are you?",
+                "timestamp": "6 minutes ago"
+            },
+            {
+                "sent_by_me": false,
+                "text": "Good!",
+                "timestamp": "4 minutes ago"
+            }
+        ]
+    },
+    {
+        "user_from": "Charles Myers",
+        "img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-7.webp",
+        "status": "Online",
+        "new_messages": 1,
+        "messages": [
+            {
+                "sent_by_me": true,
+                "text": "Hey!",
+                "timestamp": "10 minutes ago"
+            },
+            {
+                "sent_by_me": false,
+                "text": "Hello!",
+                "timestamp": "6 minutes ago"
+            },
+            {
+                "sent_by_me": true,
+                "text": "Are you up to?",
+                "timestamp": "4 minutes ago"
+            },
+            {
+                "sent_by_me": false,
+                "text": "Yeah!",
+                "timestamp": "2 minutes ago"
+            }
+        ]
+    },
+    {
+        "user_from": "Angelica Smith",
+        "img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp",
+        "status": "Offline",
+        "new_messages": 2,
+        "messages": [
+            {
+                "sent_by_me": false,
+                "text": "Hey!",
+                "timestamp": "3 minutes ago"
+            },
+            {
+                "sent_by_me": false,
+                "text": "Hello!",
+                "timestamp": "2 minutes ago"
+            }
+        ]
+    },
+    {
+        "user_from": "Kate Parks",
+        "img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-4.webp",
+        "status": "Offline",
+        "new_messages": 0,
+        "messages": []
+    },
+    {
+        "user_from": "Andrea Cramps",
+        "img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp",
+        "status": "Offline",
+        "new_messages": 0,
+        "messages": []
+    },
+    {
+        "user_from": "Elaine Benes",
+        "img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-2.webp",
+        "status": "Offline",
+        "new_messages": 0,
+        "messages": []
+    },
+    {
+        "user_from": "Cosmo Kramer",
+        "img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-1.webp",
+        "status": "Offline",
+        "new_messages": 0,
+        "messages": []
+    },
+    {
+        "user_from": "Jerry Smith",
+        "img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-8.webp",
+        "status": "Offline",
+        "new_messages": 0,
+        "messages": []
+    }
+]
