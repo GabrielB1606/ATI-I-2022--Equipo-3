@@ -1,5 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is the root directory</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='style/search.css') }}">
+
+<div class="d-flex  justify-content-center">
+    <div class="my-3 p-3 rounded shadow-sm col-lg-6">
+        <h6 class="border-bottom pb-2 mb-3">People</h6>
+        
+        {% with user_name='Charles Plant',
+        profile_url='#',
+        profile_img_url='https://github.com/mdo.png'%}
+            {% include 'userSearch.html' %}
+        {% endwith %}
+    
+        {% with user_name='Mariangela from Marketing',
+        profile_url='#',
+        profile_img_url='https://image.shutterstock.com/image-photo/profile-picture-smiling-millennial-asian-600w-1836020740.jpg'%}
+            {% include 'userSearch.html' %}
+        {% endwith %}
+    </div>
+</div>
+
 {% endblock %}
