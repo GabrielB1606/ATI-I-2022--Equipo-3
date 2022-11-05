@@ -3,7 +3,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
             <!-- logo -->
-            <a href="{{url_for('index')}}" class="d-flex me-lg-auto col-1 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+            <a href="{{url_for('index')}}" class="d-flex me-lg-auto col-1 col-md-2 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                 <i class="fa-solid fa-hippo fa-2xl"></i>
             </a>
 
@@ -41,20 +41,35 @@
             </ul>
 
             <!-- search bar -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='style/search.css') }}">
             <div class="dropdown col-12 col-md-6 me-lg-auto mb-3 mb-lg-0">
                 <form  data-bs-toggle="dropdown" aria-expanded="false" role="search">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search" id="searchbar-users">
                 </form>
-                <ul class="dropdown-menu col-12" id="search-preview">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <ul class="dropdown-menu col-12 " id="search-preview">
+                    <li class="dropdown-item py-0 my-0">
+                        {% with user_name='Charles Plant', profile_url='#', profile_img_url='https://github.com/mdo.png'%}
+                            {% include 'userSearch.html' %}
+                        {% endwith %}
+                    </li>
+                    <li class="dropdown-item py-0 my-0">
+                        {% with user_name='Charles Plant', profile_url='#', profile_img_url='https://github.com/mdo.png'%}
+                            {% include 'userSearch.html' %}
+                        {% endwith %}
+                    </li>
+                    <li class="dropdown-item py-0 my-0">
+                        {% with user_name='Charles Plant', profile_url='#', profile_img_url='https://github.com/mdo.png'%}
+                            {% include 'userSearch.html' %}
+                        {% endwith %}
+                    </li>
+                    <li> <hr class="dropdown-divider"> </li>                            </li>
+                    <li><a class="dropdown-item" href="{{url_for('search_users')}}">See All Results</a></li>
                 </ul>
 
             </div>
 
             <!-- icons desktop -->
-            <ul class="nav col-12 col-md-3 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-sm-none d-md-inline-flex">
+            <ul class="nav col-md-3 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-none d-md-inline-flex">
                 <li>
                     <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
                     <i class="fa-solid fa-xl fa-inbox"></i>
@@ -89,3 +104,4 @@
         </div>
     </div>
 </header>
+<script src="{{url_for('static', filename='js/navbar.js')}}"></script>
