@@ -29,7 +29,7 @@ def login():
         lang = json.load( open("static/config/es/login.json") )
     else:
         lang = json.load( open("static/config/es/login.json") )
-    return render_template("login.html", lang)
+    return render_template("login.html", lang=lang)
 
 # profile route
 @app.route('/user')
