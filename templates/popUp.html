@@ -1,0 +1,36 @@
+<div class="modal fade" id={{id}} tabindex="-1" aria-labelledby="forgotMyPassword" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">{{header}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="text-center">                                                                    
+                                <small class="form-text text-muted"> {{message}}</small>
+                                {% if target!= "false"%}
+                                <div class="panel-body">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <input class="form-control input-lg" placeholder="E-mail Address" name="email" type="email">
+                                        </div>                                                                                
+                                    </fieldset>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                {% if target!= "false"%}
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target={{target}}>Send temporary password</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
