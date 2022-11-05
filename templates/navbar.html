@@ -8,27 +8,35 @@
             </a>
 
             <!-- search bar -->
-            <form class="col-12 col-lg-4 me-lg-4 mb-3 mb-lg-0" role="search">
-                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-            </form>
+            <div class="dropdown col-12 col-lg-4 me-lg-4 mb-3 mb-lg-0">
+                <form  data-bs-toggle="dropdown" aria-expanded="false" role="search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
+                <ul class="dropdown-menu col-12 d-none">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+
+            </div>
 
             <!-- icons -->
             <ul class="nav col-12 col-lg-4 me-lg-4 mb-2 justify-content-end mb-md-0 mr-0 pr-0">
                 <li>
                     <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
-                    <i class="fa-solid fa-inbox"></i>
+                    <i class="fa-solid fa-xl fa-inbox"></i>
                     </a>
                 </li>
                 <li>
                     <a href="{{url_for('chat')}}" class="nav-link px-2 link-secondary">
-                        <i class="fa-regular fa-paper-plane"></i>
+                        <i class="fa-regular fa-xl fa-paper-plane"></i>
                     </a>
                 </li>
                 <li>
                     <div class="dropdown text-end" style="margin-left: 0.3rem;">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
+                            <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="40" height="40">
                         </a>
                         <ul class="dropdown-menu text-small">
                             <li><a class="dropdown-item" href="{{url_for('config_page')}}" >Settings</a></li>
