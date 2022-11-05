@@ -1,4 +1,5 @@
-<div class="card mb-5">
+
+<li class="post card mb-5">
     <div class="card-header">
         <div class="d-flex mt-2 mb-2">
             <img alt="32x32" class="rounded-circle" src="{{profile_img_url}}" width="40px" height="40px">
@@ -10,13 +11,21 @@
             </div>
         </div>
     </div>
-    <div class="{{img_display}}">
-        <img src="{{img_url}}" class="card-img-top" alt="...">
-    </div>
+   
     <div class="card-body">
         <p class="card-text"> {{text}}</p>
     </div>
-    <div class="card-footer text-muted text-center" >
-        <i class="fa-regular fa-comment"></i> {{comments_field}}
+    
+    {% if img_url %}
+    <div>
+        <img src="{{img_url}}" class="card-img-top" alt="...">
     </div>
-</div>
+    {% endif %}
+
+    <div class="card-footer">
+        
+        <div class="text-muted comment-toggle" id="comment-toggle-{{id_number}}">
+            <i class="fa-regular fa-comment mx-2"></i> Comment
+        </div>
+    </div>
+</li>
