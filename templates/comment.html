@@ -1,15 +1,15 @@
-<li class="comment d-flex">
+<li class="comment d-flex mt-1">
     <img class="rounded-circle me-3 mt-3" src="{{user_img_url}}" alt="avatar" width="40px" height="40px">
 
-    <div class="card border-light w-100">
-        <div class="card-body">
+    <div class="comment-body card border-0 w-100">
+        <div class="comment-user card-body">
             <a  href="{{user_profile_url}}"> {{user_name}} </a>
             <p class="card-text"> 
                 {{comment_text}}
             </p>
         </div>
         
-        <div class="card-footer">
+        <div class="comment-footer card-footer border-0 reply-options">
             <span class="reply-toggle" id="reply-toggle-{{id_number}}"> Reply </span>
         </div>
 
@@ -26,7 +26,7 @@
                 {% endwith %}
             {% endfor %}
 
-            <li class="d-flex my-2">
+            <li class="user-reply d-flex my-2">
                 <img class="rounded-circle me-3" src="{{profile_img_url}}" alt="avatar" width="40px" height="40px"/>
                 <textarea class="form-control w-100" rows="1" placeholder="Write your comment..."></textarea>
             </li>
