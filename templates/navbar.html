@@ -3,41 +3,87 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
             <!-- logo -->
-            <a href="{{url_for('index')}}" class="d-flex me-lg-3 col-lg-3 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+            <a href="{{url_for('index')}}" class="d-flex me-lg-auto col-1 col-md-2 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                 <i class="fa-solid fa-hippo fa-2xl"></i>
             </a>
 
-            <!-- search bar -->
-            <form class="col-12 col-lg-4 me-lg-4 mb-3 mb-lg-0" role="search">
-                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-            </form>
-
-            <!-- icons -->
-            <ul class="nav col-12 col-lg-4 me-lg-4 mb-2 justify-content-end mb-md-0 mr-0 pr-0">
+            <!-- icons mobile -->
+            <ul class="nav col-11 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-sm-inline-flex d-md-none">
                 <li>
-                    <a href="#" class="nav-link px-2 link-secondary">
-                    <i class="fa-solid fa-inbox"></i>
+                    <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
+                    <i class="fa-solid fa-xl fa-inbox"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link px-2 link-secondary">
-                        <i class="fa-regular fa-paper-plane"></i>
+                    <a href="{{url_for('chat')}}" class="nav-link px-2 link-secondary">
+                        <i class="fa-regular fa-xl fa-paper-plane"></i>
                     </a>
                 </li>
                 <li>
                     <div class="dropdown text-end" style="margin-left: 0.3rem;">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
+                            <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="40" height="40">
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >Settings</a></li>
+                            <li><a class="dropdown-item"href="{{url_for('profile')}}">Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('login')}}">Sign out</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!--<li><a href="#" class="nav-link px-2 link-dark"> <i class="fa-regular fa-paper-plane"></i> </a></li>-->
+                <!--    <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>-->
+                <!--    <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>-->
+            </ul>
+
+            <!-- search bar -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='style/search.css') }}">
+            <div class="dropdown col-12 col-md-6 me-lg-auto mb-3 mb-lg-0">
+                <form  data-bs-toggle="dropdown" aria-expanded="false" role="search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search" id="searchbar-users">
+                </form>
+                <ul class="dropdown-menu col-12 " id="search-preview">
+                    <li class="dropdown-item py-0 my-0">
+                        {% with user_name='Daemon Gordon', profile_url=url_for('profileFriend'), profile_img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp'%}
+                            {% include 'userSearch.html' %}
+                        {% endwith %}
+                    </li>
+                    
+                    <li> <hr class="dropdown-divider"> </li>                            </li>
+                    <li><a class="dropdown-item" href="{{url_for('search_users')}}">See All Results</a></li>
+                </ul>
+
+            </div>
+
+            <!-- icons desktop -->
+            <ul class="nav col-md-3 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-none d-md-inline-flex">
+                <li>
+                    <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
+                    <i class="fa-solid fa-xl fa-inbox"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('chat')}}" class="nav-link px-2 link-secondary">
+                        <i class="fa-regular fa-xl fa-paper-plane"></i>
+                    </a>
+                </li>
+                <li>
+                    <div class="dropdown text-end" style="margin-left: 0.3rem;">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="40" height="40">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >Settings</a></li>
+                            <li><a class="dropdown-item"href="{{url_for('profile')}}">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{{url_for('login')}}">Sign out</a></li>
                         </ul>
                     </div>
                 </li>
@@ -49,3 +95,4 @@
         </div>
     </div>
 </header>
+<script src="{{url_for('static', filename='js/navbar.js')}}"></script>
