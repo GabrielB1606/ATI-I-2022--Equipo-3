@@ -1,12 +1,12 @@
 {
-    "Publish":{
+    "Post":{
         "timestamp":"Hace",
         "comments":"Comentarios"
     },
-    "Post":{
+    "Publish":{
         "placeholder":"Comparte lo que piensas..",
         "privacity":"Privacidad",
-        "post":"Post"
+        "post":"Publicar"
     },
     "friends":{
         "online":"Conectado",
