@@ -40,7 +40,8 @@ def profile():
 # profile route
 @app.route('/friend')
 def profileFriend():
-    return render_template("friend.html")
+    posts = json.load( open("data/dummy/posts_friend.json") )
+    return render_template("friend.html", postList = posts)
 
 # chat route
 @app.route('/chat')
