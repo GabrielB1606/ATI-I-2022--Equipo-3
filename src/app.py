@@ -18,7 +18,8 @@ def get_db():
 # home route
 @app.route('/')
 def index():
-    return render_template("index.html")
+    posts = json.load( open("data/dummy/posts_home.json") )
+    return render_template("index.html", postList = posts)
 
 # login route
 @app.route('/login')
