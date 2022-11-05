@@ -1,4 +1,4 @@
-<div class="card mb-5">
+<li class="post card mb-5">
     <div class="card-header">
         <div class="d-flex mt-2 mb-2">
             <img alt="32x32" class="rounded-circle" src="{{profile_img_url}}" width="40px" height="40px">
@@ -10,13 +10,41 @@
             </div>
         </div>
     </div>
-    <div class="{{img_display}}">
-        <img src="{{img_url}}" class="card-img-top" alt="...">
-    </div>
+   
     <div class="card-body">
         <p class="card-text"> {{text}}</p>
     </div>
-    <div class="card-footer text-muted text-center" >
-        <i class="fa-regular fa-comment"></i> {{comments_field}}
+    
+    {% if img_url %}
+    <div>
+        <img src="{{img_url}}" class="card-img-top" alt="...">
     </div>
-</div>
+    {% endif %}
+
+    <div class="card-footer">
+        
+        <div class="text-muted comment-toggle" id="comment-toggle-{{id_number}}">
+            <i class="fa-regular fa-comment mx-2"></i> Comment
+        </div>
+        
+        <hr>
+
+        <ul class="comment-section d-none" id="comment-section-{{id_number}}" data-opened="false"> 
+            <li class="d-flex my-2">
+                <img class="rounded-circle me-3" src="{{profile_img_url}}" alt="avatar" width="40px" height="40px"/>
+                <textarea class="form-control w-100" rows="1" placeholder="Write your comment..."></textarea>
+            </li>
+
+            {% for comment in commentList %}
+                {% with user_name=comment.user_name, 
+                    comment_text=comment.text,
+                    user_img_url=comment.user_img_url,
+                    user_profile_url=comment.user_profile_url
+                %}
+                    {% include 'comment.html' %}
+                {% endwith %}
+            {% endfor %}
+        </ul>
+        
+    </div>
+</li>

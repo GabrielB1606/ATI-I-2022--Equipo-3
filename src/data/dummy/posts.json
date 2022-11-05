@@ -1,0 +1,58 @@
+[
+    {
+        "id": 0,
+        "user_name": "Charles Plant", 
+        "post_time": "2 days ago",
+        "text": "Example text 1", 
+        "profile_url": "#",
+        "profile_img_url": "https://github.com/mdo.png",
+        "img_url": "https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg",
+        "comments": [
+            {
+                "user_name":"Charles Plant",
+                "user_img_url": "https://github.com/mdo.png",
+                "user_profile_url": "#",
+                "text": "Comentario 1"
+            },
+            {
+                "user_name":"Andrea Cramps",
+                "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp",
+                "user_profile_url": "#",
+                "text": "Comentario 2"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "user_name": "Charles Plant", 
+        "post_time": "5 days ago",
+        "text": "Example text 2", 
+        "profile_url": "#",
+        "profile_img_url": "https://github.com/mdo.png",
+        "comments": [
+            {
+                "user_name": "Angelica Smith",
+                "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp",
+                "user_profile_url": "#",
+                "text": "Comentario 1",
+                "comments":[
+                    {
+                        "user_name":"Charles Plant",
+                        "user_img_url": "https://github.com/mdo.png",
+                        "user_profile_url": "#",
+                        "text": "Respuesta a Comentario 1"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "user_name": "Charles Plant", 
+        "post_time": "5 days ago",
+        "text": "Example text 3", 
+        "profile_url": "#",
+        "profile_img_url": "https://github.com/mdo.png",
+        "img_url": "https://www.akc.org/wp-content/uploads/2019/02/NomNomNow_Pembroke_Welsh_Corgis.jpeg"
+    }
+]
