@@ -27,19 +27,22 @@
             <i class="fa-regular fa-comment mx-2"></i> Comment
         </div>
         
-        <hr>
-
-        <ul class="comment-section d-none" id="comment-section-{{id_number}}" data-opened="false"> 
-            <li class="d-flex my-2">
+        <div class="user-comment d-none" id="user-new-comment-{{id_number}}">
+            <hr>
+            <div class="d-flex my-2">
                 <img class="rounded-circle me-3" src="{{profile_img_url}}" alt="avatar" width="40px" height="40px"/>
                 <textarea class="form-control w-100" rows="1" placeholder="Write your comment..."></textarea>
-            </li>
+            </div>
+        </div>
 
+        <ul class="comment-section d-none" id="comment-section-{{id_number}}" data-opened="false"> 
             {% for comment in commentList %}
-                {% with user_name=comment.user_name, 
+                {% with id_number=comment.id, 
+                    user_name=comment.user_name, 
                     comment_text=comment.text,
                     user_img_url=comment.user_img_url,
-                    user_profile_url=comment.user_profile_url
+                    user_profile_url=comment.user_profile_url,
+                    commentList = comment.comments
                 %}
                     {% include 'comment.html' %}
                 {% endwith %}

@@ -1,6 +1,6 @@
 [
-    {
-        "id": 0,
+    {   
+        "id":"0",
         "user_name": "Charles Plant", 
         "post_time": "2 days ago",
         "text": "Example text 1", 
@@ -8,13 +8,15 @@
         "profile_img_url": "https://github.com/mdo.png",
         "img_url": "https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg",
         "comments": [
-            {
+            {   
+                "id":"0",
                 "user_name":"Charles Plant",
                 "user_img_url": "https://github.com/mdo.png",
                 "user_profile_url": "#",
                 "text": "Comentario 1"
             },
             {
+                "id":"1",
                 "user_name":"Andrea Cramps",
                 "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp",
                 "user_profile_url": "#",
@@ -23,7 +25,7 @@
         ]
     },
     {
-        "id": 1,
+        "id":"1",
         "user_name": "Charles Plant", 
         "post_time": "5 days ago",
         "text": "Example text 2", 
@@ -31,12 +33,14 @@
         "profile_img_url": "https://github.com/mdo.png",
         "comments": [
             {
+                "id":"2",
                 "user_name": "Angelica Smith",
                 "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp",
                 "user_profile_url": "#",
                 "text": "Comentario 1",
                 "comments":[
                     {
+                        "id":"3",
                         "user_name":"Charles Plant",
                         "user_img_url": "https://github.com/mdo.png",
                         "user_profile_url": "#",
@@ -47,7 +51,7 @@
         ]
     },
     {
-        "id": 2,
+        "id":"2",
         "user_name": "Charles Plant", 
         "post_time": "5 days ago",
         "text": "Example text 3", 

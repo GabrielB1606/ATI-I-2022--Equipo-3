@@ -1,7 +1,6 @@
-// Open or close comment list
-function toggleComments(idx)
+function toggleReplies(section)
 {
-    var commentSection = $("#comment-section-"+idx);
+    var commentSection = $(section);
     var opened = commentSection.data("opened");
 
     if(!opened){
@@ -13,10 +12,34 @@ function toggleComments(idx)
         commentSection.addClass("d-none");
     }
     
-    $("#comment-section-"+idx).data('opened',!opened); 
+    $(section).data('opened',!opened); 
 }
+
+// Open or close comment list
+function toggleComments(idx)
+{
+    var newComment = $("#user-new-comment-"+idx);
+    var opened = $("#comment-section-"+idx).data("opened");
+
+    if(!opened){
+        newComment.removeClass("d-none");
+        newComment.addClass("d-block");
+    }
+    else{
+        newComment.removeClass("d-block");
+        newComment.addClass("d-none");
+    }
+    
+    toggleReplies("#comment-section-"+idx);
+}
+
 
 $(".comment-toggle").each( (idx)=>{
     $("#comment-toggle-"+idx  ).click( () => toggleComments(idx) );
+} 
+);
+
+$(".reply-toggle").each( (idx)=>{
+    $("#reply-toggle-"+idx  ).click( () => toggleReplies("#reply-section-"+idx) );
 } 
 );
