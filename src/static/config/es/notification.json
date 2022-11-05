@@ -1,7 +1,7 @@
 {
     "notification": "Notificaciones",
     "message": "quiere enviarte un mensaje",
-    "follow": "ha solicitdado seguirte",
+    "follow": "ha solicitado seguirte",
     "comment": "ha hecho un comentario en tu muro",
     "notification_buttons":{
         "accept": "Aceptar",

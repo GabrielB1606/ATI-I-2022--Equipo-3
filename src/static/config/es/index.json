@@ -4,8 +4,8 @@
         "comments":"Comentarios"
     },
     "Publish":{
-        "placeholder":"Comparte lo que piensas..",
-        "privacity":"Privacidad",
+        "placeholder":"Comparte lo que piensas...",
+        "privacy":"Privacidad",
         "post":"Publicar"
     },
     "friends":{

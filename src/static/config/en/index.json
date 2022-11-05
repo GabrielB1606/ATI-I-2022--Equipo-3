@@ -1,0 +1,15 @@
+{
+    "Post":{
+        "timestamp":"ago",
+        "comments":"Comments"
+    },
+    "Publish":{
+        "placeholder":"Share your thoughts...",
+        "privacy":"Privacy",
+        "post":"Post"
+    },
+    "friends":{
+        "online":"Online",
+        "offline":"Offline"
+    }
+}

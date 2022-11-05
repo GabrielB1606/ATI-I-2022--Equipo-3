@@ -1,0 +1,41 @@
+{
+    "home": "Home", 
+    "configuration": "Configuration",
+
+    "security": {
+        "tab_name": "Security", 
+        "current_password": "Current password",
+        "new_password": "New password", 
+        "confirm_password": "Confirm password"
+    }, 
+
+    "profile_info": {
+        "tab_name": "Profile information",
+        "full_name": "Full name",
+        "bio": "Biography",
+        "birthday": "Birthday",
+        "video_games": "Favorite video-game",
+        "music": "Favorite music",
+        "book": "Favorite book",
+        "color": "Favorite color"
+    },
+    "notification": {
+        "tab_name": "Notifications",
+        "message": "Receive notifications via mail", 
+        "chat_messages": "Chat Messages",
+        "comments": "Comments",
+        "friend_requests": "Friend Requests"
+    },
+
+    "language": {
+        "tab_name": "Language",
+        "es": "Spanish",
+        "en": "English"
+    },
+    
+    "config_buttons":{
+        "change_password": "Change Password",
+        "update_profile": "Update Profile",
+        "reset_changes": "Reset Changes"
+    }
+}
