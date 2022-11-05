@@ -14,10 +14,10 @@
         <div class="col-lg-4">
 
             <div class="text-center">
-                <img src="https://github.com/mdo.png" alt="mdo" width="256" height="256" class="rounded-circle mb-4">
-                <h3> Charles Plant </h5> 
-                <p> Lover of dogs, even bigger lover of corgis. </p>
-                <p> C/C++ - Java - Python - JavaScript </p>
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-8.webp" alt="mdo" width="256" height="256" class="rounded-circle mb-4">
+                <h3> Daemon Gordon </h5> 
+                <p> Explorer, adventurer, without fear of the unknown. </p>
+                <p> Python - JavaScript </p>
             </div>
             
             <hr>
@@ -25,63 +25,66 @@
             <table>
                 <tr>
                     <td><i class="fa-solid fa-gift"></i></td>
-                    <td> 31/02/2000</td>
+                    <td> 20/01/1990</td>
                 </tr>
                 <tr>
                     <td><i class="fa-solid fa-gamepad"></i></td>
-                    <td>MineSweeper, Counter Strike, Pokemon</td>
+                    <td>Counter Strike</td>
                 </tr>
                 <tr>
                     <td><i class="fa-solid fa-music"></i></td>
-                    <td>Barbra Streisand </td>
+                    <td> Coldplay </td>
                 </tr>
 
                   <tr>
                     <td><i class="fa-solid fa-book"></i></td>
-                    <td>The Bible</td>
+                    <td> To Kill a Mockingbird </td>
                   </tr>
 
                   <tr>
                     <td><i class="fa-solid fa-star"></i></td>
-                    <td>Blue</td>
+                    <td> Green </td>
                   </tr>
             </table>
 
             <hr>
 
-            <!-- Chat Request -->
-            <div class="invisible">
-                <i class="fa-regular fa-envelope mb-4"></i>  Send chat request
+            <!-- Friend and Chat Request -->
+            <div class="text-center">
+                <span id="friend-request" data-follow="true">
+                    <span id="follow" class="d-none me-5">
+                        <i class="fa-solid fa-user-plus mx-1"></i>Follow 
+                    </span>
+    
+                    <span id="unfollow" class="d-inline me-5">
+                        <i class="fa-solid fa-user-check mx-1"></i>Unfollow
+                    </span>
+                </span>
+               
+                <span>
+                    <i class="fa-regular fa-envelope mx-1"></i>Send chat request
+                </span>
             </div>
         </div>
 
         <!-- User Publications-->
-        <div class="col-lg-8">
-            {% with user_name='Charles Plant', post_time='2 days ago',
-            text='Example text 1', comments_field='Comments', 
-            profile_url='#',
-            profile_img_url='https://github.com/mdo.png',
-            img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
-                {% include 'post.html' %}
-            {% endwith %}
-            
-            {% with user_name='Charles Plant', post_time='5 days ago',
-            text='Example text 2', comments_field='Comments', 
-            profile_url='#',
-            profile_img_url='https://github.com/mdo.png',
-            img_display='d-none',
-            img_url=''%}
-                {% include 'post.html' %}
-            {% endwith %}
+        <ul class="col-lg-8">
 
-            {% with user_name='Charles Plant', post_time='5 days ago',
-            text='Example text 3', comments_field='Comments', 
-            profile_url='#',
-            profile_img_url='https://github.com/mdo.png',
-            img_url='https://www.akc.org/wp-content/uploads/2019/02/NomNomNow_Pembroke_Welsh_Corgis.jpeg'%}
-                {% include 'post.html' %}
-            {% endwith %}
-        </div>
+            {% for post in postList %}
+                {% with id_number=post.id, user_name=post.user_name, post_time=post.post_time,
+                    text=post.text,
+                    profile_url=post.profile_url,
+                    profile_img_url=post.profile_img_url,
+                    img_url=post.img_url
+                %}
+                    {% include 'post.html' %}
+                {% endwith %}
+            {% endfor %}
+
+        </ul>
     </div>
 </div>
+
+<script src="{{url_for('static', filename='js/friend.js')}}"></script>
+
 {% endblock %}
