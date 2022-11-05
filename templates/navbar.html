@@ -48,20 +48,11 @@
                 </form>
                 <ul class="dropdown-menu col-12 " id="search-preview">
                     <li class="dropdown-item py-0 my-0">
-                        {% with user_name='Charles Plant', profile_url='#', profile_img_url='https://github.com/mdo.png'%}
+                        {% with user_name='Daemon Gordon', profile_url=url_for('profileFriend'), profile_img_url='https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp'%}
                             {% include 'userSearch.html' %}
                         {% endwith %}
                     </li>
-                    <li class="dropdown-item py-0 my-0">
-                        {% with user_name='Charles Plant', profile_url='#', profile_img_url='https://github.com/mdo.png'%}
-                            {% include 'userSearch.html' %}
-                        {% endwith %}
-                    </li>
-                    <li class="dropdown-item py-0 my-0">
-                        {% with user_name='Charles Plant', profile_url='#', profile_img_url='https://github.com/mdo.png'%}
-                            {% include 'userSearch.html' %}
-                        {% endwith %}
-                    </li>
+                    
                     <li> <hr class="dropdown-divider"> </li>                            </li>
                     <li><a class="dropdown-item" href="{{url_for('search_users')}}">See All Results</a></li>
                 </ul>
