@@ -3,16 +3,49 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
             <!-- logo -->
-            <a href="{{url_for('index')}}" class="d-flex me-lg-3 col-lg-3 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+            <a href="{{url_for('index')}}" class="d-flex me-lg-auto col-1 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                 <i class="fa-solid fa-hippo fa-2xl"></i>
             </a>
 
+            <!-- icons mobile -->
+            <ul class="nav col-11 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-sm-inline-flex d-md-none">
+                <li>
+                    <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
+                    <i class="fa-solid fa-xl fa-inbox"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('chat')}}" class="nav-link px-2 link-secondary">
+                        <i class="fa-regular fa-xl fa-paper-plane"></i>
+                    </a>
+                </li>
+                <li>
+                    <div class="dropdown text-end" style="margin-left: 0.3rem;">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="40" height="40">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >Settings</a></li>
+                            <li><a class="dropdown-item"href="{{url_for('profile')}}">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{{url_for('login')}}">Sign out</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!--<li><a href="#" class="nav-link px-2 link-dark"> <i class="fa-regular fa-paper-plane"></i> </a></li>-->
+                <!--    <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>-->
+                <!--    <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>-->
+            </ul>
+
             <!-- search bar -->
-            <div class="dropdown col-12 col-lg-4 me-lg-4 mb-3 mb-lg-0">
+            <div class="dropdown col-12 col-md-6 me-lg-auto mb-3 mb-lg-0">
                 <form  data-bs-toggle="dropdown" aria-expanded="false" role="search">
                     <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
                 </form>
-                <ul class="dropdown-menu col-12 d-none">
+                <ul class="dropdown-menu col-12" id="search-preview">
                     <li><a class="dropdown-item" href="#">Action</a></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -20,8 +53,8 @@
 
             </div>
 
-            <!-- icons -->
-            <ul class="nav col-12 col-lg-4 me-lg-4 mb-2 justify-content-end mb-md-0 mr-0 pr-0">
+            <!-- icons desktop -->
+            <ul class="nav col-12 col-md-3 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-sm-none d-md-inline-flex">
                 <li>
                     <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
                     <i class="fa-solid fa-xl fa-inbox"></i>
