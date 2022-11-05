@@ -1,0 +1,15 @@
+{
+    "Publish":{
+        "timestamp":"Hace",
+        "comments":"Comentarios"
+    },
+    "Post":{
+        "placeholder":"Comparte lo que piensas..",
+        "privacity":"Privacidad",
+        "post":"Post"
+    },
+    "friends":{
+        "online":"Conectado",
+        "offline":"Desconectado"
+    }
+}
