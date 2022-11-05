@@ -57,18 +57,31 @@
                                             <input type="password" id="form2Example27" class="form-control form-control-lg" />
                                             <label class="form-label" for="form2Example27">Password</label>
                                         </div>
-
+                                        
+                                        
                                         <div class="pt-1 mb-4 d-flex justify-content-center">
                                             <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
                                         </div>
 
-                                        <a class="small text-muted" href="#!">Forgot password?</a>
                                         <!-- <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
                                             style="color: #393f81;">Register here</a></p>
                                         <a href="#!" class="small text-muted">Terms of use.</a>
                                         <a href="#!" class="small text-muted">Privacy policy</a> -->
-                                    </form>
+                                        <hr>
+                                        <!-- Forgot password link -->                                      
+                                        <a class="small text-muted d-flex justify-content-center" href="#" data-bs-toggle="modal" data-bs-target="#forgot_password">Forgot my password</a>
+                                        
+                                        <!-- Pop-up: Forgot password -->
+                                        {% with id="forgot_password", target="#checkEmail", message="Enter your email and we will send you a temporary password", header="Forgot password?" %}
+                                            {% include 'popUp.html' %}
+                                        {% endwith %}
 
+                                        <!-- Pop-up: Check your email -->
+                                        {% with id="checkEmail", target="false", message="We have send a temporary password, please check your email", header="Check your Email!" %}
+                                            {% include 'popUp.html' %}
+                                        {% endwith %}
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
