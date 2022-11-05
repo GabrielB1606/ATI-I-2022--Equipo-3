@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 import pymongo
 from pymongo import MongoClient
 import json
@@ -23,7 +23,13 @@ def index():
 # login route
 @app.route('/login')
 def login():
-    return render_template("login.html")
+    # read GET variable
+    if request.args.get("lang") == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/login.json") )
+    else:
+        lang = json.load( open("static/config/es/login.json") )
+    return render_template("login.html", lang)
 
 # profile route
 @app.route('/user')
