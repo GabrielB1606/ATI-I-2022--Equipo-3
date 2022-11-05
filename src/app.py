@@ -28,7 +28,8 @@ def login():
 # profile route
 @app.route('/user')
 def profile():
-    return render_template("profile.html")
+    posts = json.load( open("data/dummy/posts.json") )
+    return render_template("profile.html", postList = posts)
 
 # profile route
 @app.route('/friend')
