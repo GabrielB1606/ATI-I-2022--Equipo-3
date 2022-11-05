@@ -1,0 +1,11 @@
+{
+    "notification": "Notifications",
+    "message": "wants to send you a message",
+    "follow": "wants to follow you",
+    "comment": "has made a comment in your wall",
+    "notification_buttons":{
+        "accept": "Accept",
+        "decline": "Decline",
+        "see": "See comment"
+    }
+}
