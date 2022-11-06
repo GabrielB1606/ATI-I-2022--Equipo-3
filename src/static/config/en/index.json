@@ -1,7 +1,8 @@
 {
     "Post":{
         "timestamp":"ago",
-        "comments":"Comments"
+        "comments":"Comments",
+        "days": "days"
     },
     "Publish":{
         "placeholder":"Share your thoughts...",
@@ -11,5 +12,9 @@
     "friends":{
         "online":"Online",
         "offline":"Offline"
+    },
+    "comments":{
+        "placeholder": "Write your comment...",
+        "reply": "Reply"
     }
 }

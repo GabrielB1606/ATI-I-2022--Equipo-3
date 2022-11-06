@@ -1,15 +1,22 @@
 {
     "Post":{
         "timestamp":"Hace",
-        "comments":"Comentarios"
+        "comments":"Comentarios",
+        "days": "días"
     },
     "Publish":{
-        "placeholder":"Comparte lo que piensas..",
-        "privacity":"Privacidad",
+        "placeholder":"Comparte lo que piensas...",
+        "privacy":"Privacidad",
         "post":"Publicar"
     },
     "friends":{
         "online":"Conectado",
         "offline":"Desconectado"
+    },
+    "comments":{
+        "placeholder": "Escribe un comentario...",
+        "reply": "Responder"
     }
+
+    
 }
