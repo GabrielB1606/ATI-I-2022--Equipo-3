@@ -1,6 +1,4 @@
 {
-    "Post":{
-        "timestamp":"Hace",
-        "comments":"Comentarios"
-    }
+    "unfollow": "Dejar de seguir", 
+    "request": "Solicitud de chat"
 }

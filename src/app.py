@@ -56,7 +56,14 @@ def profile():
 @app.route('/friend')
 def profileFriend():
     posts = json.load( open("data/dummy/posts_friend.json") )
-    return render_template("friend.html", postList = posts)
+    # read GET variable
+    lan = request.args.get("lang")
+    if lan == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/friend.json") )
+    else:
+        lang = json.load( open("static/config/en/friend.json") )
+    return render_template("friend.html", postList = posts, lang=lang, language=lan)
 
 # chat route
 @app.route('/chat')

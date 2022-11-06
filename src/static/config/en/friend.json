@@ -1,6 +1,4 @@
 {
-    "Post":{
-        "timestamp":"ago",
-        "comments":"Comments"
-    }
+    "unfollow": "Unfollow", 
+    "request": "Send chat request"
 }
