@@ -47,10 +47,10 @@ def profile():
     lan = request.args.get("lang")
     if lan == "es":
         # open config file according to the GET variable lang
-        lang = json.load( open("static/config/es/profile.json") )
+        lang = json.load( open("static/config/es/index.json") )
     else:
-        lang = json.load( open("static/config/en/profile.json") )
-    return render_template("profile.html", postList = posts, lang=lan, language=lan)
+        lang = json.load( open("static/config/en/index.json") )
+    return render_template("profile.html", postList = posts, lang=lang, language=lan)
 
 # profile route
 @app.route('/friend')
