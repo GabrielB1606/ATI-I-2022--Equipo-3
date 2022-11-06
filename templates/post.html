@@ -7,7 +7,20 @@
                     <strong class="d-block">  
                         <a href="{{profile_url}}"> {{user_name}} </a>
                     </strong>
-                    {{post_time}}
+                    
+                    <!--Spanish-->
+                    {% if lan=="es" %}    
+                        {{lang.Post.timestamp}}               
+                        {{post_time}}  
+                        {{lang.Post.days}}
+                    {% endif %}
+
+                    <!--English-->
+                    {% if lan=="en" %}      
+                        {{post_time}}  
+                        {{lang.Post.days}}
+                        {{lang.Post.timestamp}}    
+                    {% endif %}
             </div>
         </div>
     </div>
@@ -25,14 +38,14 @@
     <div class="card-footer">
         
         <div class="text-muted comment-toggle" id="comment-toggle-{{id_number}}">
-            <i class="fa-regular fa-comment mx-2"></i> Comment
+            <i class="fa-regular fa-comment mx-2"></i> {{lang.Post.comments}}
         </div>
         
         <div class="user-new-comment d-none" id="user-new-comment-{{id_number}}">
             <hr>
             <div class="d-flex my-2">
                 <img class="rounded-circle me-3" src="{{profile_img_url}}" alt="avatar" width="40px" height="40px"/>
-                <textarea class="form-control w-100" rows="1" placeholder="Write your comment..."></textarea>
+                <textarea class="form-control w-100" rows="1" placeholder="{{lang.comments.placeholder}}"></textarea>
             </div>
         </div>
 
