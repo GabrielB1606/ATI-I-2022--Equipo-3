@@ -16,5 +16,7 @@
     "comments":{
         "placeholder": "Write your comment...",
         "reply": "Reply"
-    }
+    },
+    "unfollow": "Unfollow", 
+    "request": "Send chat request"
 }

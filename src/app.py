@@ -60,9 +60,9 @@ def profileFriend():
     lan = request.args.get("lang")
     if lan == "es":
         # open config file according to the GET variable lang
-        lang = json.load( open("static/config/es/friend.json") )
+        lang = json.load( open("static/config/es/index.json") )
     else:
-        lang = json.load( open("static/config/en/friend.json") )
+        lang = json.load( open("static/config/en/index.json") )
     return render_template("friend.html", postList = posts, lang=lang, language=lan)
 
 # chat route
