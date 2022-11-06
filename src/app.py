@@ -19,7 +19,14 @@ def get_db():
 @app.route('/')
 def index():
     posts = json.load( open("data/dummy/posts_home.json") )
-    return render_template("index.html", postList = posts)
+    # read GET variable
+    lan = request.args.get("lang")
+    if lan == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/index.json") )
+    else:
+        lang = json.load( open("static/config/en/index.json") )
+    return render_template("index.html", postList = posts, lang=lang, language=lan)
 
 # login route
 @app.route('/login')
