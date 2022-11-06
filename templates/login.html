@@ -24,8 +24,8 @@
 
 
                                     <form>
-                                        <div class="text-center mb-3">
-                                            <p>Sign in with:</p>
+                                        <div class="text-center mb-3">                                            
+                                            <p>{{lang.signIn}}: </p>
                                             <button type="button" class="btn btn-link btn-floating mx-1">
                                             <i class="fab fa-facebook-f"></i>
                                             </button>
@@ -43,24 +43,24 @@
                                             </button> -->
                                         </div>
                                         
-                                        <p class="text-center">or:</p>
+                                        <p class="text-center">{{lang.or}} </p>
 
 
-                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">{{lang.signIn}} {{lang.account}}</h5>
 
                                         <div class="form-outline mb-4">
                                             <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form2Example17">Email address</label>
+                                            <label class="form-label" for="form2Example17">{{lang.emailAddress}}</label>
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form2Example27">Password</label>
+                                            <label class="form-label" for="form2Example27">{{lang.password}}</label>
                                         </div>
                                         
                                         
                                         <div class="pt-1 mb-4 d-flex justify-content-center">
-                                            <button class="btn btn-dark btn-lg btn-block" type="button" onclick="window.location.href='{{url_for('index')}}';">Login</button>
+                                            <button class="btn btn-dark btn-lg btn-block" type="button" onclick="window.location.href='{{url_for('index')}}';">{{lang.login}}</button>
                                         </div>
 
                                         <!-- <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
@@ -69,15 +69,15 @@
                                         <a href="#!" class="small text-muted">Privacy policy</a> -->
                                         <hr>
                                         <!-- Forgot password link -->                                      
-                                        <a class="small text-muted d-flex justify-content-center" href="#" data-bs-toggle="modal" data-bs-target="#forgot_password">Forgot my password</a>
+                                        <a class="small text-muted d-flex justify-content-center" href="#" data-bs-toggle="modal" data-bs-target="#forgot_password">{{lang.forgotPassword}}</a>
                                         
                                         <!-- Pop-up: Forgot password -->
-                                        {% with id="forgot_password", target="#checkEmail", message="Enter your email and we will send you a temporary password", header="Forgot password?" %}
+                                        {% with id="forgot_password", target="#checkEmail", message=lang.messages.forgotPassword, header=lang.forgotPassword %}
                                             {% include 'popUp.html' %}
                                         {% endwith %}
 
                                         <!-- Pop-up: Check your email -->
-                                        {% with id="checkEmail", target="false", message="We have send a temporary password, please check your email", header="Check your Email!" %}
+                                        {% with id="checkEmail", target="false", message=lang.messages.checkEmail, header=lang.messages.headerEmail %}
                                             {% include 'popUp.html' %}
                                         {% endwith %}
 

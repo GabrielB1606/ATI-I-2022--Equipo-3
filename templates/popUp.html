@@ -15,7 +15,7 @@
                                 <div class="panel-body">
                                     <fieldset>
                                         <div class="form-group">
-                                            <input class="form-control input-lg" placeholder="E-mail Address" name="email" type="email">
+                                            <input class="form-control input-lg" placeholder="{{lang.emailAddress}}" name="email" type="email">
                                         </div>                                                                                
                                     </fieldset>
                                 </div>
@@ -26,9 +26,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{lang.messages.close}}</button>
                 {% if target!= "false"%}
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target={{target}}>Send temporary password</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target={{target}}>{{lang.messages.temp}}</button>
                 {% endif %}
             </div>
         </div>
