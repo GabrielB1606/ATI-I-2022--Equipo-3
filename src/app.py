@@ -58,7 +58,13 @@ def config_page():
 # updates route
 @app.route('/notifications')
 def notifications():
-    return render_template("notifications.html")
+    # read GET variable
+    if request.args.get("lang") == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/notification.json") )
+    else:
+        lang = json.load( open("static/config/en/notification.json") )
+    return render_template("notifications.html",lang=lang)
 
 # search all users route
 @app.route('/search')
