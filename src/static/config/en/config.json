@@ -4,12 +4,14 @@
 
     "security": {
         "tab_name": "Security", 
+        "security_information": "SECURITY INFORMATION",
         "current_password": "Current password",
         "new_password": "New password", 
         "confirm_password": "Confirm password"
     }, 
 
     "profile_info": {
+        "profile_information":"PROFILE INFORMATION",
         "tab_name": "Profile information",
         "full_name": "Full name",
         "bio": "Biography",
@@ -20,6 +22,7 @@
         "color": "Favorite color"
     },
     "notification": {
+        "notification_settings":"NOTIFICATION SETTINGS",
         "tab_name": "Notifications",
         "message": "Receive notifications via mail", 
         "chat_messages": "Chat Messages",
@@ -28,6 +31,8 @@
     },
 
     "language": {
+        "language_settings":"LANGUAGE SETTINGS",
+        "message":"Set your preffered language",
         "tab_name": "Language",
         "es": "Spanish",
         "en": "English"

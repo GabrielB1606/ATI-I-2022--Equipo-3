@@ -53,7 +53,13 @@ def chat():
 # config route
 @app.route('/config')
 def config_page():
-    return render_template("config.html")
+        # read GET variable
+    if request.args.get("lang") == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/config.json") )
+    else:
+        lang = json.load( open("static/config/en/config.json") )
+    return render_template("config.html",lang=lang)
 
 # updates route
 @app.route('/notifications')
