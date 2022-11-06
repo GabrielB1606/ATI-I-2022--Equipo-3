@@ -20,7 +20,14 @@
                         <ul class="list-unstyled mb-0" id="contact-list">
                             
                             {% for chat in chatList %}
-                                {% with user_name=chat.user_from, state=chat.status,
+                                {% set aux = "" %}
+                                {% if chat.status == "Online" %}
+                                    {% set aux = lang.online %}
+                                {% else %}                     
+                                    {% set aux = lang.offline %}        
+                                {% endif %}
+                                
+                                {% with user_name=chat.user_from, state=aux,
                             new_messages=chat.new_messages, last_message=chat.messages[-1].text if chat.messages|length >= 1 else ""  , img_url=chat.img_url %}
                                     {% include 'chat_components/contact.html' %}
                                 {% endwith %}
@@ -45,7 +52,7 @@
                     <!-- <h3 >Chat with</h3> -->
                 </div>
 
-
+                
                 {% for chat in chatList %}
                     {% with user_name='Charles Plant', chat=chat, img_url='https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg'%}
                         {% include 'chat_components/messageList.html' %}

@@ -8,22 +8,22 @@
             {
                 "sent_by_me": true,
                 "text": "Hey!",
-                "timestamp": "10 minutes ago"
+                "timestamp": "10"
             },
             {
                 "sent_by_me": false,
                 "text": "Hello!",
-                "timestamp": "8 minutes ago"
+                "timestamp": "8"
             },
             {
                 "sent_by_me": true,
                 "text": "How are you?",
-                "timestamp": "6 minutes ago"
+                "timestamp": "6"
             },
             {
                 "sent_by_me": false,
                 "text": "Good!",
-                "timestamp": "4 minutes ago"
+                "timestamp": "4"
             }
         ]
     },
@@ -36,22 +36,22 @@
             {
                 "sent_by_me": true,
                 "text": "Hey!",
-                "timestamp": "10 minutes ago"
+                "timestamp": "10"
             },
             {
                 "sent_by_me": false,
                 "text": "Hello!",
-                "timestamp": "6 minutes ago"
+                "timestamp": "6"
             },
             {
                 "sent_by_me": true,
                 "text": "Are you up to?",
-                "timestamp": "4 minutes ago"
+                "timestamp": "4"
             },
             {
                 "sent_by_me": false,
                 "text": "Yeah!",
-                "timestamp": "2 minutes ago"
+                "timestamp": "2"
             }
         ]
     },
@@ -64,12 +64,12 @@
             {
                 "sent_by_me": false,
                 "text": "Hey!",
-                "timestamp": "3 minutes ago"
+                "timestamp": "3"
             },
             {
                 "sent_by_me": false,
                 "text": "Hello!",
-                "timestamp": "2 minutes ago"
+                "timestamp": "2"
             }
         ]
     },
