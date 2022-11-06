@@ -1,8 +1,16 @@
 {
-    "sign_in_with": "Sign in with:", 
+    "signIn": "Sign in with:", 
     "or": "or:",
-    "email_address":"Email address",
+    "emailAddress":"Email address",
     "password":"Password",
     "login":"Login",
-    "forgot-password":"Forgot password?"
+    "account": "your account", 
+    "forgotPassword":"Forgot password?", 
+    "messages": {
+        "forgotPassword": "Enter your email and we will send you a temporary password",
+        "checkEmail": "We have send a temporary password, please check your email",
+        "headerEmail": "Check your Email!",
+        "close": "Cerrar",
+        "temp": "Send temporary password"
+    }
 }

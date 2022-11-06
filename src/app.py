@@ -29,7 +29,7 @@ def login():
         # open config file according to the GET variable lang
         lang = json.load( open("static/config/es/login.json") )
     else:
-        lang = json.load( open("static/config/es/login.json") )
+        lang = json.load( open("static/config/en/login.json") )
     return render_template("login.html", lang=lang)
 
 # profile route
