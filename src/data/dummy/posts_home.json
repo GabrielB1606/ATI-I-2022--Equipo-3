@@ -2,7 +2,7 @@
     {   
         "id":"0",
         "user_name": "Eladio Larez", 
-        "post_time": "1 day ago",
+        "post_time": "2",
         "text": "Example text 0", 
         "profile_url": "#",
         "profile_img_url": "https://curadas.com/wp-content/uploads/2022/03/eladio-1.jpg",
@@ -27,7 +27,7 @@
     {   
         "id":"1",
         "user_name": "Charles Plant", 
-        "post_time": "2 days ago",
+        "post_time": "3",
         "text": "Example text 1", 
         "profile_url": "#",
         "profile_img_url": "https://github.com/mdo.png",
@@ -63,7 +63,7 @@
     {
         "id":"2",
         "user_name": "Charles Plant", 
-        "post_time": "5 days ago",
+        "post_time": "5",
         "text": "Example text 2", 
         "profile_url": "#",
         "profile_img_url": "https://github.com/mdo.png",
@@ -89,7 +89,7 @@
     {
         "id":"3",
         "user_name": "Charles Plant", 
-        "post_time": "5 days ago",
+        "post_time": "5",
         "text": "Example text 3", 
         "profile_url": "#",
         "profile_img_url": "https://github.com/mdo.png",
