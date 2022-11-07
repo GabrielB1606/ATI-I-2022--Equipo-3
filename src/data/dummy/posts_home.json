@@ -1,10 +1,10 @@
 [
     {   
-        "id": 0,
+        "id": "0",
         "user_name": "Daemon Gordon", 
         "post_time": "2",
         "text": "A nice day in the mountain", 
-        "profile_url": "#",
+        "profile_url": "http://localhost:5000/friend",
         "profile_img_url": "https://mdbootstrap.com/img/new/avatars/8.jpg",
         "img_url": "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         "comments": [
@@ -18,23 +18,23 @@
         ]
     },
     {   
-        "id":"3",
+        "id":"1",
         "user_name": "Charles Plant", 
         "post_time": "3",
         "text": "Do you like 🌽 or corgis?? 🙈🙉 ", 
-        "profile_url": "#",
+        "profile_url": "http://localhost:5000/user",
         "profile_img_url": "https://github.com/mdo.png",
         "img_url": "https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg",
         "comments": [
             {   
-                "id":"4",
+                "id":"1",
                 "user_name":"Charles Plant",
                 "user_img_url": "https://github.com/mdo.png",
-                "user_profile_url": "#",
+                "user_profile_url": "http://localhost:5000/user",
                 "text": "I prefer corgis lol",
                 "comments": [
                     {
-                    "id":"5",
+                    "id":"2",
                     "user_name":"Andrea Cramps",
                     "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp",
                     "user_profile_url": "#",
@@ -43,7 +43,7 @@
                 ]
             },
             {
-                "id":"6",
+                "id":"3",
                 "user_name":"Andrea Cramps",
                 "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp",
                 "user_profile_url": "#",
@@ -54,22 +54,22 @@
 
 
     {
-        "id":"7",
+        "id":"2",
         "user_name": "Charles Plant", 
         "post_time": "5",
         "text": "Have you seen any corgis today?", 
-        "profile_url": "#",
+        "profile_url": "http://localhost:5000/user",
         "profile_img_url": "https://github.com/mdo.png",
         "comments": [
             {
-                "id":"8",
+                "id":"4",
                 "user_name": "Angelica Smith",
                 "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp",
                 "user_profile_url": "#",
                 "text": "nah",
                 "comments":[
                     {
-                        "id":"9",
+                        "id":"5",
                         "user_name":"Charles Plant",
                         "user_img_url": "https://github.com/mdo.png",
                         "user_profile_url": "#",
@@ -80,11 +80,11 @@
         ]
     },
     {
-        "id":"10",
+        "id":"3",
         "user_name": "Charles Plant", 
         "post_time": "5",
         "text": "✨The difference between my dogs✨", 
-        "profile_url": "#",
+        "profile_url": "http://localhost:5000/user",
         "profile_img_url": "https://github.com/mdo.png",
         "img_url": "https://www.akc.org/wp-content/uploads/2019/02/NomNomNow_Pembroke_Welsh_Corgis.jpeg"
     }
