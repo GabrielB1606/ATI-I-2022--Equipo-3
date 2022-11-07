@@ -84,7 +84,13 @@ def notifications():
 # search all users route
 @app.route('/search')
 def search_users():
-    return render_template("search.html")
+    # read GET variable
+    if request.args.get("lang") == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/search.json") )
+    else:
+        lang = json.load( open("static/config/en/search.json") )
+    return render_template("search.html",lang=lang)
 
 # demo for fetching mongoDB data
 @app.route('/listUsers')
