@@ -21,7 +21,6 @@ function toggleComments(idx)
     var newComment = $("#user-new-comment-"+idx);
     var opened = $("#comment-section-"+idx).data("opened");
 
-    console.log(idx);
     if(!opened){
         newComment.removeClass("d-none");
         newComment.addClass("d-block");

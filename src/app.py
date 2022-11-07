@@ -15,6 +15,12 @@ def get_db():
     db = client["users_db"]
     return db
 
+def get_navbar_lang(lang):
+    if request.args.get("lang") == "es":
+        lang["navbar"] = json.load( open("static/config/es/navbar.json") )
+    else:
+        lang["navbar"] = json.load( open("static/config/en/navbar.json") )
+
 # home route
 @app.route('/')
 def index():
@@ -26,6 +32,7 @@ def index():
         lang = json.load( open("static/config/es/index.json") )
     else:
         lang = json.load( open("static/config/en/index.json") )
+    get_navbar_lang(lang)
     return render_template("index.html", postList = posts, lang=lang, language=lan)
 
 # login route
@@ -53,6 +60,7 @@ def profile():
     else:
         lang = json.load( open("static/config/en/index.json") )
         config = json.load((open("static/config/en/config.json")))
+    get_navbar_lang(lang)
     return render_template("profile.html", postList = posts, lang=lang, language=lan,config=config,user=user)
 
 
@@ -69,6 +77,7 @@ def profileFriend():
     else:
         lang = json.load( open("static/config/en/index.json") )
         config = json.load(open("static/config/en/config.json"))
+    get_navbar_lang(lang)
     return render_template("friend.html", postList = posts, lang=lang, language=lan, config=config)
 
 # chat route
@@ -82,6 +91,7 @@ def chat():
         lang = json.load( open("static/config/en/chat.json") )
 
     chats = json.load( open("data/dummy/chats.json") )
+    get_navbar_lang(lang)
     return render_template("chat.html", chatList = chats, lang=lang)
 
 # config route
@@ -94,6 +104,7 @@ def config_page():
         lang = json.load( open("static/config/es/config.json") )
     else:
         lang = json.load( open("static/config/en/config.json") )
+    get_navbar_lang(lang)
     return render_template("config.html",lang=lang, user=user)
 
 # updates route
@@ -105,6 +116,7 @@ def notifications():
         lang = json.load( open("static/config/es/notification.json") )
     else:
         lang = json.load( open("static/config/en/notification.json") )
+    get_navbar_lang(lang)
     return render_template("notifications.html",lang=lang)
 
 # search all users route
@@ -116,6 +128,7 @@ def search_users():
         lang = json.load( open("static/config/es/search.json") )
     else:
         lang = json.load( open("static/config/en/search.json") )
+    get_navbar_lang(lang)
     return render_template("search.html",lang=lang)
 
 # demo for fetching mongoDB data
