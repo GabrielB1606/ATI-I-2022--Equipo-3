@@ -44,6 +44,7 @@ def login():
         lang = json.load( open("static/config/es/login.json") )
     else:
         lang = json.load( open("static/config/en/login.json") )
+    get_navbar_lang(lang)
     return render_template("login.html", lang=lang)
 
 # profile route
