@@ -1,12 +1,18 @@
 <li class="d-flex justify-content-between mb-4">
     
     {% if not sent_by_me %}
-        <img src="{{img_url}}" alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60" height="60">
+        <a href="{{url_for('profileFriend')}}">
+            <img src="{{img_url}}" alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60" height="60" >
+        </a>
     {% endif %}
     
     <div class="card w-100">
         <div class="card-header d-flex justify-content-between p-3">
-            <p class="fw-bold mb-0"> {{user_name}} </p>
+            {% if not sent_by_me %}
+                <a href="{{url_for('profileFriend')}}" class="fw-bold mb-0"> {{user_name}} </a>
+            {% else %}
+                <a href="{{url_for('profile')}}" class="fw-bold mb-0"> {{user_name}} </a>
+            {% endif %}
             <p class="text-muted small mb-0"><i class="far fa-clock"></i> {{timestamp}}</p>
         </div>
         <div class="card-body">
@@ -17,7 +23,9 @@
     </div>
 
     {% if sent_by_me %}
-        <img src="{{img_url}}" alt="avatar" class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60" height="60">
+        <a href="{{url_for('profile')}}">
+            <img src="{{img_url}}" alt="avatar" class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60" height="60">
+        </a>
     {% endif %}
 
 </li>
