@@ -63,8 +63,14 @@
                     </span>
                 </span>
                
-                <span id="chat-request">
-                    <i class="fa-regular fa-envelope mx-1"></i>{{lang.request}}
+                <span id="chat-request" data-sent="false">   
+                    <span id="sent-request-span" class="d-none">
+                        <i class="fa-solid fa-envelope-open mx-1"></i> Request Sent
+                    </span>
+    
+                    <span id="make-request-span" class="d-inline">
+                        <i class="fa-regular fa-envelope mx-1"></i>{{lang.request}}
+                    </span>
                 </span>
             </div>
         </div>

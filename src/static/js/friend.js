@@ -21,4 +21,28 @@ function toggleFollow()
     $("#friend-request").data("follow",!follow); 
 }
 
+// Send chat request or sent chat request
+function toggleChatRequest()
+{
+    var sent = $("#chat-request").data("sent");
+
+    if(sent){
+        $("#sent-request-span").removeClass("d-inline");
+        $("#sent-request-span").addClass("d-none");
+
+        $("#make-request-span").addClass("d-inline");
+        $("#make-request-span").removeClass("d-none");
+    }
+    else{
+        $("#make-request-span").removeClass("d-inline");
+        $("#make-request-span").addClass("d-none");
+
+        $("#sent-request-span").addClass("d-inline");
+        $("#sent-request-span").removeClass("d-none");
+    }
+    
+    $("#chat-request").data("sent",!sent); 
+}
+
 $("#friend-request").click( () => toggleFollow() );
+$("#chat-request").click( () => toggleChatRequest() );
