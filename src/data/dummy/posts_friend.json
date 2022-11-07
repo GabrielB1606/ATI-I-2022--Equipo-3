@@ -5,7 +5,7 @@
         "post_time": "2",
         "text": "Example text 1", 
         "profile_url": "#",
-        "profile_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-8.webp",
+        "profile_img_url": "https://mdbootstrap.com/img/new/avatars/8.jpg",
         "img_url": "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         "comments": [
             {
@@ -23,7 +23,7 @@
         "post_time": "5",
         "text": "Example text 3", 
         "profile_url": "#",
-        "profile_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-8.webp",
+        "profile_img_url": "https://mdbootstrap.com/img/new/avatars/8.jpg",
         "img_url": "https://helios-i.mashable.com/imagery/articles/03ZH6EcVL9WqXmDqjuqAy0E/hero-image.fill.size_1248x702.v1654717975.jpg"
     },
     {
@@ -32,7 +32,7 @@
         "post_time": "5",
         "text": "Example text 2", 
         "profile_url": "#",
-        "profile_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-8.webp",
+        "profile_img_url": "https://mdbootstrap.com/img/new/avatars/8.jpg",
         "comments": [
             {
                 "id":"1",
