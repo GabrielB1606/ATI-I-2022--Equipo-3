@@ -10,7 +10,7 @@
         "forgotPassword": "Enter your email and we will send you a temporary password",
         "checkEmail": "We have send a temporary password, please check your email",
         "headerEmail": "Check your Email!",
-        "close": "Cerrar",
+        "close": "Close",
         "temp": "Send temporary password"
     }
 }
