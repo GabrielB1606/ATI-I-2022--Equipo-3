@@ -1,6 +1,6 @@
 {
-    "signIn": "Sign in with:", 
-    "or": "or:",
+    "signIn": "Sign in with", 
+    "or": "or",
     "emailAddress":"Email address",
     "password":"Password",
     "login":"Login",
