@@ -9,10 +9,21 @@
             </p>
         </div>
         
-        <div class="comment-footer card-footer border-0 reply-options">
+        <div class="comment-footer d-flex card-footer border-0 reply-options">
+            {% if commentList|length >  0 %}
+                <span class="comment-display d-flex me-2 ml-0 pl-0">
+                    {% if commentList|length == 1 %}
+                    <p> {{commentList|length }} comment </p>
+                    {% else %}
+                    <p> {{commentList|length }} comments </p>
+                    {% endif %}
+                </span>
+            {% endif %}
+
             <span class="reply-toggle" id="reply-toggle-{{id_number}}"> {{lang.comments.reply}} </span>
         </div>
 
+        
         <ul class="reply-section d-none" id="reply-section-{{id_number}}" data-opened="false">
             
             {% for comment in commentList %}
