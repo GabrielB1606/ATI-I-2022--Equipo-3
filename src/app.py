@@ -48,9 +48,11 @@ def profile():
     if lan == "es":
         # open config file according to the GET variable lang
         lang = json.load( open("static/config/es/index.json") )
+        config = json.load(open("static/config/es/config.json"))
     else:
         lang = json.load( open("static/config/en/index.json") )
-    return render_template("profile.html", postList = posts, lang=lang, language=lan)
+        config = json.load(open("static/config/es/config.json"))
+    return render_template("profile.html", postList = posts, lang=lang, language=lan, config=config)
 
 # profile route
 @app.route('/friend')
@@ -61,9 +63,11 @@ def profileFriend():
     if lan == "es":
         # open config file according to the GET variable lang
         lang = json.load( open("static/config/es/index.json") )
+        config = json.load(open("static/config/es/config.json"))
     else:
         lang = json.load( open("static/config/en/index.json") )
-    return render_template("friend.html", postList = posts, lang=lang, language=lan)
+        config = json.load(open("static/config/en/config.json"))
+    return render_template("friend.html", postList = posts, lang=lang, language=lan, config=config)
 
 # chat route
 @app.route('/chat')
