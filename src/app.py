@@ -34,10 +34,10 @@ def login():
     # read GET variable
     if request.args.get("lang") == "es":
         # open config file according to the GET variable lang
-        langs = json.load( open("static/config/es/login.json") )
+        lang = json.load( open("static/config/es/login.json") )
     else:
-        langs = json.load( open("static/config/en/login.json") )
-    return render_template("login.html", lang=langs)
+        lang = json.load( open("static/config/en/login.json") )
+    return render_template("login.html", lang=lang)
 
 # profile route
 @app.route('/user')
@@ -77,12 +77,12 @@ def chat():
     # read GET variable
     if request.args.get("lang") == "es":
         # open config file according to the GET variable lang
-        langs = json.load( open("static/config/es/chat.json") )
+        lang = json.load( open("static/config/es/chat.json") )
     else:
-        langs = json.load( open("static/config/en/chat.json") )
+        lang = json.load( open("static/config/en/chat.json") )
 
     chats = json.load( open("data/dummy/chats.json") )
-    return render_template("chat.html", chatList = chats, lang=langs)
+    return render_template("chat.html", chatList = chats, lang=lang)
 
 # config route
 @app.route('/config')
