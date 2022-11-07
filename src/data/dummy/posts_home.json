@@ -1,12 +1,12 @@
 [
     {   
-        "id":"0",
+        "id": 0,
         "user_name": "Daemon Gordon", 
         "post_time": "2",
-        "text": "Are we alone in the universe?", 
+        "text": "Example text 1", 
         "profile_url": "#",
-        "profile_img_url": "https://curadas.com/wp-content/uploads/2022/03/eladio-1.jpg",
-        "img_url": "https://i.blogs.es/082aef/rover-curiosity-1/1366_2000.jpeg",
+        "profile_img_url": "https://mdbootstrap.com/img/new/avatars/8.jpg",
+        "img_url": "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         "comments": [
             {   
                 "id":"1",
