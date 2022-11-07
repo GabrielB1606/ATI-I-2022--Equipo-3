@@ -3,24 +3,17 @@
         "id": 0,
         "user_name": "Daemon Gordon", 
         "post_time": "2",
-        "text": "Example text 1", 
+        "text": "A nice day in the mountain", 
         "profile_url": "#",
         "profile_img_url": "https://mdbootstrap.com/img/new/avatars/8.jpg",
         "img_url": "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         "comments": [
-            {   
-                "id":"1",
-                "user_name":"Andrea Cramps",
-                "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp",
-                "user_profile_url": "#",
-                "text": "this is such a nice picture!"
-            },
             {
-                "id":"2",
-                "user_name":"Andrea Cramps",
-                "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp",
-                "user_profile_url": "#",
-                "text": "We don't know when, or even if, we'll find life beyond Earth, but NASA scientists continue the hunt among the thousands of exoplanets confirmed in the galaxy"
+                "id":"0",
+                "user_name":"Charles Plant",
+                "user_img_url": "https://github.com/mdo.png",
+                "user_profile_url": "http://localhost:5000/user",
+                "text": "The best place in the world"
             }
         ]
     },
