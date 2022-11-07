@@ -19,7 +19,14 @@ def get_db():
 @app.route('/')
 def index():
     posts = json.load( open("data/dummy/posts_home.json") )
-    return render_template("index.html", postList = posts)
+    # read GET variable
+    lan = request.args.get("lang")
+    if lan == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/index.json") )
+    else:
+        lang = json.load( open("static/config/en/index.json") )
+    return render_template("index.html", postList = posts, lang=lang, language=lan)
 
 # login route
 @app.route('/login')
@@ -36,13 +43,27 @@ def login():
 @app.route('/user')
 def profile():
     posts = json.load( open("data/dummy/posts.json") )
-    return render_template("profile.html", postList = posts)
+    # read GET variable
+    lan = request.args.get("lang")
+    if lan == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/index.json") )
+    else:
+        lang = json.load( open("static/config/en/index.json") )
+    return render_template("profile.html", postList = posts, lang=lang, language=lan)
 
 # profile route
 @app.route('/friend')
 def profileFriend():
     posts = json.load( open("data/dummy/posts_friend.json") )
-    return render_template("friend.html", postList = posts)
+    # read GET variable
+    lan = request.args.get("lang")
+    if lan == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/index.json") )
+    else:
+        lang = json.load( open("static/config/en/index.json") )
+    return render_template("friend.html", postList = posts, lang=lang, language=lan)
 
 # chat route
 @app.route('/chat')

@@ -2,7 +2,7 @@
     {   
         "id":"0",
         "user_name": "Charles Plant", 
-        "post_time": "2 days ago",
+        "post_time": "2",
         "text": "Example text 1", 
         "profile_url": "#",
         "profile_img_url": "https://github.com/mdo.png",
@@ -36,7 +36,7 @@
     {
         "id":"1",
         "user_name": "Charles Plant", 
-        "post_time": "5 days ago",
+        "post_time": "5",
         "text": "Example text 2", 
         "profile_url": "#",
         "profile_img_url": "https://github.com/mdo.png",
@@ -62,7 +62,7 @@
     {
         "id":"2",
         "user_name": "Charles Plant", 
-        "post_time": "5 days ago",
+        "post_time": "5",
         "text": "Example text 3", 
         "profile_url": "#",
         "profile_img_url": "https://github.com/mdo.png",

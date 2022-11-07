@@ -57,12 +57,12 @@
                     </span>
     
                     <span id="unfollow" class="d-inline me-5">
-                        <i class="fa-solid fa-user-check mx-1"></i>Unfollow
+                        <i class="fa-solid fa-user-check mx-1"></i>{{lang.unfollow}}
                     </span>
                 </span>
                
                 <span>
-                    <i class="fa-regular fa-envelope mx-1"></i>Send chat request
+                    <i class="fa-regular fa-envelope mx-1"></i>{{lang.request}}
                 </span>
             </div>
         </div>
@@ -75,7 +75,8 @@
                     text=post.text,
                     profile_url=post.profile_url,
                     profile_img_url=post.profile_img_url,
-                    img_url=post.img_url
+                    img_url=post.img_url,
+                    lan=language
                 %}
                     {% include 'post.html' %}
                 {% endwith %}

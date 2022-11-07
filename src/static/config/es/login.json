@@ -1,8 +1,16 @@
 {
-    "sign-in-with": "Inicia Sesión con:", 
+    "signIn": "Inicia Sesión con", 
     "or": "o:",
-    "email-address":"Dirección de Correo",
+    "emailAddress":"Dirección de Correo",
     "password":"Contraseña",
     "login":"Iniciar Sesión",
-    "forgot-password":"¿Has olvidado la contraseña?"
+    "account": "tu cuenta", 
+    "forgotPassword":"¿Has olvidado la contraseña?",
+    "messages": {
+        "forgotPassword": "Introduce tu dirección de correo y enviaremos una contraseña temporal",
+        "checkEmail": "Te hemos enviado una contraseña temporal, por favor revisa tu correo",
+        "headerEmail": "Revisa tu correo!",
+        "close": "Cerrar",
+        "temp": "Enviar clave temporal"
+    }
 }
