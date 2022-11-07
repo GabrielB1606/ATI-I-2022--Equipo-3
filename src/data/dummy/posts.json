@@ -3,7 +3,7 @@
         "id":"0",
         "user_name": "Charles Plant", 
         "post_time": "2",
-        "text": "Example text 1", 
+        "text": "Do you like 🌽 or corgis?? 🙈🙉 ", 
         "profile_url": "#",
         "profile_img_url": "https://github.com/mdo.png",
         "img_url": "https://besthqwallpapers.com/Uploads/11-4-2019/87207/corgi-puppy-pets-welsh-corgi-dogs.jpg",
@@ -13,14 +13,14 @@
                 "user_name":"Charles Plant",
                 "user_img_url": "https://github.com/mdo.png",
                 "user_profile_url": "#",
-                "text": "Comentario 1",
+                "text": "I prefer corgis lol",
                 "comments": [
                     {
                     "id":"1",
                     "user_name":"Andrea Cramps",
                     "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp",
                     "user_profile_url": "#",
-                    "text": "Respuesta a Comentario 1"
+                    "text": "I need one"
                     }
                 ]
             },
@@ -29,7 +29,7 @@
                 "user_name":"Andrea Cramps",
                 "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp",
                 "user_profile_url": "#",
-                "text": "Comentario 2"
+                "text": "So cute!! ❤️❤️"
             }
         ]
     },
@@ -37,7 +37,7 @@
         "id":"1",
         "user_name": "Charles Plant", 
         "post_time": "5",
-        "text": "Example text 2", 
+        "text": "Have you seen any corgis today?", 
         "profile_url": "#",
         "profile_img_url": "https://github.com/mdo.png",
         "comments": [
@@ -46,14 +46,14 @@
                 "user_name": "Angelica Smith",
                 "user_img_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp",
                 "user_profile_url": "#",
-                "text": "Comentario 1",
+                "text": "nah",
                 "comments":[
                     {
                         "id":"4",
                         "user_name":"Charles Plant",
                         "user_img_url": "https://github.com/mdo.png",
                         "user_profile_url": "#",
-                        "text": "Respuesta a Comentario 1"
+                        "text": "ok.."
                     }
                 ]
             }
@@ -63,7 +63,7 @@
         "id":"2",
         "user_name": "Charles Plant", 
         "post_time": "5",
-        "text": "Example text 3", 
+        "text": "✨The difference between my dogs✨", 
         "profile_url": "#",
         "profile_img_url": "https://github.com/mdo.png",
         "img_url": "https://www.akc.org/wp-content/uploads/2019/02/NomNomNow_Pembroke_Welsh_Corgis.jpeg"
