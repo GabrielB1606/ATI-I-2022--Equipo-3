@@ -27,21 +27,25 @@
                             <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="40" height="40">
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >Settings</a></li>
-                            <li><a class="dropdown-item"href="{{url_for('profile')}}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >{{lang.navbar.settings}}</a></li>
+                            <li><a class="dropdown-item"href="{{url_for('profile')}}">{{lang.navbar.profile}}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li class="dropend">
                                 <a class="dropdown-item dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Language
+                                    {{lang.navbar.language}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="?lang=en">English</a></li>
                                     <li><a class="dropdown-item" href="?lang=es">Español</a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="{{url_for('login')}}">Sign out</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{url_for('login')}}">
+                                    {{lang.navbar.sign_out}}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -54,7 +58,7 @@
             <link rel="stylesheet" href="{{ url_for('static', filename='style/search.css') }}">
             <div class="dropdown col-12 col-md-6 me-lg-auto mb-3 mb-lg-0">
                 <form  data-bs-toggle="dropdown" aria-expanded="false" role="search">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search" id="searchbar-users">
+                    <input type="search" class="form-control" placeholder="{{lang.navbar.searchbar}}..." aria-label="Search" id="searchbar-users">
                 </form>
                 <ul class="dropdown-menu col-12 " id="search-preview">
                     <li class="dropdown-item py-0 my-0">
@@ -64,7 +68,7 @@
                     </li>
                     
                     <li> <hr class="dropdown-divider"> </li>                            
-                    <li><a class="dropdown-item" href="{{url_for('search_users')}}">See All Results</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('search_users')}}"> {{lang.navbar.results}} </a></li>
                 </ul>
 
             </div>
@@ -75,13 +79,13 @@
                     <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
                         <i class="fa-solid fa-xl fa-inbox"></i>
                     </a>
-                    <span class="tooltiptext">Notifications</span>
+                    <span class="tooltiptext"> {{lang.navbar.notifications}} </span>
                 </li>
                 <li class="tooltip-custom">
                     <a href="{{url_for('chat')}}" class="nav-link px-2 link-secondary">
                         <i class="fa-regular fa-xl fa-paper-plane"></i>
                     </a>
-                    <span class="tooltiptext">Chat</span>
+                    <span class="tooltiptext"> {{lang.navbar.chat}} </span>
                 </li>
                 <li>
                     <div class="dropdown text-end" style="margin-left: 0.3rem;">
@@ -90,21 +94,21 @@
                             <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="40" height="40">
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >Settings</a></li>
-                            <li><a class="dropdown-item"href="{{url_for('profile')}}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >{{lang.navbar.settings}}</a></li>
+                            <li><a class="dropdown-item"href="{{url_for('profile')}}">{{lang.navbar.profile}}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li class="dropend">
                                 <a class="dropdown-item dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Language
+                                    {{lang.navbar.language}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="?lang=en">English</a></li>
                                     <li><a class="dropdown-item" href="?lang=es">Español</a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="{{url_for('login')}}">Sign out</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('login')}}">{{lang.navbar.sign_out}}</a></li>
                         </ul>
                     </div>
                 </li>
