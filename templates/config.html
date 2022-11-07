@@ -85,19 +85,23 @@
                             <hr>
                             <form>
                                 <!--Current Password-->
-                                <div class="form-group">                                
+                                <div class="form-group">     
+                                    <label class="mb-1">{{lang.security.current_password}}</label>                           
                                     <input type="password" class="form-control" id="current-pass" placeholder="{{lang.security.current_password}}">
                                 </div>
                                 <br>
                                 <hr>
                                 
                                 <!--New Password-->
-                                <div class="form-group">                                
+                                <div class="form-group">  
+                                    <label class="mb-1">{{lang.security.new_password}}</label>                                       
                                     <input type="password" class="form-control" id="new-pass" placeholder="{{lang.security.new_password}}">
+                                    <small class="form-text text-muted">{{lang.security.help}}</small>
                                 </div>
                                 <br>
 
-                                <div class="form-group">                                
+                                <div class="form-group">       
+                                    <label class="mb-1">{{lang.security.confirm_password}}</label>                    
                                     <input type="password" class="form-control" id="confirm-pass" placeholder="{{lang.security.confirm_password}}">
                                 </div>
                                 <br>
@@ -124,7 +128,7 @@
 
                                 <!-- Biography -->
                                 <div class="form-group">
-                                    <label for="bio">{{lang.profile_info.biography}}</label>
+                                    <label for="bio">{{lang.profile_info.bio}}</label>
                                     <textarea class="form-control autosize" id="bio" placeholder="Write something about you" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 62px;">{{user.biography}}</textarea>
                                 </div>
                                 <br>

@@ -7,7 +7,8 @@
         "security_information": "SECURITY INFORMATION",
         "current_password": "Current password",
         "new_password": "New password", 
-        "confirm_password": "Confirm password"
+        "confirm_password": "Confirm password",
+        "help": "La contraseña debe contener al menos 8 caracteres"
     }, 
 
     "profile_info": {
