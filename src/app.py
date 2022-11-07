@@ -43,7 +43,7 @@ def login():
 @app.route('/user')
 def profile():
     posts = json.load( open("data/dummy/posts.json") )
-    config = json.load( open("data/dummy/config.json") )
+    user = json.load( open("data/dummy/user.json") )
     # read GET variable
     lan = request.args.get("lang")
     if lan == "es":
@@ -52,8 +52,8 @@ def profile():
         config = json.load((open("static/config/es/config.json")))
     else:
         lang = json.load( open("static/config/en/index.json") )
-        config = json.load((open("static/config/es/config.json")))
-    return render_template("profile.html", postList = posts, lang=lang, language=lan,config=config)
+        config = json.load((open("static/config/en/config.json")))
+    return render_template("profile.html", postList = posts, lang=lang, language=lan,config=config,user=user)
 
 
 # profile route
@@ -88,13 +88,13 @@ def chat():
 @app.route('/config')
 def config_page():
         # read GET variable
-    conf = json.load( open("data/dummy/config.json") )
+    user = json.load( open("data/dummy/user.json") )
     if request.args.get("lang") == "es":
         # open config file according to the GET variable lang
         lang = json.load( open("static/config/es/config.json") )
     else:
         lang = json.load( open("static/config/en/config.json") )
-    return render_template("config.html",lang=lang, conf=conf)
+    return render_template("config.html",lang=lang, user=user)
 
 # updates route
 @app.route('/notifications')
