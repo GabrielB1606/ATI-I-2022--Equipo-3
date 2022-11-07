@@ -1,4 +1,3 @@
-<!-- reject incoming changes -->
 <li class="post card mb-5">
     <div class="card-header">
         <div class="d-flex mt-2 mb-2">
@@ -48,7 +47,9 @@
     <div class="card-footer">
         
         <div class="text-muted comment-toggle" id="comment-toggle-{{id_number}}">
-            <i class="fa-regular fa-comment mx-2"></i> {{lang.Post.comments}}
+            <span class="comment-span">
+                <i class="fa-regular fa-comment mx-2"></i> {{lang.Post.comments}}
+            </span>
         </div>
         
         <div class="user-new-comment d-none" id="user-new-comment-{{id_number}}">

@@ -18,6 +18,10 @@
     align-items: center;   
 }
 
+.comment-span, .reply-toggle{
+    cursor: pointer;
+}
+
 .comment-body {
     border-radius: 20px;
 }
