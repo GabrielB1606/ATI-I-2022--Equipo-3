@@ -35,6 +35,16 @@
     </div>
     {% endif %}
 
+    {% if commentList|length >  0 %}
+    <div class="d-flex justify-content-end me-2 mt-2" style="color: gray; font-size: 14px;">
+        {% if commentList|length == 1 %}
+        <p> {{commentList|length }} comment </p>
+        {% else %}
+        <p> {{commentList|length }} comments </p>
+        {% endif %}
+    </div>
+    {% endif %}
+
     <div class="card-footer">
         
         <div class="text-muted comment-toggle" id="comment-toggle-{{id_number}}">
