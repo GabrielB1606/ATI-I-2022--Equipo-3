@@ -1,24 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Notificactions</h1>
+    <h1>{{lang.notification}}</h1>
     
     <!--Notifications stack-->
     <ul class="list-group list-group-light">
         <br>
 
         <!--Notification #1-->
-        {% with user_name='Joe Dan', type='follow_request', message_request = ' ha solicitado seguirte', profile_img_url = 'https://mdbootstrap.com/img/new/avatars/8.jpg' %}
+        {% with user_name='Joe Dan', type='follow_request', message_request = lang.follow, profile_img_url = 'https://mdbootstrap.com/img/new/avatars/8.jpg' %}
                 {% include 'notification_components.html' %}
         {% endwith %}
         
         <!--Notification #2-->
-        {% with user_name='Carissa Ray', type='message_request', message_request = ' quiere enviarte un mensaje', profile_img_url = 'https://mdbootstrap.com/img/new/avatars/6.jpg' %}
+        {% with user_name='Carissa Ray', type='message_request', message_request = lang.message, profile_img_url = 'https://mdbootstrap.com/img/new/avatars/6.jpg' %}
                 {% include 'notification_components.html' %}
         {% endwith %}
         
         <!--Notification #3-->
-        {% with user_name='Jessica Parkinson', type='comment_notification', message_request = ' ha hecho un comentario en tu muro', profile_img_url = 'https://mdbootstrap.com/img/new/avatars/5.jpg' %}
+        {% with user_name='Jessica Parkinson', type='comment_notification', message_request = lang.comment, profile_img_url = 'https://mdbootstrap.com/img/new/avatars/5.jpg' %}
                 {% include 'notification_components.html' %}
         {% endwith %}        
         

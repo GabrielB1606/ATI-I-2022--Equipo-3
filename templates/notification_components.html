@@ -7,15 +7,15 @@
             <!--Follow Request || Message Request-->
             {% if (type == "follow_request") or (type == "message_request") %}
             <div class="col-md-12 text-center  mt-1">
-                <button type="button" class="btn btn-outline-dark me-2">Aceptar</button>
-                <button type="button" class="btn btn-secondary me-1">Rechazar</button>
+                <button type="button" class="btn btn-outline-dark me-2">{{lang.notification_buttons.accept}}</button>
+                <button type="button" class="btn btn-secondary me-1">{{lang.notification_buttons.decline}}</button>
             </div>    
             {% endif %}
 
             <!--Comment notification -->
             {% if type == "comment_notification" %}
             <div class="col-md-12 text-center mt-1">                        
-                <button type="button" class="btn btn-secondary me-1">Ver comentario</button>
+                <button type="button" class="btn btn-secondary me-1">{{lang.notification_buttons.see}}</button>
             </div>  
             {% endif %}
 
