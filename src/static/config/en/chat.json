@@ -1,3 +1,7 @@
 {
-    "People":"People"
+    "placeholder":"Message",
+    "online":"Online",
+    "offline":"Offline",
+    "timestamp_before":"",
+    "timestamp_after":" minutes ago"
 }
