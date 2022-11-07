@@ -13,9 +13,9 @@
             {% if commentList|length >  0 %}
                 <span class="comment-display d-flex me-2 ml-0 pl-0">
                     {% if commentList|length == 1 %}
-                    <p> {{commentList|length }} comment </p>
+                    <p> {{commentList|length }} {{lang.comments.comment}} </p>
                     {% else %}
-                    <p> {{commentList|length }} comments </p>
+                    <p> {{commentList|length }} {{lang.comments.comment}} </p>
                     {% endif %}
                 </span>
             {% endif %}
@@ -47,7 +47,7 @@
                 
                 <div>
                     <a class="nav-link d-flex justify-content-end my-2" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto">
-                        <button type="button" class="btn btn-sm btn-outline-dark">Reply</button>
+                        <button type="button" class="btn btn-sm btn-outline-dark">{{lang.comments.reply}}</button>
                     </a>
                 </div>
                 
