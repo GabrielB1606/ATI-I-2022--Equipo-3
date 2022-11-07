@@ -43,6 +43,7 @@ def login():
 @app.route('/user')
 def profile():
     posts = json.load( open("data/dummy/posts.json") )
+    config = json.load( open("data/dummy/config.json") )
     # read GET variable
     lan = request.args.get("lang")
     if lan == "es":
@@ -50,7 +51,7 @@ def profile():
         lang = json.load( open("static/config/es/index.json") )
     else:
         lang = json.load( open("static/config/en/index.json") )
-    return render_template("profile.html", postList = posts, lang=lang, language=lan)
+    return render_template("profile.html", postList = posts, lang=lang, language=lan,config=config)
 
 # profile route
 @app.route('/friend')
