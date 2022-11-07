@@ -12,7 +12,7 @@
             <ul class="nav col-11 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-sm-inline-flex d-md-none">
                 <li>
                     <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
-                    <i class="fa-solid fa-xl fa-inbox"></i>
+                        <i class="fa-solid fa-xl fa-inbox"></i>
                     </a>
                 </li>
                 <li>
@@ -63,7 +63,7 @@
                         {% endwith %}
                     </li>
                     
-                    <li> <hr class="dropdown-divider"> </li>                            </li>
+                    <li> <hr class="dropdown-divider"> </li>                            
                     <li><a class="dropdown-item" href="{{url_for('search_users')}}">See All Results</a></li>
                 </ul>
 
@@ -71,15 +71,17 @@
 
             <!-- icons desktop -->
             <ul class="nav col-md-3 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-none d-md-inline-flex">
-                <li>
+                <li class="tooltip-custom">
                     <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
-                    <i class="fa-solid fa-xl fa-inbox"></i>
+                        <i class="fa-solid fa-xl fa-inbox"></i>
                     </a>
+                    <span class="tooltiptext">Notifications</span>
                 </li>
-                <li>
+                <li class="tooltip-custom">
                     <a href="{{url_for('chat')}}" class="nav-link px-2 link-secondary">
                         <i class="fa-regular fa-xl fa-paper-plane"></i>
                     </a>
+                    <span class="tooltiptext">Chat</span>
                 </li>
                 <li>
                     <div class="dropdown text-end" style="margin-left: 0.3rem;">
