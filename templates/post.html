@@ -37,9 +37,9 @@
     {% if commentList|length >  0 %}
     <div class="d-flex justify-content-end me-2 mt-2" style="color: gray; font-size: 14px;">
         {% if commentList|length == 1 %}
-        <p> {{commentList|length }} comment </p>
+        <p> {{commentList|length }} {{lang.comments.comment}} </p>
         {% else %}
-        <p> {{commentList|length }} comments </p>
+        <p> {{commentList|length }} {{lang.comments.comments}} </p>
         {% endif %}
     </div>
     {% endif %}
@@ -59,7 +59,7 @@
                 <textarea class="form-control w-100" rows="1" placeholder="{{lang.comments.placeholder}}"></textarea>
             </div>
             <a class="nav-link d-flex justify-content-end my-2" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto">
-                <button type="button" class="btn btn-sm btn-outline-dark">Reply</button>
+                <button type="button" class="btn btn-sm btn-outline-dark">{{lang.comments.reply}}</button>
             </a>
         </div>
 

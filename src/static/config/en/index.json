@@ -15,7 +15,9 @@
     },
     "comments":{
         "placeholder": "Write your comment...",
-        "reply": "Reply"
+        "reply": "Reply",
+        "comments":"comments",
+        "comment":"comment"
     },
     "unfollow": "Unfollow", 
     "request": "Send chat request"
