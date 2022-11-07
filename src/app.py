@@ -52,7 +52,7 @@ def profile():
         config = json.load((open("static/config/es/config.json")))
     else:
         lang = json.load( open("static/config/en/index.json") )
-        config = json.load((open("static/config/es/config.json")))
+        config = json.load((open("static/config/en/config.json")))
     return render_template("profile.html", postList = posts, lang=lang, language=lan,config=config,user=user)
 
 
