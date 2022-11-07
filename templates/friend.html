@@ -50,7 +50,7 @@
             <hr>
 
             <!-- Friend and Chat Request -->
-            <div class="text-center">
+            <div class="text-center mb-3">
                 <span id="friend-request" data-follow="true">
                     <span id="follow" class="d-none me-5">
                         <i class="fa-solid fa-user-plus mx-1"></i>Follow 
@@ -74,8 +74,10 @@
                 {% with id_number=post.id, user_name=post.user_name, post_time=post.post_time,
                     text=post.text,
                     profile_url=post.profile_url,
-                    profile_img_url=post.profile_img_url,
+                    owner_post_img_url=post.profile_img_url,
+                    profile_img_url='https://github.com/mdo.png',
                     img_url=post.img_url,
+                    commentList=post.comments,
                     lan=language
                 %}
                     {% include 'post.html' %}
@@ -87,5 +89,6 @@
 </div>
 
 <script src="{{url_for('static', filename='js/friend.js')}}"></script>
+<script src="{{url_for('static', filename='js/comments.js')}}"></script>
 
 {% endblock %}

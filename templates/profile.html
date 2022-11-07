@@ -64,7 +64,8 @@
                 {% with id_number=post.id, user_name=post.user_name, post_time=post.post_time,
                     text=post.text,
                     profile_url=post.profile_url,
-                    profile_img_url=post.profile_img_url,
+                    owner_post_img_url=post.profile_img_url,
+                    profile_img_url='https://github.com/mdo.png',
                     img_url=post.img_url,
                     commentList=post.comments,
                     lan=language

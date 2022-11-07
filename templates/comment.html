@@ -16,7 +16,9 @@
         <ul class="reply-section d-none" id="reply-section-{{id_number}}" data-opened="false">
             
             {% for comment in commentList %}
-                {% with user_name=comment.user_name, 
+                {% with
+                    id_number=comment.id,
+                    user_name=comment.user_name, 
                     comment_text=comment.text,
                     user_img_url=comment.user_img_url,
                     user_profile_url=comment.user_profile_url,

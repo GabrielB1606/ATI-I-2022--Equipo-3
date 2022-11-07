@@ -80,7 +80,8 @@
                 {% with id_number=post.id, user_name=post.user_name, post_time=post.post_time,
                     text=post.text,
                     profile_url=post.profile_url,
-                    profile_img_url=post.profile_img_url,
+                    owner_post_img_url=post.profile_img_url,
+                    profile_img_url='https://github.com/mdo.png',
                     img_url=post.img_url,
                     commentList=post.comments,
                     lan=language
@@ -95,10 +96,10 @@
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div class="d-flex flex-row">
                 <div class="p-2">
-                <img alt="32x32" class="rounded-circle"  src="https://curadas.com/wp-content/uploads/2022/03/eladio-1.jpg" width="40px" height="40px">
+                <img alt="32x32" class="rounded-circle"  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-8.webp" width="40px" height="40px">
                 </div>
                 <div class="p-2">
-                <h6 class="my-0" style="display:inline">Eladio Larez</h6>
+                <h6 class="my-0" style="display:inline"> <a href="{{url_for('profileFriend')}}" style="color: black; text-decoration: none;">  Daemon Gordon </a></h6>
                 <small class="text-success" style="display:block">{{lang.friends.online}}</small>
                 </div>
               </div>
