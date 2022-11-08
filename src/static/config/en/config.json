@@ -8,7 +8,7 @@
         "current_password": "Current password",
         "new_password": "New password", 
         "confirm_password": "Confirm password",
-        "help": "La contraseña debe contener al menos 8 caracteres"
+        "help": "Password must contain at least 8 characters"
     }, 
 
     "profile_info": {
