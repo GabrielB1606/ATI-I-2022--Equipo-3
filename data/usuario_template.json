@@ -1,0 +1,42 @@
+{
+    "idUsuario": 0,
+    "correo": "mail@mail.com",
+    "clave": "123",
+    "conectado": true,
+    "solicitudes": [0, 1, 2, 3],
+    "notificaciones": [
+        {
+            "tipo": "comentario",
+            "idPublicacion": 3,
+            "idComentario": 5
+        },
+        {
+            "tipo": "solicitud",
+            "idSolicitud": 3
+        }
+    ],
+    "configuracion":
+        {
+            "privacidad": "publico",
+            "colorPerfil": "#ffffff",
+            "colorMuro": "#ffffff",
+            "idioma": "es",
+            "notificacionesCorreo": 5
+        },
+    "perfil":
+        {
+            "nombre": "John Doe",
+            "foto": "blob",
+            "ci": "55555555",
+            "fechaNacimiento": "09/10/1999",
+            "genero": "male",
+            "descripcion": "Minim occaecat consequat sunt labore sunt officia commodo excepteur ullamco laboris pariatur.",
+            "color": "verde",
+            "libro": "la biblia",
+            "musica": "Ballroom",
+            "juegos": ["pacman", "buscaminas"],
+            "lenguajes": ["c++", "python"]
+        },
+    "chats": [1, 2, 3],
+    "publicaciones": [1,2,3]
+}

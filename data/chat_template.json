@@ -1,0 +1,11 @@
+{
+    "idChat": 0,
+    "participantes": [1, 2],
+    "mensajes": [
+        {
+            "idMensaje": 1,
+            "emisor": 1,
+            "texto": "Incididunt pariatur veniam fugiat id."
+        }
+    ]
+}
