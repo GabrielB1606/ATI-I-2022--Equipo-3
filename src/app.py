@@ -29,6 +29,7 @@ def get_navbar_lang(lang):
 @app.route('/')
 def index():
     posts = json.load( open("data/dummy/posts_home.json") )
+    key = request.args.get("key")
     # read GET variable
     lan = request.args.get("lang")
     if lan == "es":
@@ -37,7 +38,7 @@ def index():
     else:
         lang = json.load( open("static/config/en/index.json") )
     get_navbar_lang(lang)
-    return render_template("index.html", postList = posts, lang=lang, language=lan)
+    return render_template("index.html", postList = posts, lang=lang, language=lan, key=key)
 
 # login route
 @app.route('/login')
@@ -173,11 +174,10 @@ def facebook():
 @app.route('/facebook/auth/')
 def facebook_auth():
 	token = oauth.facebook.authorize_access_token()
-	resp = oauth.facebook.get(
-		'https://graph.facebook.com/me?fields=id,name,email,picture{url}')
-	profile = resp.json()
-	print("Facebook User ", profile)
-	return redirect('/')
+	resp = oauth.facebook.get('https://graph.facebook.com/me?fields=id,name,email,picture{url}')
+	profile = resp.json()   
+	username = profile["name"]
+	return redirect(url_for('index', key = username))
 
 # file not found
 @app.errorhandler(404)
