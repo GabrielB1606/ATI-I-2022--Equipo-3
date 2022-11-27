@@ -12,5 +12,6 @@
         "headerEmail": "Check your Email!",
         "close": "Close",
         "temp": "Send temporary password"
-    }
+    },
+    "new_account":"No posees una cuenta? Registrate"
 }

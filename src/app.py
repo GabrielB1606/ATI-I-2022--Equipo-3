@@ -38,6 +38,18 @@ def index():
     return render_template("index.html", postList = posts, lang=lang, language=lan)
 
 # login route
+@app.route('/sign_in')
+def sign_in():
+    # read GET variable
+    if request.args.get("lang") == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/sign_in.json") )
+    else:
+        lang = json.load( open("static/config/en/sign_in.json") )
+    get_navbar_lang(lang)
+    return render_template("sign_in.html", lang=lang)
+
+# login route
 @app.route('/login')
 def login():
     # read GET variable

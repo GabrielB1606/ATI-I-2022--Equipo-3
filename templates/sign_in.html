@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/upload_profile_img.css') }}">
+
+    <section class="vh-75">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0 justify-content-center">
+                            
+                            
+
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center ">
+                                <div class="card-body p-4 p-lg-5 text-black">
+
+                                    <div class="d-flex align-items-center mb-3 pb-1">
+                                        <i class="fa-solid fa-hippo fa-2xl me-3"></i>
+                                        <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
+                                        <span class="h1 fw-bold mb-0" style="font-family: 'Rubik', sans-serif;">HipMe Up!</span>
+                                    </div>
+
+                                    
+                                    <form>
+                                        <div class="text-center mb-3">                                            
+                                            <p>{{lang.signIn}}</p>
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                            <i class="fab fa-facebook-f"></i>
+                                            </button>
+
+                                            <!-- <button type="button" class="btn btn-link btn-floating mx-1">
+                                            <i class="fab fa-google"></i>
+                                            </button> -->
+
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                            <i class="fab fa-twitter"></i>
+                                            </button>
+
+                                            <!-- <button type="button" class="btn btn-link btn-floating mx-1">
+                                            <i class="fab fa-github"></i>
+                                            </button> -->
+                                        </div>
+                                        
+                                        <p class="text-center">{{lang.or}}</p>
+
+
+                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">{{lang.signUp}}</h5>
+
+                                        <div class="container">
+                                            <div class="picture-container">
+                                                <div class="picture">
+                                                    <img src="https://lh3.googleusercontent.com/LfmMVU71g-HKXTCP_QWlDOemmWg4Dn1rJjxeEsZKMNaQprgunDTtEuzmcwUBgupKQVTuP0vczT9bH32ywaF7h68mF-osUSBAeM6MxyhvJhG6HKZMTYjgEv3WkWCfLB7czfODidNQPdja99HMb4qhCY1uFS8X0OQOVGeuhdHy8ln7eyr-6MnkCcy64wl6S_S6ep9j7aJIIopZ9wxk7Iqm-gFjmBtg6KJVkBD0IA6BnS-XlIVpbqL5LYi62elCrbDgiaD6Oe8uluucbYeL1i9kgr4c1b_NBSNe6zFwj7vrju4Zdbax-GPHmiuirf2h86eKdRl7A5h8PXGrCDNIYMID-J7_KuHKqaM-I7W5yI00QDpG9x5q5xOQMgCy1bbu3St1paqt9KHrvNS_SCx-QJgBTOIWW6T0DHVlvV_9YF5UZpN7aV5a79xvN1Gdrc7spvSs82v6gta8AJHCgzNSWQw5QUR8EN_-cTPF6S-vifLa2KtRdRAV7q-CQvhMrbBCaEYY73bQcPZFd9XE7HIbHXwXYA=s200-no" class="picture-src" id="wizardPicturePreview" title="">
+                                                    <input type="file" id="wizard-picture" class="">
+                                                </div>
+                                                <br>
+                                                 <p>{{lang.choose_picture}}<p>
+                                        
+                                            </div>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="form2Example17">{{lang.email.label}}</label>
+                                            <input type="email" placeholder="{{lang.email.placeholder}}" id="form2Example17" class="form-control form-control-lg" />
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="form2Example27">{{lang.password.label}}</label>
+                                            <input type="password" placeholder="{{lang.password.placeholder}}" id="form2Example27" class="form-control form-control-lg" />
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <!-- Profile -->
+                                            <div role="tabpanel" class="tab-pane" id="profile">
+                                                <form>
+                                                    <!-- Name -->
+                                                    <div class="form-group">
+                                                        <label for="fullName">{{lang.name.label}}</label>
+                                                        <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp" placeholder="{{lang.name.placeholder}}" value="">
+                                                    </div>
+                                                    <br>
+
+                                                    <!-- Biography -->
+                                                    <div class="form-group">
+                                                        <label for="bio">{{lang.biography.label}}</label>
+                                                        <textarea class="form-control autosize" id="bio" placeholder="{{lang.biography.placeholder}}" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 62px;"></textarea>
+                                                    </div>
+                                                    <br>
+
+                                                    <!-- Birthday -->
+                                                    <div class="form-group">
+                                                        <label for="birthday">{{lang.birthday}}</label>
+                                                        <input type="date" class="form-control" id="birthday" value="">
+                                                    </div>
+                                                    <br>
+
+                                                    <!-- Videogames -->
+                                                    <div class="form-group">
+                                                        <label for="videogames">{{lang.video_games.label}}</label>
+                                                        <input type="text" class="form-control" id="videogames" placeholder="{{lang.video_games.placeholder}}" value="">
+                                                    </div>
+                                                    <br>
+
+                                                    <!-- Music -->
+                                                    <div class="form-group">
+                                                        <label for="music">{{lang.music.label}}</label>
+                                                        <input type="text" class="form-control" id="music" placeholder="{{lang.music.placeholder}}" value="">
+                                                    </div>
+                                                    <br>
+
+                                                    <!-- Book -->
+                                                    <div class="form-group">
+                                                        <label for="book">{{lang.book.label}}</label>
+                                                        <input type="text" class="form-control" id="book" placeholder="{{lang.book.placeholder}}" value="">
+                                                    </div>
+                                                    <br>
+
+                                                    <!-- Color -->
+                                                    <div class="form-group">
+                                                        <label for="book">{{lang.color.label}}</label>
+                                                        <input type="text" class="form-control" id="color" placeholder="{{lang.color.placeholder}}" value="">
+                                                    </div>
+                                                    <br>
+
+                                                  
+                                                </form>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="pt-1 mb-4 d-flex justify-content-center">
+                                            <button class="btn btn-dark btn-lg btn-block" type="button" onclick="window.location.href='{{url_for('index')}}';">{{lang.signin}}</button>
+                                        </div>
+
+
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{url_for('static', filename='js/upload_profile_img.js')}}"></script>
+{% endblock %}
