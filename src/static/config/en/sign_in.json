@@ -1,0 +1,50 @@
+{
+    "signIn": "Sign in with", 
+    "signUp":"Sign up with new credentials",
+    "choose_picture":"Choose a profile picture",
+    "or": "or",
+    
+    "email":{
+        "label":"Email address",
+        "placeholder":"Enter your email address"
+    },
+
+    "password":{
+        "label":"Password",
+        "placeholder":"Enter your password"
+    },
+    "signin":"Sign in",
+
+
+    "name":{
+        "label": "Full Name",
+        "placeholder":"Enter your full name"
+    },
+
+    "biography":{
+        "label": "Biography",
+        "placeholder":"Write something about you"
+    },
+
+    "birthday": "Birthday",
+    
+    "video_games":{
+        "label": "Favorite video-game",
+        "placeholder":"Enter your favorite videogames"
+    },
+
+    "music":{ 
+        "label":"Favorite music",
+        "placeholder":"Enter your favorite music"
+    },
+
+    "book":{ 
+        "label":"Favorite book",
+        "placeholder":"Enter your favorite book"
+    },
+
+    "color":{
+        "label": "Favorite color",
+        "placeholder":"Enter your favorite color"
+    }
+}
