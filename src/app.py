@@ -161,7 +161,7 @@ def fetch_users2():
         database_hook = get_db("users_db")
    
     _users = database_hook["usuarios"].find()
-    users = [ {"ci": user["ci"], "email": user["email"] } for user in _users]
+    users = [ {"clave": user["clave"], "email": user["email"], "perfil": user["perfil"] } for user in _users]
     return jsonify( users )
     # return jsonify(json.load( open("./ati_2022_1/datos/index.json") ))
 
@@ -183,10 +183,33 @@ if __name__=='__main__':
         for user in initial_users:
             perfil = json.load( open("./ati_2022_1/"+str(user["ci"])+"/perfil.json") )
             database_hook["usuarios"].insert_one( {
-                "ci": user["ci"],
-                "email": perfil["email"]
+                "email": perfil["email"],
+                "clave": user["ci"],
+                "conectado": False,
+                "solicitudes": [],
+                "notificaciones": [],
+                "configuración": {
+                    "privacidad": "publico",
+                    "colorPerfil": "#ffffff",
+                    "colorMuro": "#ffffff",
+                    "idioma": "es",
+                    "notificacionesCorreo": 0
+                },
+                "perfil": {
+                    "ci": user["ci"],
+                    "nombre": perfil["nombre"],
+                    "descripcion": perfil["descripcion"],
+                    "color": perfil["color"],
+                    "libro": perfil["libro"],
+                    "musica": perfil["musica"],
+                    "video_juego": perfil["video_juego"],
+                    "lenguajes": perfil["lenguajes"],
+                    "genero": perfil["genero"],
+                    "fecha_nacimiento": perfil["fecha_nacimiento"]
+                },
+                "chats": [],
+                "publicaciones": []
             } )
-        database_hook["usuarios"].insert_many( [{"email": "ab", "ci": "27246729"}, {"email": "bb", "ci": "12345"}] )
 
     app.run(host="0.0.0.0", port=5000, debug=True)
     # global database_hook
