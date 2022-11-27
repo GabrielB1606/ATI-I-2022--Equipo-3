@@ -8,6 +8,7 @@ services:
     volumes:
       - ./src:/app
       - ./templates:/app/templates
+      - ./data/init/ati_2022_1:/app/ati_2022_1:ro
     links:
       - db
   db:
