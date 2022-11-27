@@ -1,0 +1,14 @@
+{	
+	"nombre":"Carlos Daniel Castillo Orozco",
+	"descripcion":"Soy estudiante de Licenciatura en Computación de la UCV con aspiracion a especializarse en Desarrollo Web o relacionados. Actualmente trabajando y estudiando remoto. Entre mis pasatiempos me gusta jugar beisbol y bailar salsa.",
+	"color":"Verde",
+	"libro":"Habitos de las personas altamente efectivas",
+	"musica":"La mayoria menos Vallenatos",
+	"video_juego": ["Super Smash Bros"],
+	"lenguajes": ["C/C++", "Python", "Java"],
+	"email":"cardacaso@gmail.com",
+	"ci":"27223295",
+	"genero": "masculino",
+	"fecha_nacimiento":"27/10/1998",
+	"imagen": "27223295.jpg"
+}

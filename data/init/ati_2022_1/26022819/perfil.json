@@ -1,0 +1,14 @@
+{
+	"nombre":"Valentina Contreras",
+	"descripcion":"Soy estudiante del 8vo semestre de la carrera de Lic. en Computación en la Universidad Central de Venezuela. Actualmente trabajo como desarrollador Front-end y en mis tiempos libres me dedico a aprender nuevas tecnologías relacionadas con el área, además de accesibilidad y experiencia de usuario",
+	"color":"Morado",
+	"libro":" 100 años de soledad",
+	"musica":"Todos",
+	"video_juego": "Counter-Strike",
+	"lenguajes":["JavaScript", "TypeScript", "React"],
+	"email":"valexcontreras@gmail.com",
+	"ci":"26022819",
+	"genero": "femenino",
+	"fecha_nacimiento":"27/06/1998",
+	"imagen": "26022819.jpg"
+}

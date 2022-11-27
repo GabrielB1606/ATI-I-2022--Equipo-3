@@ -1,0 +1,14 @@
+{
+    "nombre": "Gabriel Carrizo",
+    "descripcion": "Soy estudiante de la carrera de Computacion de la UCV. Actualmente me encuentro cursando las materias de Aplicaciones en Tecnologia Internet, Interaccion Humano Computador, Administracion de Base de Datos, Introduccion a la Computacion Grafica y Laboratorio General de Desarrollo de Software. Aun estoy indeciso en que area especializarme pero estoy entre ATI y Computacion Grafica, ya que son las areas que más me interesan.",
+    "color": "Morado",
+    "libro": "La Ladrona de Libros",
+    "musica": "Pop",
+    "video_juego": ["Final Fantasy ", "Pokemon"] ,
+    "lenguajes": ["C", "C++", "Python", "Java", "Javascript"],
+    "email": "gabo.c.liendo@gmail.com",
+    "ci": "27031954",
+    "genero": "masculino",
+    "fecha_nacimiento": "25/02/2000",
+    "imagen": "27031954.jpg"
+}
