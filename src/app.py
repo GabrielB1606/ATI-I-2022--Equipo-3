@@ -1,4 +1,5 @@
-from flask import Flask, jsonify, render_template, request, url_for, redirect
+from flask import Flask, jsonify, render_template, request, url_for, redirect, session
+from models import User
 import pymongo
 from pymongo import MongoClient
 from authlib.integrations.flask_client import OAuth
@@ -67,6 +68,17 @@ def login():
         lang = json.load( open("static/config/en/login.json") )
     get_navbar_lang(lang)
     return render_template("login.html", lang=lang)
+
+@app.route('/user-login/',methods=['POST'])
+def user_login():
+    found = database_hook.usuarios.find_one({ "email": request.form.get("email"), "clave": request.form.get("password") }) 
+    
+    if found:
+        return User().login(),200
+
+    return "",200
+
+
 
 # profile route
 @app.route('/user')
@@ -202,6 +214,8 @@ def facebook():
 	)
 	redirect_uri = url_for('facebook_auth', _external=True)
 	return oauth.facebook.authorize_redirect(redirect_uri)
+
+
 
 @app.route('/facebook/auth/')
 def facebook_auth():
