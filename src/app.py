@@ -102,6 +102,25 @@ def profileFriend():
     get_navbar_lang(lang)
     return render_template("friend.html", postList = posts, lang=lang, language=lan, config=config)
 
+# profile route
+@app.route('/user/<email>')
+def profileUser(email):
+    user_info = database_hook["usuarios"].find_one( {"email": email} )
+    print(user_info)
+    return jsonify(user_info)
+    posts = json.load( open("data/dummy/posts_friend.json") )
+    # read GET variable
+    lan = request.args.get("lang")
+    if lan == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/index.json") )
+        config = json.load(open("static/config/es/config.json"))
+    else:
+        lang = json.load( open("static/config/en/index.json") )
+        config = json.load(open("static/config/en/config.json"))
+    get_navbar_lang(lang)
+    return render_template("profile.html", postList = posts, lang=lang, language=lan, config=config, user=user_info["perfil"])
+
 # chat route
 @app.route('/chat')
 def chat():
@@ -246,7 +265,7 @@ if __name__=='__main__':
                         "notificacionesCorreo": 0
                     },
                     "perfil": {
-                        "ci": user["ci"],
+                        "ci": str(user["ci"]),
                         "nombre": perfil["nombre"],
                         "descripcion": perfil["descripcion"],
                         "color": perfil["color"],
