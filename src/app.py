@@ -281,9 +281,7 @@ def facebook_auth():
     #database_hook.usuarios.find_one_and_delete({"email": profile["email"]})
     #return redirect(url_for('index', key = "Nuevo perfil creado"))
     
-    if findMongoDB:
-        return redirect(url_for('index', key = findMongoDB["perfil"]["nombre"]))
-    else:      
+    if not findMongoDB:    
         database_hook["usuarios"].insert_one( {
             "email": profile["email"],
             "clave": "",
@@ -312,7 +310,10 @@ def facebook_auth():
             "chats": [],
             "publicaciones": []
         } )
-        return redirect(url_for('index', key = findMongoDB["perfil"]["nombre"]))
+        findMongoDB = database_hook.usuarios.find_one({"email": profile["email"]})
+    
+    User().start_session( {"email": findMongoDB["email"], "perfil": findMongoDB["perfil"]} )
+    return redirect(url_for('index', key = findMongoDB["perfil"]["nombre"]))
 
 # file not found
 @app.errorhandler(404)
