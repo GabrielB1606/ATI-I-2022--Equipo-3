@@ -3,10 +3,15 @@ import pymongo
 from pymongo import MongoClient
 from authlib.integrations.flask_client import OAuth
 import json
+
+from forms import RegisterForm 
+
+
 import os
 import gridfs
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '123'
 app.secret_key = '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O/<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
 oauth = OAuth(app)
 
@@ -45,8 +50,40 @@ def index():
     return render_template("index.html", postList = posts, lang=lang, language=lan, key=key)
 
 # login route
-@app.route('/sign_in')
+@app.route('/sign_in', methods=['GET', 'POST'])
 def sign_in():
+    form = RegisterForm(request.form)
+    if form.validate_on_submit():
+        database_hook["usuarios"].delete_many({"email" : form.email.data})
+        database_hook["usuarios"].insert_one( {
+            "email": form.email.data,
+            "clave": form.password.data,
+            "conectado": False,
+            "solicitudes": [],
+            "notificaciones": [],
+            "configuración": {
+                "privacidad": "publico",
+                "colorPerfil": "#ffffff",
+                "colorMuro": "#ffffff",
+                "idioma": "es",
+                "notificacionesCorreo": 0
+            },
+            "perfil": {
+                "nombre": form.name.data,
+                "descripcion": form.biography.data,
+                "color": form.color.data,
+                "libro": form.book.data,
+                "musica": form.music.data,
+                "video_juego": form.videogames.data,
+                "lenguajes": form.languages.data,
+                "genero": "Otro",
+                "fecha_nacimiento": form.birthday.data.strftime("%m/%d/%Y")
+            },
+            "chats": [],
+            "publicaciones": []
+        })
+        return redirect(url_for('index'))
+
     # read GET variable
     if request.args.get("lang") == "es":
         # open config file according to the GET variable lang
@@ -54,7 +91,8 @@ def sign_in():
     else:
         lang = json.load( open("static/config/en/sign_in.json") )
     get_navbar_lang(lang)
-    return render_template("sign_in.html", lang=lang)
+
+    return render_template("sign_in.html", lang=lang, form=form)
 
 # login route
 @app.route('/login')
