@@ -296,6 +296,7 @@ def facebook_auth():
                 "notificacionesCorreo": 0
             },
             "perfil": {
+                "img_url": profile["picture"]["data"]["url"],
                 "ci": "",
                 "nombre": profile["name"],
                 "descripcion": "",
@@ -313,7 +314,7 @@ def facebook_auth():
         findMongoDB = database_hook.usuarios.find_one({"email": profile["email"]})
     
     User().start_session( {"email": findMongoDB["email"], "perfil": findMongoDB["perfil"]} )
-    return redirect(url_for('index', key = findMongoDB["perfil"]["nombre"]))
+    return redirect(url_for('index', key = profile["name"]))
 
 # file not found
 @app.errorhandler(404)
