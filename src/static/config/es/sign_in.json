@@ -7,17 +7,23 @@
     
     "email":{
         "label":"Direccion de correo electronico",
-        "placeholder":"Introduzca su direccion de correo electronico"
+        "placeholder":"Introduzca su direccion de correo electronico",
+        "error": "Campo obligatorio"
     },
 
     "password":{
         "label":"Contraseña",
-        "placeholder":"Introduzca su contraseña"
+        "placeholder":"Introduzca su contraseña",
+        "error":"Campo obligatorio, con mínimo de 7 carácteres y debe coincidir"
     },
-
+    "confirm":{
+        "label":"Confirmar contraseña",
+        "placeholder":"Confirme su contraseña"
+    },
     "name":{
         "label": "Nombre completo",
-        "placeholder":"Introduzca su nombre completo"
+        "placeholder":"Introduzca su nombre completo",
+        "error": "Campo obligatorio"
     },
 
     "biography":{
