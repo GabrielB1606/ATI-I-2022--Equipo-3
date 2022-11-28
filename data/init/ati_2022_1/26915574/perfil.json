@@ -1,0 +1,14 @@
+{	
+	"nombre": "Valeria Acuña",
+    "descripcion": "Soy bachiller en ciencias, actual estudiante de la Universidad Central de Venezuela en la facultad de ciencias, cursando el 6to semestre de la Licenciatura de Computación. Me gusta el área de sistemas de información y bases de dato. Practique fútbol desde mis 11 años jugué en las categorias menores de la UCV hasta la categoria libre. Actualmente juego futbol sala con el equipo de ciencias y representando a la UCV. Otra de mis pasiones es el arte culinaria y me gustaria en un futuro estudiarla.",
+    "color": "Verde",
+    "libro": "Nada que perder",
+    "musica": "Cualquiera",
+    "video_juego": "Call of Duty",
+    "lenguajes": ["Java", "Python", "C", "C++"],
+    "email": "valeriaa.2608@gmail.com",
+    "ci": "26915574",
+    "genero": "Femenino",
+    "fecha_nacimiento": "26/08/1997",
+	"imagen": "26915574.jpg"
+}

@@ -4,20 +4,24 @@ from pymongo import MongoClient
 from authlib.integrations.flask_client import OAuth
 import json
 import os
+import gridfs
 
 app = Flask(__name__)
 app.secret_key = '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O/<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
 oauth = OAuth(app)
 
 # get the connection to mongoDB through a client (this should be a variable... i guess)
-def get_db():
+def get_db(db_name):
     client = MongoClient(host='test_mongodb',
                          port=27017,
                          username='root',
                          password='pass',
                         authSource="admin")
-    db = client["users_db"]
+    db = client[db_name]
     return db
+
+database_hook = get_db("users_db")
+image_saver = gridfs.GridFS( database_hook )
 
 def get_navbar_lang(lang):
     if request.args.get("lang") == "es":
@@ -39,6 +43,18 @@ def index():
         lang = json.load( open("static/config/en/index.json") )
     get_navbar_lang(lang)
     return render_template("index.html", postList = posts, lang=lang, language=lan, key=key)
+
+# login route
+@app.route('/sign_in')
+def sign_in():
+    # read GET variable
+    if request.args.get("lang") == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/sign_in.json") )
+    else:
+        lang = json.load( open("static/config/en/sign_in.json") )
+    get_navbar_lang(lang)
+    return render_template("sign_in.html", lang=lang)
 
 # login route
 @app.route('/login')
@@ -140,17 +156,33 @@ def search_users():
 # demo for fetching mongoDB data
 @app.route('/listUsers')
 def fetch_users():
-    db=""
+    # db=""
     try:
-        db = get_db()
-        _users = db.users_tb.find()
-        users = [{"name": user["name"], "password": user["password"]} for user in _users]
-        return jsonify({"users": users})
+        global database_hook
+        # datos = json.load( open("./ati_2022_1/datos/index.json") )
+        # database_hook["usuarios"].insert_many( datos )
+        if type(database_hook)!=MongoClient:
+            database_hook = get_db("users_db")
+        # db = get_db("users_db")
+        _users = database_hook["usuarios"].find()
+        users = [{user} for user in _users]
+        return jsonify(json.load( open("./ati_2022_1/datos/index.json") ))
     except:
-        print("error fetching users")
-    finally:
-        if type(db)==MongoClient:
-            db.close()
+        return jsonify({"error": "did not finish try statement"})
+    #     print("error fetching users")
+
+# demo for fetching mongoDB data
+@app.route('/listUsers2')
+def fetch_users2():
+    
+    global database_hook
+    if type(database_hook)!=MongoClient:
+        database_hook = get_db("users_db")
+   
+    _users = database_hook["usuarios"].find()
+    users = [ {"clave": user["clave"], "email": user["email"], "perfil": user["perfil"] } for user in _users]
+    return jsonify( users )
+    # return jsonify(json.load( open("./ati_2022_1/datos/index.json") ))
 
 @app.route('/facebook/')
 def facebook():
@@ -190,4 +222,51 @@ def page_not_found(e):
     return "<h1>custom 500 error page</h1>", 500
 
 if __name__=='__main__':
+    try:
+        database_hook.validate_collection("usuarios")
+    except:
+        initial_users = json.load( open("./ati_2022_1/datos/index.json") )
+        for user in initial_users:
+            try:
+                perfil = json.load( open("./ati_2022_1/"+str(user["ci"])+"/perfil.json") )
+                with open( "./ati_2022_1/"+str(user["ci"])+"/"+str(user["ci"])+".jpg" , 'rb') as f:
+                    contents = f.read()
+                image_saver.put(contents, filename=str(user["ci"])+".jpg" )
+                database_hook["usuarios"].insert_one( {
+                    "email": perfil["email"],
+                    "clave": user["ci"],
+                    "conectado": False,
+                    "solicitudes": [],
+                    "notificaciones": [],
+                    "configuración": {
+                        "privacidad": "publico",
+                        "colorPerfil": "#ffffff",
+                        "colorMuro": "#ffffff",
+                        "idioma": "es",
+                        "notificacionesCorreo": 0
+                    },
+                    "perfil": {
+                        "ci": user["ci"],
+                        "nombre": perfil["nombre"],
+                        "descripcion": perfil["descripcion"],
+                        "color": perfil["color"],
+                        "libro": perfil["libro"],
+                        "musica": perfil["musica"],
+                        "video_juego": perfil["video_juego"],
+                        "lenguajes": perfil["lenguajes"],
+                        "genero": perfil["genero"],
+                        "fecha_nacimiento": perfil["fecha_nacimiento"]
+                    },
+                    "chats": [],
+                    "publicaciones": []
+                } )
+            except:
+                pass
+
     app.run(host="0.0.0.0", port=5000, debug=True)
+    # global database_hook
+    # if type(database_hook)!=MongoClient:
+    #     database_hook = get_db("users_db")
+
+
+    # database.usuarios.insert_many( datos )

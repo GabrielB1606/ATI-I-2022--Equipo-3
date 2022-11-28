@@ -1,0 +1,14 @@
+{
+	"nombre" : "Victor Daniel Tafuri Vidal",
+   "descripcion" : "Soy estudiante de 7mo Semestre de computacion, auxiliar docente del laboratorio de postgrado, Jugador de Rugby del equipo de la Universidad Central de Venezuela UCVRFC, apasionado a los videojuegos y el deporte.Trabajo en la empresa Disglobal como supervisor del area de Desarrollo y Soporte Tecnico",     
+	"color" : "Azul",  
+	"libro" : "Tormenta de Espadas ",
+	"musica" : ["Rock", "Rap", "Reggaeton"], 
+	"video_juego": ["The last of Us", "Call of Duty", "Clash of Clans"],
+	"lenguajes" : 	["C", "C++", "Java"],
+	"email" : "victortafuri2@gmail.com",
+	"ci" : "25504486", 
+	"genero": "masculino",
+	"fecha_nacimiento" : "09/10/1996",
+	"imagen": "25504486.jpg"
+}

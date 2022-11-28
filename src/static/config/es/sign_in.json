@@ -1,0 +1,49 @@
+{
+    "signIn": "Registrate con", 
+    "signUp":"Regístrese con nuevas credenciales",
+    "choose_picture":"Escoja una foto de perfil",
+    "or": "or",
+    "signin":"Registrar",
+    
+    "email":{
+        "label":"Direccion de correo electronico",
+        "placeholder":"Introduzca su direccion de correo electronico"
+    },
+
+    "password":{
+        "label":"Contraseña",
+        "placeholder":"Introduzca su contraseña"
+    },
+
+    "name":{
+        "label": "Nombre Completo",
+        "placeholder":"Introduzca su nombre completo"
+    },
+
+    "biography":{
+        "label": "Biografia",
+        "placeholder":"Escribe algo sobre ti"
+    },
+
+    "birthday": "Cumpleaños",
+    
+    "video_games":{
+        "label": "Video-juegos Favoritos",
+        "placeholder":"Introduzca sus Video-juegos favoritos"
+    },
+
+    "music":{ 
+        "label":"Musica Preferida",
+        "placeholder":"Introduzca su musica preferida"
+    },
+
+    "book":{ 
+        "label":"Libro Favorito",
+        "placeholder":"Introduzca su libro favorito"
+    },
+
+    "color":{
+        "label": "Color Favorito",
+        "placeholder":"Introduzca su color favorito"
+    }
+}

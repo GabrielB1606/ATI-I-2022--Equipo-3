@@ -12,5 +12,6 @@
         "headerEmail": "Revisa tu correo!",
         "close": "Cerrar",
         "temp": "Enviar clave temporal"
-    }
+    },
+    "new_account":"No posees una cuenta? Registrate"
 }

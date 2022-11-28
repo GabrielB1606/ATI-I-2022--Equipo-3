@@ -1,0 +1,15 @@
+{
+	"nombre":"David Sanchez",
+	"descripcion":"Soy estudiante de computacion de la universidad central de venezuela. Me desempeño en el area de administracion de redes y sistemas linux. Actualmente soy preparador de comunicacion de datos. Hablo 2 lenguajes español e ingles pero estoy aprendiendo japones y lo puedo hablar a un nivel conversacional. Me gustan los videojuegos, el manga y el anime. Uno de mis sueños es ir a japon. Ademas de estudiar computacion me gusta viajar por venezuela, ir a rios, montañas, cascadas, playas y ver lo hermoso de la naturaleza.",
+	"color":"verde",
+	"libro":"one piece",
+	"musica":"rock",
+	"video_juego":"The legend of Zelda",
+	"lenguajes":["java","C","C++","python"],
+	"email":"luigisperstar7@gmail.com",
+	"CI":"26573559",
+	"genero":"masculino",
+	"fecha_nacimiento":"18/03/1999",
+	"imagen": "26573559.jpg"
+
+}

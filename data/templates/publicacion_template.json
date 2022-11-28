@@ -1,0 +1,18 @@
+{
+    "idPublicacion": 1,
+    "idUsuario": 0,
+    "privacidad": "privado",
+    "contenido": {
+        "texto": "Lorem ipsum 🙈",
+        "multimedia": "blob"
+    },
+    "comentarios":
+        [
+            {
+                "idComentario": 1,
+                "idUsuario": 2,
+                "texto": "lmao ☠️",
+                "comentarios": []
+            }
+        ]
+}
