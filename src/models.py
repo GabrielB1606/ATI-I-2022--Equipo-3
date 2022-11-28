@@ -5,9 +5,14 @@ class User:
     def start_session(self,user):
         session['logged_in'] = True
         session['user'] = user
-        return jsonify(user)
+        return jsonify(user),200
 
-    def login(self):
+    def login(self,database_hook):
+        found = database_hook.usuarios.find_one({ "email": request.form.get("email"), "clave": request.form.get("password") }) 
+        
+        if not found:
+            return jsonify({"message":"Incorrect email address or password"}),400
+
         user={
             "email": request.form.get('email')
         }

@@ -71,13 +71,10 @@ def login():
 
 @app.route('/user-login/',methods=['POST'])
 def user_login():
-    found = database_hook.usuarios.find_one({ "email": request.form.get("email"), "clave": request.form.get("password") }) 
     
-    if found:
-        
-        return User().login(),200
+    return User().login(database_hook)
 
-    return "",200
+    
 
 
 
