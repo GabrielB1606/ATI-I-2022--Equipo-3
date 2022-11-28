@@ -2,6 +2,7 @@ from flask import Flask, jsonify, render_template, request
 import pymongo
 from pymongo import MongoClient
 import json
+import gridfs
 
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ def get_db(db_name):
     return db
 
 database_hook = get_db("users_db")
+image_saver = gridfs.GridFS( database_hook )
 
 def get_navbar_lang(lang):
     if request.args.get("lang") == "es":
@@ -193,35 +195,41 @@ if __name__=='__main__':
     except:
         initial_users = json.load( open("./ati_2022_1/datos/index.json") )
         for user in initial_users:
-            perfil = json.load( open("./ati_2022_1/"+str(user["ci"])+"/perfil.json") )
-            database_hook["usuarios"].insert_one( {
-                "email": perfil["email"],
-                "clave": user["ci"],
-                "conectado": False,
-                "solicitudes": [],
-                "notificaciones": [],
-                "configuración": {
-                    "privacidad": "publico",
-                    "colorPerfil": "#ffffff",
-                    "colorMuro": "#ffffff",
-                    "idioma": "es",
-                    "notificacionesCorreo": 0
-                },
-                "perfil": {
-                    "ci": user["ci"],
-                    "nombre": perfil["nombre"],
-                    "descripcion": perfil["descripcion"],
-                    "color": perfil["color"],
-                    "libro": perfil["libro"],
-                    "musica": perfil["musica"],
-                    "video_juego": perfil["video_juego"],
-                    "lenguajes": perfil["lenguajes"],
-                    "genero": perfil["genero"],
-                    "fecha_nacimiento": perfil["fecha_nacimiento"]
-                },
-                "chats": [],
-                "publicaciones": []
-            } )
+            try:
+                perfil = json.load( open("./ati_2022_1/"+str(user["ci"])+"/perfil.json") )
+                with open( "./ati_2022_1/"+str(user["ci"])+"/"+str(user["ci"])+".jpg" , 'rb') as f:
+                    contents = f.read()
+                image_saver.put(contents, filename=str(user["ci"])+".jpg" )
+                database_hook["usuarios"].insert_one( {
+                    "email": perfil["email"],
+                    "clave": user["ci"],
+                    "conectado": False,
+                    "solicitudes": [],
+                    "notificaciones": [],
+                    "configuración": {
+                        "privacidad": "publico",
+                        "colorPerfil": "#ffffff",
+                        "colorMuro": "#ffffff",
+                        "idioma": "es",
+                        "notificacionesCorreo": 0
+                    },
+                    "perfil": {
+                        "ci": user["ci"],
+                        "nombre": perfil["nombre"],
+                        "descripcion": perfil["descripcion"],
+                        "color": perfil["color"],
+                        "libro": perfil["libro"],
+                        "musica": perfil["musica"],
+                        "video_juego": perfil["video_juego"],
+                        "lenguajes": perfil["lenguajes"],
+                        "genero": perfil["genero"],
+                        "fecha_nacimiento": perfil["fecha_nacimiento"]
+                    },
+                    "chats": [],
+                    "publicaciones": []
+                } )
+            except:
+                pass
 
     app.run(host="0.0.0.0", port=5000, debug=True)
     # global database_hook
