@@ -9,8 +9,6 @@
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0 justify-content-center">
-                            
-                            
 
                             <div class="col-md-6 col-lg-7 d-flex align-items-center ">
                                 <div class="card-body p-4 p-lg-5 text-black">
@@ -21,29 +19,20 @@
                                         <span class="h1 fw-bold mb-0" style="font-family: 'Rubik', sans-serif;">HipMe Up!</span>
                                     </div>
 
-                                    
-                                    <form>
+                                    <form method="POST" action="/">
+                                        {{ form.csrf_token }}
                                         <div class="text-center mb-3">                                            
                                             <p>{{lang.signIn}}</p>
                                             <button type="button" class="btn btn-link btn-floating mx-1">
                                             <i class="fab fa-facebook-f"></i>
                                             </button>
 
-                                            <!-- <button type="button" class="btn btn-link btn-floating mx-1">
-                                            <i class="fab fa-google"></i>
-                                            </button> -->
-
                                             <button type="button" class="btn btn-link btn-floating mx-1">
                                             <i class="fab fa-twitter"></i>
                                             </button>
-
-                                            <!-- <button type="button" class="btn btn-link btn-floating mx-1">
-                                            <i class="fab fa-github"></i>
-                                            </button> -->
                                         </div>
                                         
                                         <p class="text-center">{{lang.or}}</p>
-
 
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">{{lang.signUp}}</h5>
 
@@ -61,12 +50,12 @@
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example17">{{lang.email.label}}</label>
-                                            <input type="email" placeholder="{{lang.email.placeholder}}" id="form2Example17" class="form-control form-control-lg" />
+                                            {{ form.email( class="form-control", placeholder=lang.email.placeholder) }}
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example27">{{lang.password.label}}</label>
-                                            <input type="password" placeholder="{{lang.password.placeholder}}" id="form2Example27" class="form-control form-control-lg" />
+                                            {{ form.password( class="form-control", placeholder=lang.password.placeholder) }}
                                         </div>
 
                                         <div class="form-outline mb-4">
@@ -76,62 +65,59 @@
                                                     <!-- Name -->
                                                     <div class="form-group">
                                                         <label for="fullName">{{lang.name.label}}</label>
-                                                        <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp" placeholder="{{lang.name.placeholder}}" value="">
+                                                        {{ form.name( class="form-control", placeholder=lang.name.placeholder) }}
                                                     </div>
                                                     <br>
 
                                                     <!-- Biography -->
                                                     <div class="form-group">
                                                         <label for="bio">{{lang.biography.label}}</label>
-                                                        <textarea class="form-control autosize" id="bio" placeholder="{{lang.biography.placeholder}}" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 62px;"></textarea>
+                                                        {{ form.biography( class="form-control", placeholder=lang.biography.placeholder) }}
                                                     </div>
                                                     <br>
 
                                                     <!-- Birthday -->
                                                     <div class="form-group">
                                                         <label for="birthday">{{lang.birthday}}</label>
-                                                        <input type="date" class="form-control" id="birthday" value="">
+                                                        {{ form.birthday( class="form-control") }}
                                                     </div>
                                                     <br>
 
                                                     <!-- Videogames -->
                                                     <div class="form-group">
                                                         <label for="videogames">{{lang.video_games.label}}</label>
-                                                        <input type="text" class="form-control" id="videogames" placeholder="{{lang.video_games.placeholder}}" value="">
+                                                        {{ form.videoGames( class="form-control", placeholder=lang.video_games.placeholder) }}
                                                     </div>
                                                     <br>
 
                                                     <!-- Music -->
                                                     <div class="form-group">
                                                         <label for="music">{{lang.music.label}}</label>
-                                                        <input type="text" class="form-control" id="music" placeholder="{{lang.music.placeholder}}" value="">
+                                                        {{ form.music( class="form-control", placeholder=lang.music.placeholder) }}
                                                     </div>
                                                     <br>
 
                                                     <!-- Book -->
                                                     <div class="form-group">
                                                         <label for="book">{{lang.book.label}}</label>
-                                                        <input type="text" class="form-control" id="book" placeholder="{{lang.book.placeholder}}" value="">
+                                                        {{ form.book( class="form-control", placeholder=lang.book.placeholder) }}
                                                     </div>
                                                     <br>
 
                                                     <!-- Color -->
                                                     <div class="form-group">
-                                                        <label for="book">{{lang.color.label}}</label>
-                                                        <input type="text" class="form-control" id="color" placeholder="{{lang.color.placeholder}}" value="">
+                                                        <label for="color">{{lang.color.label}}</label>
+                                                        {{ form.color( class="form-control", placeholder=lang.color.placeholder) }}
                                                     </div>
                                                     <br>
-
                                                   
                                                 </form>
                                             </div>
                                         </div>
                                         
                                         <div class="pt-1 mb-4 d-flex justify-content-center">
-                                            <button class="btn btn-dark btn-lg btn-block" type="button" onclick="window.location.href='{{url_for('index')}}';">{{lang.signin}}</button>
+                                            <button class="btn btn-dark btn-lg btn-block" type="submit">{{lang.signin}}</button>
                                         </div>
-
-
 
                                     </form>
                                 </div>

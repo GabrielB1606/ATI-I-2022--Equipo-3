@@ -1,9 +1,11 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, redirect, url_for
 import pymongo
 from pymongo import MongoClient
 import json
+from forms import RegisterForm 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '123'
 
 # get the connection to mongoDB through a client (this should be a variable... i guess)
 def get_db(db_name):
@@ -38,8 +40,12 @@ def index():
     return render_template("index.html", postList = posts, lang=lang, language=lan)
 
 # login route
-@app.route('/sign_in')
+@app.route('/sign_in', methods=('GET', 'POST'))
 def sign_in():
+    form = RegisterForm()
+    if form.validate_on_submit():
+        return redirect(url_for('login'))
+
     # read GET variable
     if request.args.get("lang") == "es":
         # open config file according to the GET variable lang
@@ -47,7 +53,8 @@ def sign_in():
     else:
         lang = json.load( open("static/config/en/sign_in.json") )
     get_navbar_lang(lang)
-    return render_template("sign_in.html", lang=lang)
+    
+    return render_template("sign_in.html", lang=lang, form=form)
 
 # login route
 @app.route('/login')
