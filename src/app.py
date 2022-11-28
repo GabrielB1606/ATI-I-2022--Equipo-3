@@ -249,7 +249,7 @@ if __name__=='__main__':
                 perfil = json.load( open("./ati_2022_1/"+str(user["ci"])+"/perfil.json") )
                 with open( "./ati_2022_1/"+str(user["ci"])+"/"+str(user["ci"])+".jpg" , 'rb') as f:
                     contents = f.read()
-                image_saver.put(contents, filename=str(user["ci"])+".jpg" )
+                image_saver.put(contents, filename=perfil["email"].lower()+".jpg" )
                 database_hook["usuarios"].insert_one( {
                     "email": perfil["email"].lower(),
                     "clave": user["ci"],
