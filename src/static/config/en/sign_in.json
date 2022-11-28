@@ -28,8 +28,13 @@
 
     "birthday": "Birthday",
     
+    "programmingLanguages":{
+        "label": "Favorite programming languages",
+        "placeholder":"Enter your favorite programming languages"
+    },
+
     "video_games":{
-        "label": "Favorite video-game",
+        "label": "Favorite videogames",
         "placeholder":"Enter your favorite videogames"
     },
 

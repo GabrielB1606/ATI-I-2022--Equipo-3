@@ -40,11 +40,38 @@ def index():
     return render_template("index.html", postList = posts, lang=lang, language=lan)
 
 # login route
-@app.route('/sign_in', methods=('GET', 'POST'))
+@app.route('/sign_in', methods=['GET', 'POST'])
 def sign_in():
     form = RegisterForm()
     if form.validate_on_submit():
-        return redirect(url_for('login'))
+        database_hook["usuarios"].insert_one( {
+                    "email": form.email.data,
+                    "clave": form.password.data,
+                    "conectado": False,
+                    "solicitudes": [],
+                    "notificaciones": [],
+                    "configuración": {
+                        "privacidad": "publico",
+                        "colorPerfil": "#ffffff",
+                        "colorMuro": "#ffffff",
+                        "idioma": "es",
+                        "notificacionesCorreo": 0
+                    },
+                    "perfil": {
+                        "nombre": form.name.data,
+                        "descripcion": form.biography.data,
+                        "color": form.color.data,
+                        "libro": form.book.data,
+                        "musica": form.music.data,
+                        "video_juego": form.videoGames.data,
+                        "lenguajes": form.languages.data,
+                        "genero": form,
+                        "fecha_nacimiento": form.birthday.data
+                    },
+                    "chats": [],
+                    "publicaciones": []
+                } )
+        return redirect(url_for("user"))
 
     # read GET variable
     if request.args.get("lang") == "es":
@@ -53,7 +80,7 @@ def sign_in():
     else:
         lang = json.load( open("static/config/en/sign_in.json") )
     get_navbar_lang(lang)
-    
+
     return render_template("sign_in.html", lang=lang, form=form)
 
 # login route

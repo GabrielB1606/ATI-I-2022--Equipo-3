@@ -16,7 +16,7 @@
     },
 
     "name":{
-        "label": "Nombre Completo",
+        "label": "Nombre completo",
         "placeholder":"Introduzca su nombre completo"
     },
 
@@ -27,23 +27,28 @@
 
     "birthday": "Cumpleaños",
     
+    "programmingLanguages":{
+        "label": "Lenguajes de programación favoritos",
+        "placeholder":"Introduzca sus lenguajes de programación favoritos"
+    },
+
     "video_games":{
-        "label": "Video-juegos Favoritos",
-        "placeholder":"Introduzca sus Video-juegos favoritos"
+        "label": "Videojuegos Favoritos",
+        "placeholder":"Introduzca sus videojuegos favoritos"
     },
 
     "music":{ 
-        "label":"Musica Preferida",
+        "label":"Musica preferida",
         "placeholder":"Introduzca su musica preferida"
     },
 
     "book":{ 
-        "label":"Libro Favorito",
+        "label":"Libro favorito",
         "placeholder":"Introduzca su libro favorito"
     },
 
     "color":{
-        "label": "Color Favorito",
+        "label": "Color favorito",
         "placeholder":"Introduzca su color favorito"
     }
 }
