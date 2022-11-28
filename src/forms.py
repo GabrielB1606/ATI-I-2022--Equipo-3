@@ -1,18 +1,17 @@
 from flask_wtf import FlaskForm
-from wtforms import (StringField, TextAreaField, DateField, RadioField, SubmitField)
-
+from wtforms import (StringField, TextAreaField, DateField, SubmitField)
 from wtforms.validators import InputRequired, Length
+from datetime import date
 
 class RegisterForm(FlaskForm):
-    email = StringField(validators=[InputRequired()])
+    email = StringField(validators=[InputRequired(message="Introduzca un correo")])
     password = StringField(validators=[InputRequired(), Length(min=7)])
     name = StringField(validators=[InputRequired()])
     biography = TextAreaField()
-    birthday = DateField(format='%d/%m/%y')
+    birthday = DateField(default=date.today(), format='%Y-%m-%d')
     languages = StringField()
-    videoGames = StringField()
+    videogames = StringField()
     music = StringField()
     book = StringField()
     color = StringField()
-    gender = RadioField(choices=['Male', 'Female', 'Other'])
     submit = SubmitField()

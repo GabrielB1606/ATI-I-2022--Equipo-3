@@ -18,8 +18,9 @@
                                         <span class="h1 fw-bold mb-0" style="font-family: 'Rubik', sans-serif;">HipMe Up!</span>
                                     </div>
 
-                                    <form method="POST" action="/">
+                                    <form method="POST" novalidate>
                                         {{ form.csrf_token }}
+
                                         <div class="text-center mb-3">                                            
                                             <p>{{lang.signIn}}</p>
                                             <button type="button" class="btn btn-link btn-floating mx-1">
@@ -50,31 +51,34 @@
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example17">{{lang.email.label}}</label>
                                             {{ form.email( class="form-control", placeholder=lang.email.placeholder) }}
-                                        </div>
-                                        {% if form.email.errors %}
+
+                                            {% if form.email.errors %}
                                             <ul class="errors">
                                                 {% for error in form.email.errors %}
                                                     <li>{{ error }}</li>
                                                 {% endfor %}
                                             </ul>
-                                        {% endif %}
-
+                                            {% endif %}
+                                        </div>
+                                       
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example27">{{lang.password.label}}</label>
                                             {{ form.password( class="form-control", placeholder=lang.password.placeholder) }}
-                                        </div>
-                                        {% if form.password.errors %}
+
+                                            {% if form.password.errors %}
                                             <ul class="errors">
                                                 {% for error in form.password.errors %}
                                                     <li>{{ error }}</li>
                                                 {% endfor %}
                                             </ul>
-                                        {% endif %}
-
+                                            {% endif %}
+                                        </div>
+                                        
                                         <!-- Name -->
                                         <div class="form-group">
                                             <label for="fullName">{{lang.name.label}}</label>
                                             {{ form.name( class="form-control", placeholder=lang.name.placeholder) }}
+                                            
                                             {% if form.name.errors %}
                                                 <ul class="errors">
                                                     {% for error in form.name.errors %}
@@ -91,7 +95,7 @@
                                             {{ form.biography( class="form-control", placeholder=lang.biography.placeholder) }}
                                         </div>
                                         <br>
-
+                                            
                                         <!-- Birthday -->
                                         <div class="form-group">
                                             <label for="birthday">{{lang.birthday}}</label>
@@ -109,7 +113,7 @@
                                         <!-- Videogames -->
                                         <div class="form-group">
                                             <label for="videogames">{{lang.video_games.label}}</label>
-                                            {{ form.videoGames( class="form-control", placeholder=lang.video_games.placeholder) }}
+                                            {{ form.videogames( class="form-control", placeholder=lang.video_games.placeholder) }}
                                         </div>
                                         <br>
 

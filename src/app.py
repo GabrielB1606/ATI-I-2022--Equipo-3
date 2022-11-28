@@ -42,36 +42,36 @@ def index():
 # login route
 @app.route('/sign_in', methods=['GET', 'POST'])
 def sign_in():
-    form = RegisterForm()
+    form = RegisterForm(request.form)
     if form.validate_on_submit():
         database_hook["usuarios"].insert_one( {
-                    "email": form.email.data,
-                    "clave": form.password.data,
-                    "conectado": False,
-                    "solicitudes": [],
-                    "notificaciones": [],
-                    "configuración": {
-                        "privacidad": "publico",
-                        "colorPerfil": "#ffffff",
-                        "colorMuro": "#ffffff",
-                        "idioma": "es",
-                        "notificacionesCorreo": 0
-                    },
-                    "perfil": {
-                        "nombre": form.name.data,
-                        "descripcion": form.biography.data,
-                        "color": form.color.data,
-                        "libro": form.book.data,
-                        "musica": form.music.data,
-                        "video_juego": form.videoGames.data,
-                        "lenguajes": form.languages.data,
-                        "genero": form,
-                        "fecha_nacimiento": form.birthday.data
-                    },
-                    "chats": [],
-                    "publicaciones": []
-                } )
-        return redirect(url_for("user"))
+            "email": form.email.data,
+            "clave": form.password.data,
+            "conectado": False,
+            "solicitudes": [],
+            "notificaciones": [],
+            "configuración": {
+                "privacidad": "publico",
+                "colorPerfil": "#ffffff",
+                "colorMuro": "#ffffff",
+                "idioma": "es",
+                "notificacionesCorreo": 0
+            },
+            "perfil": {
+                "nombre": form.name.data,
+                "descripcion": form.biography.data,
+                "color": form.color.data,
+                "libro": form.book.data,
+                "musica": form.music.data,
+                "video_juego": form.videogames.data,
+                "lenguajes": form.languages.data,
+                "genero": "Otro",
+                "fecha_nacimiento": form.birthday.data
+            },
+            "chats": [],
+            "publicaciones": []
+        })
+        return redirect(url_for('index'))
 
     # read GET variable
     if request.args.get("lang") == "es":
