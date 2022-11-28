@@ -9,3 +9,5 @@ mongodb-volume/.dbshell
 .vscode
 .fleet
 src/__pycache__/*.pyc
+src/__pycache__/models.cpython-310.pyc
+src/__pycache__/*.pyc

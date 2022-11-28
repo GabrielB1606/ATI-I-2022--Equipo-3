@@ -16,10 +16,10 @@
         <div class="col-lg-4">
 
             <div class="text-center">
-                <img src="https://github.com/mdo.png" alt="{{user.name}}" width="256" height="256" class="rounded-circle mb-4">
-                <h3> {{user.name}} </h5> 
-                <p> {{user.biography}}</p>
-                <p> {{user.languages}} </p>
+                <img src="{{user.img_url}}" alt="{{user.nombre}}" width="256" height="256" class="rounded-circle mb-4">
+                <h3> {{user.nombre}} </h5> 
+                <p> {{user.descripcion}}</p>
+                <p> {{user.lenguajes|join(', ')}} </p>
 
             </div>
             
@@ -28,20 +28,20 @@
             <table alt="{{config.profile_info.tab_name}}">
                 <tr alt="{{config.profile_info.birthday}}">
                     <td><i class="fa-solid fa-gift"></i></td>
-                    <td> {{user.birthday}}</td>
+                    <td> {{user.fecha_nacimiento}}</td>
                 </tr>
                 <tr alt="{{config.profile_info.video_games}}">
                     <td><i class="fa-solid fa-gamepad"></i></td>
-                    <td>{{user.videogames}}</td>
+                    <td>{{user.video_juego|join(', ')}}</td>
                 </tr>
                 <tr alt="{{config.profile_info.music}}">
                     <td><i class="fa-solid fa-music"></i></td>
-                    <td>{{user.music}}</td>
+                    <td>{{user.musica}}</td>
                 </tr>
 
                   <tr alt="{{config.profile_info.book}}">
                     <td><i class="fa-solid fa-book"></i></td>
-                    <td>{{user.book}}</td>
+                    <td>{{user.libro}}</td>
                   </tr>
 
                   <tr alt="{{config.profile_info.color}}">
