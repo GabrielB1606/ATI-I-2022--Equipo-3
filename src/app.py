@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template, request, url_for, redirect, send_file, session
 from models import User
-import pymongo
+from functools import wraps
 from pymongo import MongoClient
 from authlib.integrations.flask_client import OAuth
 import json
@@ -35,8 +35,18 @@ def get_navbar_lang(lang):
     else:
         lang["navbar"] = json.load( open("static/config/en/navbar.json") )
 
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session and session['logged_in']:
+            return f(*args, **kwargs)
+        else:
+            return redirect('/login')
+    return wrap
+
 # home route
 @app.route('/')
+@login_required
 def index():
     posts = json.load( open("data/dummy/posts_home.json") )
     key = request.args.get("key")
@@ -177,6 +187,7 @@ def profileUser(email):
 
 # chat route
 @app.route('/chat')
+@login_required
 def chat():
     # read GET variable
     if request.args.get("lang") == "es":
@@ -191,6 +202,7 @@ def chat():
 
 # config route
 @app.route('/config')
+@login_required
 def config_page():
         # read GET variable
     user = json.load( open("data/dummy/user.json") )
@@ -204,6 +216,7 @@ def config_page():
 
 # updates route
 @app.route('/notifications')
+@login_required
 def notifications():
     # read GET variable
     if request.args.get("lang") == "es":
@@ -216,6 +229,7 @@ def notifications():
 
 # search all users route
 @app.route('/search')
+@login_required
 def search_users():
     # read GET variable
     if request.args.get("lang") == "es":
