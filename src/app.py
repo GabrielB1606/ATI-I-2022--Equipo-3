@@ -105,9 +105,7 @@ def profileFriend():
 # profile route
 @app.route('/user/<email>')
 def profileUser(email):
-    user_info = database_hook["usuarios"].find_one( {"email": email} )
-    print(user_info)
-    return jsonify(user_info)
+    user_info = database_hook["usuarios"].find_one( {"email": email} )["perfil"]
     posts = json.load( open("data/dummy/posts_friend.json") )
     # read GET variable
     lan = request.args.get("lang")
@@ -119,7 +117,8 @@ def profileUser(email):
         lang = json.load( open("static/config/en/index.json") )
         config = json.load(open("static/config/en/config.json"))
     get_navbar_lang(lang)
-    return render_template("profile.html", postList = posts, lang=lang, language=lan, config=config, user=user_info["perfil"])
+    # return user_info
+    return render_template("profile.html", postList = posts, lang=lang, language=lan, config=config, user=user_info)
 
 # chat route
 @app.route('/chat')
