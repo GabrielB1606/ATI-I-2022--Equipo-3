@@ -167,7 +167,7 @@ def profileUser(email):
         config = json.load(open("static/config/en/config.json"))
     get_navbar_lang(lang)
     # return user_info
-    return render_template("profile.html", postList = posts, lang=lang, language=lan, config=config, user=user_info)
+    return render_template("profile.html", postList = posts, lang=lang, language=lan, config=config, user_info=user_info)
 
 # chat route
 @app.route('/chat')

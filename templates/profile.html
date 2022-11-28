@@ -16,10 +16,10 @@
         <div class="col-lg-4">
 
             <div class="text-center">
-                <img src="{{user.img_url}}" alt="{{user.nombre}}" width="256" height="256" class="rounded-circle mb-4">
-                <h3> {{user.nombre}} </h5> 
-                <p> {{user.descripcion}}</p>
-                <p> {{user.lenguajes|join(', ')}} </p>
+                <img src="{{user_info.img_url}}" alt="{{user_info.nombre}}" width="256" height="256" class="rounded-circle mb-4">
+                <h3> {{user_info.nombre}} </h5> 
+                <p> {{user_info.descripcion}}</p>
+                <p> {{user_info.lenguajes|join(', ')}} </p>
 
             </div>
             
@@ -28,25 +28,25 @@
             <table alt="{{config.profile_info.tab_name}}">
                 <tr alt="{{config.profile_info.birthday}}">
                     <td><i class="fa-solid fa-gift"></i></td>
-                    <td> {{user.fecha_nacimiento}}</td>
+                    <td> {{user_info.fecha_nacimiento}}</td>
                 </tr>
                 <tr alt="{{config.profile_info.video_games}}">
                     <td><i class="fa-solid fa-gamepad"></i></td>
-                    <td>{{user.video_juego|join(', ')}}</td>
+                    <td>{{user_info.video_juego|join(', ')}}</td>
                 </tr>
                 <tr alt="{{config.profile_info.music}}">
                     <td><i class="fa-solid fa-music"></i></td>
-                    <td>{{user.musica}}</td>
+                    <td>{{user_info.musica}}</td>
                 </tr>
 
                   <tr alt="{{config.profile_info.book}}">
                     <td><i class="fa-solid fa-book"></i></td>
-                    <td>{{user.libro}}</td>
+                    <td>{{user_info.libro}}</td>
                   </tr>
 
                   <tr alt="{{config.profile_info.color}}">
                     <td><i class="fa-solid fa-star"></i></td>
-                    <td>{{user.color}}</td>
+                    <td>{{user_info.color}}</td>
                   </tr>
             </table>
 

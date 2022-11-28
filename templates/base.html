@@ -20,9 +20,7 @@
   </head>
   <body>
     <!-- temp solution -->
-    {% if user != none %}
-      {% include 'navbar.html' %}
-    {% elif url_for(request.endpoint) != "/login" and url_for(request.endpoint) != "/sign_in" %}
+    {% if ( url_for(request.endpoint) != "/login" and url_for(request.endpoint) != "/sign_in" )  %}
       {% include 'navbar.html' %}
     {% endif %}
 
