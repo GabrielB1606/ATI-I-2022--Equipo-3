@@ -16,10 +16,10 @@
         <div class="col-lg-4">
 
             <div class="text-center">
-                <img src="https://github.com/mdo.png" alt="{{user.nombre}}" width="256" height="256" class="rounded-circle mb-4">
+                <img src="{{user.img_url}}" alt="{{user.nombre}}" width="256" height="256" class="rounded-circle mb-4">
                 <h3> {{user.nombre}} </h5> 
                 <p> {{user.descripcion}}</p>
-                <p> {{user.lenguajes}} </p>
+                <p> {{user.lenguajes|join(', ')}} </p>
 
             </div>
             
@@ -32,7 +32,7 @@
                 </tr>
                 <tr alt="{{config.profile_info.video_games}}">
                     <td><i class="fa-solid fa-gamepad"></i></td>
-                    <td>{{user.video_juego}}</td>
+                    <td>{{user.video_juego|join(', ')}}</td>
                 </tr>
                 <tr alt="{{config.profile_info.music}}">
                     <td><i class="fa-solid fa-music"></i></td>

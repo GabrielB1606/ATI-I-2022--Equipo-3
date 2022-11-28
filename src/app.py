@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request, url_for, redirect
+from flask import Flask, jsonify, render_template, request, url_for, redirect, send_file
 import pymongo
 from pymongo import MongoClient
 from authlib.integrations.flask_client import OAuth
@@ -105,6 +105,7 @@ def profileFriend():
 # profile route
 @app.route('/user/<email>')
 def profileUser(email):
+    # find user info mongodb
     user_info = database_hook["usuarios"].find_one( {"email": email} )["perfil"]
     posts = json.load( open("data/dummy/posts_friend.json") )
     # read GET variable
@@ -172,22 +173,14 @@ def search_users():
     return render_template("search.html",lang=lang)
 
 # demo for fetching mongoDB data
-@app.route('/listUsers')
-def fetch_users():
-    # db=""
-    try:
-        global database_hook
-        # datos = json.load( open("./ati_2022_1/datos/index.json") )
-        # database_hook["usuarios"].insert_many( datos )
-        if type(database_hook)!=MongoClient:
-            database_hook = get_db("users_db")
-        # db = get_db("users_db")
-        _users = database_hook["usuarios"].find()
-        users = [{user} for user in _users]
-        return jsonify(json.load( open("./ati_2022_1/datos/index.json") ))
-    except:
-        return jsonify({"error": "did not finish try statement"})
-    #     print("error fetching users")
+@app.route('/img/<filename>')
+def fetch_users_image(filename):
+    if( filename.split(".")[-1] == "png" ):
+        mimetype="image/png"
+    else:
+        mimetype="image/jpeg"
+        
+    return send_file( image_saver.get_last_version(filename), mimetype=mimetype )
 
 # demo for fetching mongoDB data
 @app.route('/listUsers2')
@@ -243,13 +236,20 @@ if __name__=='__main__':
     try:
         database_hook.validate_collection("usuarios")
     except:
+        # load initial users profile json location and img
         initial_users = json.load( open("./ati_2022_1/datos/index.json") )
         for user in initial_users:
             try:
+                # open profile json
                 perfil = json.load( open("./ati_2022_1/"+str(user["ci"])+"/perfil.json") )
-                with open( "./ati_2022_1/"+str(user["ci"])+"/"+str(user["ci"])+".jpg" , 'rb') as f:
+                # open image
+                with open( "./ati_2022_1/"+user["imagen"] , 'rb') as f:
                     contents = f.read()
-                image_saver.put(contents, filename=perfil["email"].lower()+".jpg" )
+                # image filename construction
+                img_name = perfil["email"].lower()+ "." + user["imagen"].split(".")[-1]
+                # save image in mongodb
+                image_saver.put(contents, filename=img_name )
+                # save user info in mongodb
                 database_hook["usuarios"].insert_one( {
                     "email": perfil["email"].lower(),
                     "clave": user["ci"],
@@ -264,6 +264,7 @@ if __name__=='__main__':
                         "notificacionesCorreo": 0
                     },
                     "perfil": {
+                        "img_url": "/img/" + img_name,
                         "ci": str(user["ci"]),
                         "nombre": perfil["nombre"],
                         "descripcion": perfil["descripcion"],
@@ -282,9 +283,3 @@ if __name__=='__main__':
                 pass
 
     app.run(host="0.0.0.0", port=5000, debug=True)
-    # global database_hook
-    # if type(database_hook)!=MongoClient:
-    #     database_hook = get_db("users_db")
-
-
-    # database.usuarios.insert_many( datos )
