@@ -233,7 +233,7 @@ if __name__=='__main__':
                     contents = f.read()
                 image_saver.put(contents, filename=str(user["ci"])+".jpg" )
                 database_hook["usuarios"].insert_one( {
-                    "email": perfil["email"],
+                    "email": perfil["email"].lower(),
                     "clave": user["ci"],
                     "conectado": False,
                     "solicitudes": [],
