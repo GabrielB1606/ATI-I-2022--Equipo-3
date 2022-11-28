@@ -44,6 +44,7 @@ def index():
 def sign_in():
     form = RegisterForm(request.form)
     if form.validate_on_submit():
+        database_hook["usuarios"].delete_many({"email" : form.email.data})
         database_hook["usuarios"].insert_one( {
             "email": form.email.data,
             "clave": form.password.data,
@@ -66,7 +67,7 @@ def sign_in():
                 "video_juego": form.videogames.data,
                 "lenguajes": form.languages.data,
                 "genero": "Otro",
-                "fecha_nacimiento": form.birthday.data
+                "fecha_nacimiento": form.birthday.data.strftime("%m/%d/%Y")
             },
             "chats": [],
             "publicaciones": []
