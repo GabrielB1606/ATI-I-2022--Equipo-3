@@ -1,5 +1,6 @@
 flask
 pymongo
+flask-wtf
 Authlib
 requests
 bottle

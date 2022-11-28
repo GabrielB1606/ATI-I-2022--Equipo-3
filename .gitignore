@@ -8,3 +8,4 @@ mongodb-volume/*.bson
 mongodb-volume/.dbshell
 .vscode
 .fleet
+src/__pycache__/*.pyc
