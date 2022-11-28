@@ -96,6 +96,12 @@ def sign_in():
     return render_template("sign_in.html", lang=lang, form=form)
 
 # login route
+@app.route('/logout')
+def logout():
+    User().signout()
+    return redirect('/login')
+
+# login route
 @app.route('/login')
 def login():
     # read GET variable

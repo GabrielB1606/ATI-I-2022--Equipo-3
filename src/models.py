@@ -24,5 +24,6 @@ class User:
         return ""
 
     def signout(self):
+        session["logged_in"] = False
+        session['user'] = None
         session.clear()
-        return redirect('/login')
