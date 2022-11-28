@@ -117,21 +117,21 @@ def user_login():
 
 
 # profile route
-@app.route('/user')
-def profile():
-    posts = json.load( open("data/dummy/posts.json") )
-    user = json.load( open("data/dummy/user.json") )
-    # read GET variable
-    lan = request.args.get("lang")
-    if lan == "es":
-        # open config file according to the GET variable lang
-        lang = json.load( open("static/config/es/index.json") )
-        config = json.load((open("static/config/es/config.json")))
-    else:
-        lang = json.load( open("static/config/en/index.json") )
-        config = json.load((open("static/config/en/config.json")))
-    get_navbar_lang(lang)
-    return render_template("profile.html", postList = posts, lang=lang, language=lan,config=config,user=user)
+# @app.route('/user')
+# def profile():
+#     posts = json.load( open("data/dummy/posts.json") )
+#     user = json.load( open("data/dummy/user.json") )
+#     # read GET variable
+#     lan = request.args.get("lang")
+#     if lan == "es":
+#         # open config file according to the GET variable lang
+#         lang = json.load( open("static/config/es/index.json") )
+#         config = json.load((open("static/config/es/config.json")))
+#     else:
+#         lang = json.load( open("static/config/en/index.json") )
+#         config = json.load((open("static/config/en/config.json")))
+#     get_navbar_lang(lang)
+#     return render_template("profile.html", postList = posts, lang=lang, language=lan,config=config,user=user)
 
 
 # profile route

@@ -14,7 +14,8 @@ class User:
             return jsonify({"message":"Incorrect email address or password"}),400
 
         user={
-            "email": request.form.get('email')
+            "email": request.form.get('email'),
+            "perfil": found["perfil"]
         }
         return self.start_session(user)
         
