@@ -11,7 +11,7 @@
             <!-- icons mobile -->
             <ul class="nav col-11 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-sm-inline-flex d-md-none">
                 <li>
-                    <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
+                    <a href="{{url_for('home.notifications')}}" class="nav-link px-2 link-secondary">
                         <i class="fa-solid fa-xl fa-inbox"></i>
                     </a>
                 </li>
@@ -68,7 +68,7 @@
                     </li>
                     
                     <li> <hr class="dropdown-divider"> </li>                            
-                    <li><a class="dropdown-item" href="{{url_for('search_users')}}"> {{lang.navbar.results}} </a></li>
+                    <li><a class="dropdown-item" href="{{url_for('home.search_users')}}"> {{lang.navbar.results}} </a></li>
                 </ul>
 
             </div>
@@ -76,7 +76,7 @@
             <!-- icons desktop -->
             <ul class="nav col-md-3 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-none d-md-inline-flex">
                 <li class="tooltip-custom">
-                    <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
+                    <a href="{{url_for('home.notifications')}}" class="nav-link px-2 link-secondary">
                         <i class="fa-solid fa-xl fa-inbox"></i>
                     </a>
                     <span class="tooltiptext"> {{lang.navbar.notifications}} </span>

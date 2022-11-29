@@ -27,4 +27,28 @@ def index():
 
     return render_template("index.html", postList = posts, lang=lang, language=lan, key=key)
 
-# app.register_blueprint(home, url_prefix="")
+# updates route
+@home.route('/notifications')
+@login_required
+def notifications():
+    # read GET variable
+    if request.args.get("lang") == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/notification.json") )
+    else:
+        lang = json.load( open("static/config/en/notification.json") )
+    get_navbar_lang(lang)
+    return render_template("notifications.html",lang=lang)
+
+# search all users route
+@home.route('/search')
+@login_required
+def search_users():
+    # read GET variable
+    if request.args.get("lang") == "es":
+        # open config file according to the GET variable lang
+        lang = json.load( open("static/config/es/search.json") )
+    else:
+        lang = json.load( open("static/config/en/search.json") )
+    get_navbar_lang(lang)
+    return render_template("search.html",lang=lang)
