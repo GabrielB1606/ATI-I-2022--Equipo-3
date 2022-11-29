@@ -11,7 +11,7 @@
             {% if not sent_by_me %}
                 <a href="{{url_for('profileFriend')}}" class="fw-bold mb-0"> {{user_name}} </a>
             {% else %}
-                <a href="{{url_for('profile')}}" class="fw-bold mb-0"> {{user_name}} </a>
+                <a href="user/{{session.user.email}}" class="fw-bold mb-0"> {{user_name}} </a>
             {% endif %}
             <p class="text-muted small mb-0"><i class="far fa-clock"></i> {{timestamp}}</p>
         </div>
@@ -23,8 +23,8 @@
     </div>
 
     {% if sent_by_me %}
-        <a href="{{url_for('profile')}}">
-            <img src="{{img_url}}" alt="avatar" class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60" height="60">
+        <a href="user/{{session.user.email}}">
+            <img src="{{session.user.perfil.img_url}}" alt="avatar" class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60" height="60">
         </a>
     {% endif %}
 
