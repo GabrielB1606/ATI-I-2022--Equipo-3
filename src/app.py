@@ -1,14 +1,15 @@
-from flask import Flask, jsonify, render_template, request, redirect, send_file
-from models import User
+from flask import jsonify, render_template, request
 from pymongo import MongoClient
-from authlib.integrations.flask_client import OAuth
 from  werkzeug.security import generate_password_hash
 import json
 
+# the app Flask object will be initialized in __init__.py
 from __init__ import app
 
-from config import get_db, get_navbar_lang, database_hook, image_saver, login_required, logged_in
+# import resources (not really configuration tho)
+from config import get_db, get_navbar_lang, database_hook, image_saver
 
+# import views
 from views.home import home
 from views.authentication import authentication
 from views.chat import chat
@@ -16,12 +17,13 @@ from views.images import image_collection
 from views.user import users
 from views.profile_configuration import profile_configuration
 
-app.register_blueprint(home, url_prefix="")
-app.register_blueprint(authentication, url_prefix="")
-app.register_blueprint(chat, url_prefix="")
-app.register_blueprint(image_collection, url_prefix="/img")
-app.register_blueprint(users, url_prefix="/user")
-app.register_blueprint(profile_configuration, url_prefix="" )
+# register routes blueprint in Flask main app
+app.register_blueprint(home,                    url_prefix="")
+app.register_blueprint(authentication,          url_prefix="")
+app.register_blueprint(chat,                    url_prefix="")
+app.register_blueprint(image_collection,        url_prefix="/img")
+app.register_blueprint(users,                   url_prefix="/user")
+app.register_blueprint(profile_configuration,   url_prefix="" )
 
 # dummy profile route
 @app.route('/friend')
@@ -63,13 +65,12 @@ def page_not_found(e):
     return "<h1>custom 500 error page</h1>", 500
 
 if __name__=='__main__':
-    
-    app.config['SECRET_KEY'] = '123'
-    app.secret_key = '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O/<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
 
-    try:
+    try:    #   Try to validate the "usuarios" collection
         database_hook.validate_collection("usuarios")
-    except:
+    
+    except: #   If this collections does not exist, the initial users will be loaded 
+        
         # load initial users profile json location and img
         initial_users = json.load( open("./ati_2022_1/datos/index.json") )
         for user in initial_users:
@@ -113,7 +114,7 @@ if __name__=='__main__':
                     "chats": [],
                     "publicaciones": []
                 } )
-            except:
+            except: #   If there's an error while loading an user, that user will not be inserted
                 pass
 
     app.run(host="0.0.0.0", port=5000, debug=True)
