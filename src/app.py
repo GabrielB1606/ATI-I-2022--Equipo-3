@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request, url_for, redirect, send_file, session
+from flask import Flask, jsonify, render_template, request, redirect, send_file
 from models import User
 from pymongo import MongoClient
 from authlib.integrations.flask_client import OAuth
@@ -17,6 +17,9 @@ app.register_blueprint(authentication, url_prefix="")
 
 from views.chat import chat
 app.register_blueprint(chat, url_prefix="")
+
+from views.images import image_collection
+app.register_blueprint(image_collection, url_prefix="/img")
 
 # profile route
 @app.route('/friend')
@@ -70,42 +73,6 @@ def config_page():
         lang = json.load( open("static/config/en/config.json") )
     get_navbar_lang(lang)
     return render_template("config.html",lang=lang, user=user)
-
-# updates route
-@app.route('/notifications')
-@login_required
-def notifications():
-    # read GET variable
-    if request.args.get("lang") == "es":
-        # open config file according to the GET variable lang
-        lang = json.load( open("static/config/es/notification.json") )
-    else:
-        lang = json.load( open("static/config/en/notification.json") )
-    get_navbar_lang(lang)
-    return render_template("notifications.html",lang=lang)
-
-# search all users route
-@app.route('/search')
-@login_required
-def search_users():
-    # read GET variable
-    if request.args.get("lang") == "es":
-        # open config file according to the GET variable lang
-        lang = json.load( open("static/config/es/search.json") )
-    else:
-        lang = json.load( open("static/config/en/search.json") )
-    get_navbar_lang(lang)
-    return render_template("search.html",lang=lang)
-
-# demo for fetching mongoDB data
-@app.route('/img/<filename>')
-def fetch_users_image(filename):
-    if( filename.split(".")[-1] == "png" ):
-        mimetype="image/png"
-    else:
-        mimetype="image/jpeg"
-        
-    return send_file( image_saver.get_last_version(filename), mimetype=mimetype )
 
 # demo for fetching mongoDB data
 @app.route('/listUsers2')
