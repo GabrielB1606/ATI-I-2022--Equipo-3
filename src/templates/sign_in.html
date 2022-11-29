@@ -62,7 +62,7 @@
                                         <!-- Password -->
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example27">{{lang.password.label}}</label>
-                                            {{ form.password( class="form-control", placeholder=lang.password.placeholder) }}
+                                            {{ form.password( class="form-control", type="password", placeholder=lang.password.placeholder) }}
 
                                             {% if form.password.errors %}
                                             <p class="register-errors"> {{lang.password.error}} </p>
@@ -72,7 +72,7 @@
                                          <!-- Confirm Password -->
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example27">{{lang.confirm.label}}</label>
-                                            {{ form.confirm( class="form-control", placeholder=lang.confirm.placeholder) }}
+                                            {{ form.confirm( class="form-control", type="password", placeholder=lang.confirm.placeholder) }}
 
                                             {% if form.confirm.errors %}
                                             <ul class="register-errors">
