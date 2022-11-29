@@ -289,47 +289,50 @@ def facebook():
 def facebook_auth():
     token = oauth.facebook.authorize_access_token()
     resp = oauth.facebook.get('https://graph.facebook.com/me?fields=id,name,email,picture{url}')
-    profile = resp.json()   
-    username = profile["name"]
-    findMongoDB = database_hook.usuarios.find_one({"email": profile["email"]})
-    
-    #database_hook.usuarios.find_one_and_delete({"email": profile["email"]})
-    #return redirect(url_for('index', key = "Nuevo perfil creado"))
-    
-    if not findMongoDB:    
-        database_hook["usuarios"].insert_one( {
-            "email": profile["email"],
-            "clave": "",
-            "conectado": False,
-            "solicitudes": [],
-            "notificaciones": [],
-            "configuración": {
-                "privacidad": "publico",
-                "colorPerfil": "#ffffff",
-                "colorMuro": "#ffffff",
-                "idioma": "es",
-                "notificacionesCorreo": 0
-            },
-            "perfil": {
-                "img_url": profile["picture"]["data"]["url"],
-                "ci": "",
-                "nombre": profile["name"],
-                "descripcion": "",
-                "color": "",
-                "libro": "",
-                "musica": "",
-                "video_juego": "",
-                "lenguajes": "",
-                "genero": "",
-                "fecha_nacimiento": ""
-            },
-            "chats": [],
-            "publicaciones": []
-        } )
+    if not resp:
+        return redirect(url_for('login'))
+    else: 
+        profile = resp.json()   
+        username = profile["name"]
         findMongoDB = database_hook.usuarios.find_one({"email": profile["email"]})
-    
-    User().start_session( {"email": findMongoDB["email"], "perfil": findMongoDB["perfil"]} )
-    return redirect(url_for('index', key = profile["name"]))
+        
+        #database_hook.usuarios.find_one_and_delete({"email": profile["email"]})
+        #return redirect(url_for('index', key = "Nuevo perfil creado"))
+        
+        if not findMongoDB:    
+            database_hook["usuarios"].insert_one( {
+                "email": profile["email"],
+                "clave": "",
+                "conectado": False,
+                "solicitudes": [],
+                "notificaciones": [],
+                "configuración": {
+                    "privacidad": "publico",
+                    "colorPerfil": "#ffffff",
+                    "colorMuro": "#ffffff",
+                    "idioma": "es",
+                    "notificacionesCorreo": 0
+                },
+                "perfil": {
+                    "img_url": profile["picture"]["data"]["url"],
+                    "ci": "",
+                    "nombre": profile["name"],
+                    "descripcion": "",
+                    "color": "",
+                    "libro": "",
+                    "musica": "",
+                    "video_juego": "",
+                    "lenguajes": "",
+                    "genero": "",
+                    "fecha_nacimiento": ""
+                },
+                "chats": [],
+                "publicaciones": []
+            } )
+            findMongoDB = database_hook.usuarios.find_one({"email": profile["email"]})
+        
+        User().start_session( {"email": findMongoDB["email"], "perfil": findMongoDB["perfil"]} )
+        return redirect(url_for('index', key = profile["name"]))
 
 # file not found
 @app.errorhandler(404)

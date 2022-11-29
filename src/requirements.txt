@@ -4,3 +4,4 @@ flask-wtf
 Authlib
 requests
 bottle
+pytest
