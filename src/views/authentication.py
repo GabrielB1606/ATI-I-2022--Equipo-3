@@ -40,7 +40,7 @@ def sign_in():
             "chats": [],
             "publicaciones": []
         })
-        return redirect(url_for('index'))
+        return redirect(url_for('home.index'))
 
     # read GET variable
     if request.args.get("lang") == "es":
@@ -93,7 +93,7 @@ def facebook():
         api_base_url='https://graph.facebook.com/',
         client_kwargs={'scope': 'email'},
     )
-    redirect_uri = url_for('facebook_auth', _external=True)
+    redirect_uri = url_for('authentication.facebook_auth', _external=True)
     return oauth.facebook.authorize_redirect(redirect_uri)
 
 @authentication.route('/facebook/auth/')

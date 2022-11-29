@@ -5,21 +5,18 @@ from authlib.integrations.flask_client import OAuth
 from  werkzeug.security import generate_password_hash
 import json
 
-from forms import RegisterForm 
+from __init__ import app
 
 from config import get_db, get_navbar_lang, database_hook, image_saver, login_required, logged_in
-import config
-
-import os
-import gridfs
-
-app = Flask(__name__)
 
 from views.home import home
 app.register_blueprint(home, url_prefix="")
 
 from views.authentication import authentication
 app.register_blueprint(authentication, url_prefix="")
+
+from views.chat import chat
+app.register_blueprint(chat, url_prefix="")
 
 # profile route
 @app.route('/friend')
@@ -36,6 +33,10 @@ def profileFriend():
         config = json.load(open("static/config/en/config.json"))
     get_navbar_lang(lang)
     return render_template("friend.html", postList = posts, lang=lang, language=lan, config=config)
+
+@app.route('/user')
+def profile():
+    return redirect("/user/chachy.drs@mail.com")
 
 # profile route
 @app.route('/user/<email>')
@@ -55,21 +56,6 @@ def profileUser(email):
     get_navbar_lang(lang)
     # return user_info
     return render_template("profile.html", postList = posts, lang=lang, language=lan, config=config, user_info=user_info)
-
-# chat route
-@app.route('/chat')
-@login_required
-def chat():
-    # read GET variable
-    if request.args.get("lang") == "es":
-        # open config file according to the GET variable lang
-        lang = json.load( open("static/config/es/chat.json") )
-    else:
-        lang = json.load( open("static/config/en/chat.json") )
-
-    chats = json.load( open("data/dummy/chats.json") )
-    get_navbar_lang(lang)
-    return render_template("chat.html", chatList = chats, lang=lang)
 
 # config route
 @app.route('/config')
@@ -134,73 +120,6 @@ def fetch_users2():
     return jsonify( users )
     # return jsonify(json.load( open("./ati_2022_1/datos/index.json") ))
 
-@app.route('/facebook/')
-def facebook():
-    # Facebook Oauth Config
-    FACEBOOK_CLIENT_ID = '690747602573297'
-    FACEBOOK_CLIENT_SECRET = '8936f7e5d6fc5dda0056b58bcb85bc54'
-    config.oauth.register(
-        name='facebook',
-        client_id=FACEBOOK_CLIENT_ID,
-        client_secret=FACEBOOK_CLIENT_SECRET,
-        access_token_url='https://graph.facebook.com/oauth/access_token',
-        access_token_params=None,
-        authorize_url='https://www.facebook.com/dialog/oauth',
-        authorize_params=None,
-        api_base_url='https://graph.facebook.com/',
-        client_kwargs={'scope': 'email'},
-    )
-    redirect_uri = url_for('facebook_auth', _external=True)
-    return config.oauth.facebook.authorize_redirect(redirect_uri)
-
-
-
-@app.route('/facebook/auth/')
-def facebook_auth():
-    token = config.oauth.facebook.authorize_access_token()
-    resp = config.oauth.facebook.get('https://graph.facebook.com/me?fields=id,name,email,picture{url}')
-    profile = resp.json()   
-    username = profile["name"]
-    findMongoDB = database_hook.usuarios.find_one({"email": profile["email"]})
-    
-    #database_hook.usuarios.find_one_and_delete({"email": profile["email"]})
-    #return redirect(url_for('index', key = "Nuevo perfil creado"))
-    
-    if not findMongoDB:    
-        database_hook["usuarios"].insert_one( {
-            "email": profile["email"],
-            "clave": "",
-            "conectado": False,
-            "solicitudes": [],
-            "notificaciones": [],
-            "configuración": {
-                "privacidad": "publico",
-                "colorPerfil": "#ffffff",
-                "colorMuro": "#ffffff",
-                "idioma": "es",
-                "notificacionesCorreo": 0
-            },
-            "perfil": {
-                "img_url": profile["picture"]["data"]["url"],
-                "ci": "",
-                "nombre": profile["name"],
-                "descripcion": "",
-                "color": "",
-                "libro": "",
-                "musica": "",
-                "video_juego": "",
-                "lenguajes": "",
-                "genero": "",
-                "fecha_nacimiento": ""
-            },
-            "chats": [],
-            "publicaciones": []
-        } )
-        findMongoDB = database_hook.usuarios.find_one({"email": profile["email"]})
-    
-    User().start_session( {"email": findMongoDB["email"], "perfil": findMongoDB["perfil"]} )
-    return redirect(url_for('home.index', key = profile["name"]))
-
 # file not found
 @app.errorhandler(404)
 def page_not_found(e):
@@ -215,8 +134,6 @@ if __name__=='__main__':
     
     app.config['SECRET_KEY'] = '123'
     app.secret_key = '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O/<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
-    
-    config.__dict__["oauth"] =OAuth(app)
 
     try:
         database_hook.validate_collection("usuarios")
