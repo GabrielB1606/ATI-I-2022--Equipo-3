@@ -8,6 +8,7 @@ import json
 
 from forms import RegisterForm 
 
+from config import get_db, get_navbar_lang, database_hook, image_saver, login_required
 
 import os
 import gridfs
@@ -17,49 +18,12 @@ app.config['SECRET_KEY'] = '123'
 app.secret_key = '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O/<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
 oauth = OAuth(app)
 
-# get the connection to mongoDB through a client (this should be a variable... i guess)
-def get_db(db_name):
-    client = MongoClient(host='test_mongodb',
-                         port=27017,
-                         username='root',
-                         password='pass',
-                        authSource="admin")
-    db = client[db_name]
-    return db
+from routes.home import home
+app.register_blueprint(home, url_prefix="")
 
-database_hook = get_db("users_db")
-image_saver = gridfs.GridFS( database_hook )
-
-def get_navbar_lang(lang):
-    if request.args.get("lang") == "es":
-        lang["navbar"] = json.load( open("static/config/es/navbar.json") )
-    else:
-        lang["navbar"] = json.load( open("static/config/en/navbar.json") )
-
-def login_required(f):
-    @wraps(f)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session and session['logged_in']:
-            return f(*args, **kwargs)
-        else:
-            return redirect('/login')
-    return wrap
-
-# home route
-@app.route('/')
-@login_required
+@app.route("/")
 def index():
-    posts = json.load( open("data/dummy/posts_home.json") )
-    key = request.args.get("key")
-    # read GET variable
-    lan = request.args.get("lang")
-    if lan == "es":
-        # open config file according to the GET variable lang
-        lang = json.load( open("static/config/es/index.json") )
-    else:
-        lang = json.load( open("static/config/en/index.json") )
-    get_navbar_lang(lang)
-    return render_template("index.html", postList = posts, lang=lang, language=lan, key=key)
+    return 0
 
 # login route
 @app.route('/sign_in', methods=['GET', 'POST'])
