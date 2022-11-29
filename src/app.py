@@ -24,6 +24,9 @@ app.register_blueprint(image_collection, url_prefix="/img")
 from views.user import users
 app.register_blueprint(users, url_prefix="/user")
 
+from views.profile_configuration import profile_configuration
+app.register_blueprint(profile_configuration, url_prefix="" )
+
 # profile route
 @app.route('/friend')
 def profileFriend():

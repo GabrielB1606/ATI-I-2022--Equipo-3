@@ -27,8 +27,8 @@
                             <img src="{{session.user.perfil.img_url}}" alt="Charles Plant" class="rounded-circle" width="40" height="40">
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >{{lang.navbar.settings}}</a></li>
-                            <li><a class="dropdown-item"href="{{url_for('profileUser', email=session.user.email)}}">{{lang.navbar.profile}}</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('profile_configuration.config_page')}}" >{{lang.navbar.settings}}</a></li>
+                            <li><a class="dropdown-item"href="user/{{session.user.email}}">{{lang.navbar.profile}}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -94,8 +94,8 @@
                             <img src="{{session.user.perfil.img_url}}" alt="mdo" class="rounded-circle" width="40" height="40">
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >{{lang.navbar.settings}}</a></li>
-                            <li><a class="dropdown-item"href="{{url_for('profileUser', email=session.user.email)}}">{{lang.navbar.profile}}</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('profile_configuration.config_page')}}" >{{lang.navbar.settings}}</a></li>
+                            <li><a class="dropdown-item"href="user/{{session.user.email}}">{{lang.navbar.profile}}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

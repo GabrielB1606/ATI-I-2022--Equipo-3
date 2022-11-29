@@ -1,8 +1,12 @@
-from flask import Blueprint, request, render_template
+from flask import Blueprint, request, render_template, redirect
 from config import database_hook, get_navbar_lang
 import json
 
 users = Blueprint("users", __name__, static_folder="static", template_folder="templates")
+
+@users.route('/')
+def profile():
+    return redirect("/user/chachy.drs@mail.com")
 
 # demo for fetching mongoDB data
 @users.route('/<email>')
