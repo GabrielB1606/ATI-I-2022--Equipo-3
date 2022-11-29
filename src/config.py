@@ -19,6 +19,7 @@ def get_db(db_name):
 
 database_hook = get_db("users_db")
 image_saver = gridfs.GridFS( database_hook )
+oauth = None
 
 def get_navbar_lang(lang):
     if request.args.get("lang") == "es":

@@ -3,7 +3,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
             <!-- logo -->
-            <a href="{{url_for('index')}}" class="d-flex me-lg-auto col-1 col-md-2 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+            <a href="{{url_for('home.index')}}" class="d-flex me-lg-auto col-1 col-md-2 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                 <i class="fa-solid fa-hippo fa-2xl"></i>
                 <span class="h4 mx-2 fw-bold mb-0" style="font-family: 'Rubik', sans-serif;">HipMe Up!</span>
             </a>
@@ -42,7 +42,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="{{url_for('logout')}}">
+                                <a class="dropdown-item" href="{{url_for('authentication.logout')}}">
                                     {{lang.navbar.sign_out}}
                                 </a>
                             </li>
@@ -109,7 +109,7 @@
                                     <li><a class="dropdown-item" href="?lang=es">Español</a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="{{url_for('logout')}}">{{lang.navbar.sign_out}}</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('authentication.logout')}}">{{lang.navbar.sign_out}}</a></li>
                         </ul>
                     </div>
                 </li>
