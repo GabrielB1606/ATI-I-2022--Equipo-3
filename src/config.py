@@ -1,9 +1,6 @@
-from flask import Flask, jsonify, render_template, request, url_for, redirect, send_file, session
-from models import User
+from flask import request, redirect, session
 from functools import wraps
 from pymongo import MongoClient
-from authlib.integrations.flask_client import OAuth
-from  werkzeug.security import generate_password_hash, check_password_hash
 import json
 import gridfs
 
