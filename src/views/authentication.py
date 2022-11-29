@@ -1,5 +1,5 @@
 from flask import request, render_template, Blueprint, redirect, url_for
-from config import get_navbar_lang, logged_in, database_hook, oauth
+from config import get_navbar_lang, logged_in, database_hook, oauth, image_saver
 from  werkzeug.security import generate_password_hash
 import json
 from models.Form import RegisterForm 
@@ -13,7 +13,14 @@ authentication = Blueprint("authentication", __name__, static_folder="static", t
 def sign_in():
     form = RegisterForm(request.form)
     if form.validate_on_submit():
-        database_hook["usuarios"].delete_many({"email" : form.email.data})
+        # database_hook["usuarios"].delete_many({"email" : form.email.data})
+        img_url = "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
+        if 'profile_image' in request.files:
+            profile_image = request.files["profile_image"]
+            img_url = form.email.data.lower + "." +profile_image.mimetype.split("/")[-1] 
+            image_saver.put( profile_image, filename=img_url)
+            img_url = "/img/"+img_url
+
         database_hook["usuarios"].insert_one( {
             "email": form.email.data,
             "clave": generate_password_hash(form.password.data),
@@ -28,6 +35,7 @@ def sign_in():
                 "notificacionesCorreo": 0
             },
             "perfil": {
+                "img_url": img_url,
                 "nombre": form.name.data,
                 "descripcion": form.biography.data,
                 "color": form.color.data,
@@ -41,6 +49,7 @@ def sign_in():
             "chats": [],
             "publicaciones": []
         })
+
         User().login_email(form.email.data, form.password.data)
         return redirect(url_for('home.index'))
 
