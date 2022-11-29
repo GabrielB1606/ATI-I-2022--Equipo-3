@@ -41,6 +41,7 @@ def sign_in():
             "chats": [],
             "publicaciones": []
         })
+        User().login_email(form.email.data, form.password.data)
         return redirect(url_for('home.index'))
 
     # read GET variable
