@@ -40,6 +40,3 @@ def logged_in(f):
         else:
             return f(*args, **kwargs)
     return wrap
-
-# from app import app
-# oauth = OAuth(app)
