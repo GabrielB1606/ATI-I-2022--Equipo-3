@@ -1,5 +1,6 @@
 from flask import request, render_template, Blueprint, redirect, url_for
 from config import get_navbar_lang, logged_in, database_hook, oauth
+from  werkzeug.security import generate_password_hash
 import json
 from models.Form import RegisterForm 
 from models.User import User
@@ -15,7 +16,7 @@ def sign_in():
         database_hook["usuarios"].delete_many({"email" : form.email.data})
         database_hook["usuarios"].insert_one( {
             "email": form.email.data,
-            "clave": form.password.data,
+            "clave": generate_password_hash(form.password.data),
             "conectado": False,
             "solicitudes": [],
             "notificaciones": [],
