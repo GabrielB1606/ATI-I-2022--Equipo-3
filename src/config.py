@@ -34,3 +34,12 @@ def login_required(f):
         else:
             return redirect('/login')
     return wrap
+
+def logged_in(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session and session['logged_in']:
+            return redirect('/')
+        else:
+            return f(*args, **kwargs)
+    return wrap

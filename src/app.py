@@ -1,14 +1,13 @@
 from flask import Flask, jsonify, render_template, request, url_for, redirect, send_file, session
 from models import User
-from functools import wraps
 from pymongo import MongoClient
 from authlib.integrations.flask_client import OAuth
-from  werkzeug.security import generate_password_hash, check_password_hash
+from  werkzeug.security import generate_password_hash
 import json
 
 from forms import RegisterForm 
 
-from config import get_db, get_navbar_lang, database_hook, image_saver, login_required
+from config import get_db, get_navbar_lang, database_hook, image_saver, login_required, logged_in
 
 import os
 import gridfs
@@ -27,6 +26,7 @@ def index():
 
 # login route
 @app.route('/sign_in', methods=['GET', 'POST'])
+@logged_in
 def sign_in():
     form = RegisterForm(request.form)
     if form.validate_on_submit():
@@ -78,6 +78,7 @@ def logout():
 
 # login route
 @app.route('/login')
+@logged_in
 def login():
     # read GET variable
     if request.args.get("lang") == "es":
@@ -92,28 +93,6 @@ def login():
 def user_login():
     
     return User().login(database_hook)
-
-    
-
-
-
-# profile route
-# @app.route('/user')
-# def profile():
-#     posts = json.load( open("data/dummy/posts.json") )
-#     user = json.load( open("data/dummy/user.json") )
-#     # read GET variable
-#     lan = request.args.get("lang")
-#     if lan == "es":
-#         # open config file according to the GET variable lang
-#         lang = json.load( open("static/config/es/index.json") )
-#         config = json.load((open("static/config/es/config.json")))
-#     else:
-#         lang = json.load( open("static/config/en/index.json") )
-#         config = json.load((open("static/config/en/config.json")))
-#     get_navbar_lang(lang)
-#     return render_template("profile.html", postList = posts, lang=lang, language=lan,config=config,user=user)
-
 
 # profile route
 @app.route('/friend')
