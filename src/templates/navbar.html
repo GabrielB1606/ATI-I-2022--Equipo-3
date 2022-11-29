@@ -3,7 +3,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
             <!-- logo -->
-            <a href="{{url_for('index')}}" class="d-flex me-lg-auto col-1 col-md-2 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+            <a href="{{url_for('home.index')}}" class="d-flex me-lg-auto col-1 col-md-2 align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                 <i class="fa-solid fa-hippo fa-2xl"></i>
                 <span class="h4 mx-2 fw-bold mb-0" style="font-family: 'Rubik', sans-serif;">HipMe Up!</span>
             </a>
@@ -11,12 +11,12 @@
             <!-- icons mobile -->
             <ul class="nav col-11 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-sm-inline-flex d-md-none">
                 <li>
-                    <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
+                    <a href="{{url_for('home.notifications')}}" class="nav-link px-2 link-secondary">
                         <i class="fa-solid fa-xl fa-inbox"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="{{url_for('chat')}}" class="nav-link px-2 link-secondary">
+                    <a href="/chat" class="nav-link px-2 link-secondary">
                         <i class="fa-regular fa-xl fa-paper-plane"></i>
                     </a>
                 </li>
@@ -27,8 +27,8 @@
                             <img src="{{session.user.perfil.img_url}}" alt="Charles Plant" class="rounded-circle" width="40" height="40">
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >{{lang.navbar.settings}}</a></li>
-                            <li><a class="dropdown-item"href="{{url_for('profileUser', email=session.user.email)}}">{{lang.navbar.profile}}</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('profile_configuration.config_page')}}" >{{lang.navbar.settings}}</a></li>
+                            <li><a class="dropdown-item"href="user/{{session.user.email}}">{{lang.navbar.profile}}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -42,7 +42,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="{{url_for('logout')}}">
+                                <a class="dropdown-item" href="{{url_for('authentication.logout')}}">
                                     {{lang.navbar.sign_out}}
                                 </a>
                             </li>
@@ -68,7 +68,7 @@
                     </li>
                     
                     <li> <hr class="dropdown-divider"> </li>                            
-                    <li><a class="dropdown-item" href="{{url_for('search_users')}}"> {{lang.navbar.results}} </a></li>
+                    <li><a class="dropdown-item" href="{{url_for('home.search_users')}}"> {{lang.navbar.results}} </a></li>
                 </ul>
 
             </div>
@@ -76,13 +76,13 @@
             <!-- icons desktop -->
             <ul class="nav col-md-3 me-lg-auto mb-2 justify-content-end mb-md-0 mr-0 pr-0 d-none d-md-inline-flex">
                 <li class="tooltip-custom">
-                    <a href="{{url_for('notifications')}}" class="nav-link px-2 link-secondary">
+                    <a href="{{url_for('home.notifications')}}" class="nav-link px-2 link-secondary">
                         <i class="fa-solid fa-xl fa-inbox"></i>
                     </a>
                     <span class="tooltiptext"> {{lang.navbar.notifications}} </span>
                 </li>
                 <li class="tooltip-custom">
-                    <a href="{{url_for('chat')}}" class="nav-link px-2 link-secondary">
+                    <a href="/chat" class="nav-link px-2 link-secondary">
                         <i class="fa-regular fa-xl fa-paper-plane"></i>
                     </a>
                     <span class="tooltiptext"> {{lang.navbar.chat}} </span>
@@ -94,8 +94,8 @@
                             <img src="{{session.user.perfil.img_url}}" alt="mdo" class="rounded-circle" width="40" height="40">
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="{{url_for('config_page')}}" >{{lang.navbar.settings}}</a></li>
-                            <li><a class="dropdown-item"href="{{url_for('profileUser', email=session.user.email)}}">{{lang.navbar.profile}}</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('profile_configuration.config_page')}}" >{{lang.navbar.settings}}</a></li>
+                            <li><a class="dropdown-item"href="user/{{session.user.email}}">{{lang.navbar.profile}}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -109,7 +109,7 @@
                                     <li><a class="dropdown-item" href="?lang=es">Español</a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="{{url_for('logout')}}">{{lang.navbar.sign_out}}</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('authentication.logout')}}">{{lang.navbar.sign_out}}</a></li>
                         </ul>
                     </div>
                 </li>

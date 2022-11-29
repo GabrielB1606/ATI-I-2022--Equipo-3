@@ -11,3 +11,5 @@ mongodb-volume/.dbshell
 src/__pycache__/*.pyc
 src/__pycache__/models.cpython-310.pyc
 src/__pycache__/*.pyc
+src/routes/__pycache__/*.pyc
+*.pyc
