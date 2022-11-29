@@ -3,6 +3,7 @@ from models import User
 from functools import wraps
 from pymongo import MongoClient
 from authlib.integrations.flask_client import OAuth
+from  werkzeug.security import generate_password_hash, check_password_hash
 import json
 
 from forms import RegisterForm 
@@ -360,7 +361,7 @@ if __name__=='__main__':
                 # save user info in mongodb
                 database_hook["usuarios"].insert_one( {
                     "email": perfil["email"].lower(),
-                    "clave": user["ci"],
+                    "clave": generate_password_hash( user["ci"] ),
                     "conectado": False,
                     "solicitudes": [],
                     "notificaciones": [],

@@ -1,4 +1,5 @@
 from flask import Flask,jsonify, redirect,session,request
+from  werkzeug.security import check_password_hash
 
 class User:
 
@@ -8,9 +9,9 @@ class User:
         return jsonify(user),200
 
     def login(self,database_hook):
-        found = database_hook.usuarios.find_one({ "email": request.form.get("email"), "clave": request.form.get("password") }) 
+        found = database_hook.usuarios.find_one({ "email": request.form.get("email") }) 
         
-        if not found:
+        if (not found) or ( not check_password_hash( found["clave"], request.form.get("password")) ) :
             return jsonify({"message":"Incorrect email address or password"}),400
 
         user={
