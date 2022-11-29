@@ -2,8 +2,6 @@ from flask import request, render_template, Blueprint
 from config import get_navbar_lang, login_required
 import json
 
-# from app import app
-
 profile_configuration = Blueprint("profile_configuration", __name__, static_folder="static", template_folder="templates")
 
 @profile_configuration.route('/config')

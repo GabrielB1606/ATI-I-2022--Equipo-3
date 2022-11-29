@@ -1,8 +1,8 @@
 from flask import request, render_template, Blueprint, redirect, url_for
 from config import get_navbar_lang, logged_in, database_hook, oauth
 import json
-from forms import RegisterForm 
-from models import User
+from models.Form import RegisterForm 
+from models.User import User
 
 authentication = Blueprint("authentication", __name__, static_folder="static", template_folder="templates")
 
