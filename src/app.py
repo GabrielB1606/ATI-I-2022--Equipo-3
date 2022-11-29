@@ -10,24 +10,20 @@ from __init__ import app
 from config import get_db, get_navbar_lang, database_hook, image_saver, login_required, logged_in
 
 from views.home import home
-app.register_blueprint(home, url_prefix="")
-
 from views.authentication import authentication
-app.register_blueprint(authentication, url_prefix="")
-
 from views.chat import chat
-app.register_blueprint(chat, url_prefix="")
-
 from views.images import image_collection
-app.register_blueprint(image_collection, url_prefix="/img")
-
 from views.user import users
-app.register_blueprint(users, url_prefix="/user")
-
 from views.profile_configuration import profile_configuration
+
+app.register_blueprint(home, url_prefix="")
+app.register_blueprint(authentication, url_prefix="")
+app.register_blueprint(chat, url_prefix="")
+app.register_blueprint(image_collection, url_prefix="/img")
+app.register_blueprint(users, url_prefix="/user")
 app.register_blueprint(profile_configuration, url_prefix="" )
 
-# profile route
+# dummy profile route
 @app.route('/friend')
 def profileFriend():
     posts = json.load( open("data/dummy/posts_friend.json") )
@@ -43,25 +39,7 @@ def profileFriend():
     get_navbar_lang(lang)
     return render_template("friend.html", postList = posts, lang=lang, language=lan, config=config)
 
-@app.route('/user')
-def profile():
-    return redirect("/user/chachy.drs@mail.com")
-
-# config route
-@app.route('/config')
-@login_required
-def config_page():
-        # read GET variable
-    user = json.load( open("data/dummy/user.json") )
-    if request.args.get("lang") == "es":
-        # open config file according to the GET variable lang
-        lang = json.load( open("static/config/es/config.json") )
-    else:
-        lang = json.load( open("static/config/en/config.json") )
-    get_navbar_lang(lang)
-    return render_template("config.html",lang=lang, user=user)
-
-# demo for fetching mongoDB data
+# demo for fetching mongoDB users data
 @app.route('/listUsers2')
 def fetch_users2():
     
@@ -71,8 +49,8 @@ def fetch_users2():
    
     _users = database_hook["usuarios"].find()
     users = [ {"clave": user["clave"], "email": user["email"], "perfil": user["perfil"] } for user in _users]
-    return jsonify( users )
     # return jsonify(json.load( open("./ati_2022_1/datos/index.json") ))
+    return jsonify( users )
 
 # file not found
 @app.errorhandler(404)
