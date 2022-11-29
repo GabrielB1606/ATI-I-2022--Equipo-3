@@ -21,6 +21,9 @@ app.register_blueprint(chat, url_prefix="")
 from views.images import image_collection
 app.register_blueprint(image_collection, url_prefix="/img")
 
+from views.user import users
+app.register_blueprint(users, url_prefix="/user")
+
 # profile route
 @app.route('/friend')
 def profileFriend():
@@ -40,25 +43,6 @@ def profileFriend():
 @app.route('/user')
 def profile():
     return redirect("/user/chachy.drs@mail.com")
-
-# profile route
-@app.route('/user/<email>')
-def profileUser(email):
-    # find user info mongodb
-    user_info = database_hook["usuarios"].find_one( {"email": email} )["perfil"]
-    posts = json.load( open("data/dummy/posts_friend.json") )
-    # read GET variable
-    lan = request.args.get("lang")
-    if lan == "es":
-        # open config file according to the GET variable lang
-        lang = json.load( open("static/config/es/index.json") )
-        config = json.load(open("static/config/es/config.json"))
-    else:
-        lang = json.load( open("static/config/en/index.json") )
-        config = json.load(open("static/config/en/config.json"))
-    get_navbar_lang(lang)
-    # return user_info
-    return render_template("profile.html", postList = posts, lang=lang, language=lan, config=config, user_info=user_info)
 
 # config route
 @app.route('/config')
