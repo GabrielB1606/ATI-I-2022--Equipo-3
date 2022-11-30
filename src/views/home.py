@@ -44,6 +44,17 @@ def index():
             "profile_img_url": _user["perfil"]["img_url"] ,
             "comments": p["comentarios"]
         }]
+    
+    _users = database_hook["usuarios"].find()
+    users = []
+    for u in _users:
+        if u["email"] != session["user"]["email"]:
+            users += [{
+                "nombre": u["perfil"]["nombre"],
+                "img_url": u["perfil"]["img_url"],
+                "conectado": u["conectado"],
+                "email": u["email"]
+            }]
 
     # posts = json.load( open("data/dummy/posts_home.json") ) #load posts to show in feed (currently dummy)
 
@@ -58,7 +69,7 @@ def index():
 
     get_navbar_lang(lang)
 
-    return render_template("index.html", postList = posts, lang=lang, language=lan, form = form)
+    return render_template("index.html", postList = posts, lang=lang, language=lan, form = form, userList=users)
 
 # updates route
 @home.route('/notifications')

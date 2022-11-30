@@ -40,26 +40,6 @@
                                 <li class="nav-item" style="margin-left:0.5rem;">
                                     {{ form.submit( class_="btn btn-outline-dark ml-1 py-1 p-2 mb-0", value=lang.Publish.post) }}
                                 </li>
-
-                                <!-- <li alt="bold text" class="nav-item" style="margin-left:1rem">
-                                    <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto"><i class="fa-solid fa-bold text-dark"></i></a>
-                                </li>
-                                
-                                <li alt="italic text" class="nav-item">
-                                    <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto"><i class="fa-solid fa-italic text-dark"></i></a>
-                                </li>
-
-                                <li alt="underline text" class="nav-item">
-                                    <a class="nav-link bg-light py-1 p-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto"><i class="fa-solid fa-underline text-dark"></i></a>
-                                </li>
-
-                                <li alt="add photo" class="nav-item">
-                                    <a class="nav-link bg-light py-1 p-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto"> <i class="fa-regular fa-image text-dark"></i></a>
-                                </li>
-                            
-                                <li alt="add emoji" class="nav-item">
-                                    <a class="nav-link bg-light py-1 p-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto"><i class="fa-regular fa-face-smile text-dark"></i></a>
-                                </li> -->
             
                             </ul>
                         </div>
@@ -80,7 +60,7 @@
                     text=post.text,
                     profile_url=post.profile_url,
                     owner_post_img_url=post.profile_img_url,
-                    profile_img_url='https://github.com/mdo.png',
+                    profile_img_url= session.user.perfil.img_url ,
                     img_url=post.img_url,
                     commentList=post.comments,
                     lan=language
@@ -92,42 +72,25 @@
       </div>
       <div class="col">
         <ul class="list-group mb-3 d-none d-md-block">
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div class="d-flex flex-row">
-                <div class="p-2">
-                <img alt="32x32" class="rounded-circle"  src="https://mdbootstrap.com/img/new/avatars/8.jpg" width="40px" height="40px">
-                </div>
-                <div class="p-2">
-                <h6 class="my-0" style="display:inline"> <a href="{{url_for('profileFriend')}}" style="color: black; text-decoration: none;">  Daemon Gordon </a></h6>
-                <small class="text-success" style="display:block">{{lang.friends.online}}</small>
-                </div>
-              </div>
+            
+            {% for user in userList %}
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div class="d-flex flex-row">
+                        <div class="p-2">
+                            <img alt="32x32" class="rounded-circle"  src="{{user.img_url}}" width="40px" height="40px">
+                        </div>
+                        <div class="p-2">
+                            <h6 class="my-0" style="display:inline"> <a href="/user/{{user.email}}" style="color: black; text-decoration: none;">  {{user.nombre}} </a></h6>
+                            {% if user.conectado %}
+                                <small class="text-success" style="display:block">{{lang.friends.online}}</small>
+                            {% else %}
+                                <small class="text-muted" style="display:block">{{lang.friends.offline}}</small>
+                            {% endif %}
+                        </div>
+                    </div>
 
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-                <div class="d-flex flex-row">
-                    <div class="p-2">
-                    <img alt="32x32" class="rounded-circle"  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp" width="40px" height="40px">
-                    </div>
-                    <div class="p-2" >
-                    <h6 class="my-0" style="display:inline">Angelica Smith</h6>
-
-                    <small class="text-success" style="display:block">{{lang.friends.online}}</small>
-                    
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-                <div class="d-flex flex-row">
-                    <div class="p-2">
-                    <img alt="32x32" class="rounded-circle"  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp" width="40px" height="40px">
-                    </div>
-                    <div class="p-2">
-                    <h6 class="my-0" style="display:inline">Andrea Cramps</h6>
-                    <small class="text-muted" style="display:block">{{lang.friends.offline}}</small>
-                    </div>
-                </div>
-            </li>
+                </li>
+            {% endfor %}
 
           </ul>
       </div>
