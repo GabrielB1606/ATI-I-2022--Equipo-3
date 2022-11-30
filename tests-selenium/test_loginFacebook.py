@@ -15,11 +15,11 @@ class testLoginFabook(unittest.TestCase):
         facebook = self.driver.find_element(By.ID, "facebookButton")
         facebook.send_keys(Keys.ENTER)
 
-        # Write Email 
+        # Type Email 
         email = self.driver.find_element(By.ID, "email")
         email.send_keys("Chachy.drs@gmail.com")
 
-        # Write Password 
+        # Type Password 
         password = self.driver.find_element(By.ID, "pass")
         password.send_keys("atiEquipo3Daniela")
 
@@ -27,8 +27,10 @@ class testLoginFabook(unittest.TestCase):
         password.send_keys(Keys.ENTER)
         time.sleep(30)
         self.assertTrue( self.driver.current_url.split("/")[-1] != "login" , "No se inició sesión correctamente" )
-        self.driver.close()
 
+# Destructor (it runs after EVERY test)
+    def tearDown(self) -> None:
+        self.driver.close()
 
 if __name__ == "__main__":
     unittest.main()
