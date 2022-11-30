@@ -8,7 +8,7 @@ class testPerfil( unittest.TestCase ):
     
     # start driver as an attribute of the class (ir runs before EVERY test)
     def setUp(self):
-        self.driver =  webdriver.Chrome(executable_path=r"C:\driverChrome\chromedriver.exe")
+        self.driver =  webdriver.Firefox()
 
     # test a login with correct credentials
     def test_perfil(self):
@@ -25,6 +25,8 @@ class testPerfil( unittest.TestCase ):
 
         # Submit login form
         password.send_keys(Keys.ENTER)
+
+        time.sleep(3)
 
         # Select profile picture (navbar)
         perfil = self.driver.find_element(By.ID, "perfilUsuario")
