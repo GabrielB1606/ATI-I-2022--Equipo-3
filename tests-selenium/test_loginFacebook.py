@@ -41,13 +41,13 @@ class testLoginFabook(unittest.TestCase):
 
         # Type Password 
         password = self.driver.find_element(By.ID, "pass")
-        password.send_keys("123456")
+        password.send_keys("password incorrecto")
 
         # Send 
         password.send_keys(Keys.ENTER)
         time.sleep(30)
         
-        self.assertTrue( self.driver.current_url.find("facebook") , "No se inició sesión correctamente" )
+        self.assertTrue( self.driver.current_url.find("facebook") , "Se inició sesión tras haber fallado la autenticación de facebook" )
 
     def test_loginFacebook_usuario_incorrecto(self):
         self.driver.get("http://localhost:5000/login")              # Open Chrome and go to http://localhost:5000/login
@@ -68,7 +68,7 @@ class testLoginFabook(unittest.TestCase):
         password.send_keys(Keys.ENTER)
         time.sleep(30)
         
-        self.assertTrue( self.driver.current_url.find("facebook") , "No se inició sesión correctamente" )
+        self.assertTrue( self.driver.current_url.find("facebook") , "Se inició sesión tras haber fallado la autenticación de facebook" )
 
 # Destructor (it runs after EVERY test)
     def tearDown(self) -> None:
