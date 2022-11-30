@@ -9,14 +9,14 @@ class User:
         session['user'] = user
         return jsonify(user),200
 
-    def login(self,database_hook):
-        found = database_hook.usuarios.find_one({ "email": request.form.get("email") }) 
+    def login(self,database_hook,email,password):
+        found = database_hook.usuarios.find_one({ "email": email }) 
         
-        if (not found) or ( not check_password_hash( found["clave"], request.form.get("password")) ) :
+        if (not found) or ( not check_password_hash( found["clave"], password) ) :
             return jsonify({"message":"Incorrect email address or password"}),400
 
         user={
-            "email": request.form.get('email'),
+            "email": email,
             "perfil": found["perfil"]
         }
         return self.start_session(user)
