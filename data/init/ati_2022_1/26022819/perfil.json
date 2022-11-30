@@ -4,7 +4,7 @@
 	"color":"Morado",
 	"libro":" 100 años de soledad",
 	"musica":"Todos",
-	"video_juego": "Counter-Strike",
+	"video_juego": ["Counter-Strike"],
 	"lenguajes":["JavaScript", "TypeScript", "React"],
 	"email":"valexcontreras@gmail.com",
 	"ci":"26022819",

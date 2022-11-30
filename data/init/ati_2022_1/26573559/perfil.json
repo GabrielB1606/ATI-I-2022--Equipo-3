@@ -4,7 +4,7 @@
 	"color":"verde",
 	"libro":"one piece",
 	"musica":"rock",
-	"video_juego":"The legend of Zelda",
+	"video_juego":["The legend of Zelda"],
 	"lenguajes":["java","C","C++","python"],
 	"email":"luigisperstar7@gmail.com",
 	"CI":"26573559",
