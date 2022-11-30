@@ -8,7 +8,7 @@ class testLogin( unittest.TestCase ):
     
     # start driver as an attribute of the class (ir runs before EVERY test)
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        self.driver =  webdriver.Chrome(executable_path=r"C:\driverChrome\chromedriver.exe")
 
     # test a login with correct credentials
     def test_login_correct(self):
@@ -24,12 +24,10 @@ class testLogin( unittest.TestCase ):
         password.send_keys("28126743")
 
         # submit login form
-        password.send_keys(Keys.ENTER)
-
-        #wait to load lol
+        password.send_keys(Keys.ENTER)        
         time.sleep(3)
 
-        # if I'm still in login, i haven't logged in (duh...)
+        # if I'm still in login, i haven't logged in 
         self.assertTrue( self.driver.current_url.split("/")[-1] != "login" , "Todavía seguimos en la dirección de login, por lo que no se inició sesión correctamente" )
     
 
