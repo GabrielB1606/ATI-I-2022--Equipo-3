@@ -53,6 +53,29 @@ class testLogin( unittest.TestCase ):
         # if I'm still in login, i haven't logged in (duh...)
         self.assertTrue( self.driver.current_url.split("/")[-1] == "login" , "Logramos entrar a la aplicación con una clave incorrecta" )
 
+    
+    # test a login witch incorrect credentials
+    def test_login_non_registered(self):
+        # go to the login page
+        self.driver.get("http://localhost:5000/login")
+        
+        # type email
+        usuario = self.driver.find_element( By.ID, "email" )
+        usuario.send_keys("no@existe.com")
+
+        # type password
+        password = self.driver.find_element( By.ID, "password" )
+        password.send_keys("not the correct password")
+
+        # submit login form
+        password.send_keys(Keys.ENTER)
+
+        #wait to load lol
+        time.sleep(3)
+
+        # if I'm still in login, i haven't logged in (duh...)
+        self.assertTrue( self.driver.current_url.split("/")[-1] == "login" , "Logramos entrar a la aplicación con un usuario inexistente" )
+
     # destructor (it runs after EVERY test)
     def tearDown(self) -> None:
         self.driver.close()
