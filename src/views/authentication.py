@@ -168,4 +168,4 @@ def facebook_auth():
     
     # Start Session
     User().start_session( {"email": findMongoDB["email"], "perfil": findMongoDB["perfil"]} )
-    return redirect(url_for('home.index', key = profile["name"]))
+    return redirect(url_for('home.index'))
