@@ -45,9 +45,7 @@
                         </div>
 
                     </form>
-
                     
-
                 </div>
             </div>
             
@@ -76,6 +74,7 @@
             {% for user in userList %}
                 <li class="list-group-item d-flex justify-content-between lh-sm">
                     <div class="d-flex flex-row">
+                        <a href="/user/{{user.email}}" style="color: black; text-decoration: none;">
                         <div class="p-2">
                             <img alt="32x32" class="rounded-circle"  src="{{user.img_url}}" width="40px" height="40px">
                         </div>
@@ -87,6 +86,7 @@
                                 <small class="text-muted" style="display:block">{{lang.friends.offline}}</small>
                             {% endif %}
                         </div>
+                        </a>
                     </div>
 
                 </li>
