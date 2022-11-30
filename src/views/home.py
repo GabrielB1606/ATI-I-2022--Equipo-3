@@ -11,8 +11,7 @@ def index():
 
     posts = json.load( open("data/dummy/posts_home.json") ) #load posts to show in feed (currently dummy)
     
-            # read GET variables
-    key = request.args.get("key")
+    # read GET variables
     lan = request.args.get("lang")
     
             # open config file according to the GET variable lang
@@ -23,7 +22,7 @@ def index():
 
     get_navbar_lang(lang)
 
-    return render_template("index.html", postList = posts, lang=lang, language=lan, key=key)
+    return render_template("index.html", postList = posts, lang=lang, language=lan)
 
 # updates route
 @home.route('/notifications')
