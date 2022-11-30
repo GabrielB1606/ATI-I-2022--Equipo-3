@@ -96,9 +96,8 @@ def login():
 
 
 
-    
+# Facebook 
 
-    # facebook
 @authentication.route('/facebook/')
 def facebook():
     # Facebook Oauth Config
@@ -122,14 +121,20 @@ def facebook():
 def facebook_auth():
     token = oauth.facebook.authorize_access_token()
     resp = oauth.facebook.get('https://graph.facebook.com/me?fields=id,name,email,picture{url}')
+    
+    # Get profile: id, name, email and ulr picture
     profile = resp.json()   
     username = profile["name"]
+
+    # Find user with email in the database
     findMongoDB = database_hook.usuarios.find_one({"email": profile["email"]})
     
     #database_hook.usuarios.find_one_and_delete({"email": profile["email"]})
     #return redirect(url_for('index', key = "Nuevo perfil creado"))
     
-    if not findMongoDB:    
+    if not findMongoDB:  
+
+        # If the user doesnt exist, insert new user in the database  
         database_hook["usuarios"].insert_one( {
             "email": profile["email"],
             "clave": "",
@@ -161,5 +166,6 @@ def facebook_auth():
         } )
         findMongoDB = database_hook.usuarios.find_one({"email": profile["email"]})
     
+    # Start Session
     User().start_session( {"email": findMongoDB["email"], "perfil": findMongoDB["perfil"]} )
     return redirect(url_for('home.index', key = profile["name"]))
