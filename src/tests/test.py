@@ -19,7 +19,28 @@ class TestHello(BaseTestClass):
         self.assertEqual(user, None)
         self.assertEqual(response.request.path, '/sign_in')
 
+
+    def test_login_incorrect(self):
+        response = self.app.post('/login', data={
+            'email':'chachy.drs@gmail.com',
+            'password':'281267423',
+        }, follow_redirects = True)
+
+        self.assertEqual(response.request.path, '/login')
+
+    def test_login_correct(self):
+        response = self.app.post('/login', data={
+            'email':'chachy.drs@gmail.com',
+            'password':'28126743',
+        }, follow_redirects = True)
+
+        self.assertEqual(response.request.path, '/')
+
+
+
+
     # Test 2. Register Correct: EMAIL, PASSWORD, CONFIRM were given
+
     def test_register_correct(self):
         response = self.app.post('/sign_in', data={
             'email':'test@mail.com',

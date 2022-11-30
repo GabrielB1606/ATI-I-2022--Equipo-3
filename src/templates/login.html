@@ -24,7 +24,7 @@
                                     </div>
 
                                     
-                                    <form name="login_form" >
+                                    <form name="login_form"  method="POST">
                                         <div class="text-center mb-3">                                            
                                             <p>{{lang.signIn}}: </p>                                          
                                             
@@ -62,15 +62,18 @@
                                             <input type="password" id="password" name="password" class="form-control form-control-lg" />
                                         </div>
                                         
+
+                                        {% if error %}
                                         <p id="error" style="
                                             color: red;
                                             list-style-type: none; 
                                             padding: 0; 
                                             margin: 0; 
-                                            display:none;
+                                            display:visible;
                                             text-align: center;
                                             margin-bottom: 1rem;
                                         ">El usuario o contraseña son invalidos</p>
+                                        {% endif %}
 
                                         <div class="pt-1 mb-4 d-flex justify-content-center">
                                             <button class="btn btn-dark btn-lg btn-block" type="submit">{{lang.login}}</button>

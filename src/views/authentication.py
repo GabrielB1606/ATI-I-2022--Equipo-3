@@ -70,9 +70,20 @@ def logout():
     return redirect('/login')
 
 # login route
-@authentication.route('/login')
+@authentication.route('/login',methods=['GET', 'POST'])
 @logged_in
 def login():
+    error=False
+    if "email" in request.form and  "password" in request.form: 
+        result = User().login(database_hook,request.form.get('email'),request.form.get('password'))
+    
+        if result[1] == 200:
+            return redirect(url_for('home.index'))
+
+        error=True
+
+
+
     # read GET variable
     if request.args.get("lang") == "es":
         # open config file according to the GET variable lang
@@ -80,14 +91,13 @@ def login():
     else:
         lang = json.load( open("static/config/en/login.json") )
     get_navbar_lang(lang)
-    return render_template("login.html", lang=lang)
 
-@authentication.route('/user-login/',methods=['POST'])
-def user_login():
-    return User().login(database_hook)
+    return render_template("login.html", lang=lang,error=error)
+
 
 
 # Facebook 
+
 @authentication.route('/facebook/')
 def facebook():
     # Facebook Oauth Config
