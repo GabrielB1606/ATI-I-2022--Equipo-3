@@ -54,6 +54,30 @@ def fetch_users2():
     # return jsonify(json.load( open("./ati_2022_1/datos/index.json") ))
     return jsonify( users )
 
+# demo for fetching mongoDB users data
+@app.route('/listPosts')
+def fetch_posts():
+    
+    global database_hook
+    if type(database_hook)!=MongoClient:
+        database_hook = get_db("users_db")
+   
+    _posts = database_hook["posts"].find()
+    posts = []
+    for p in _posts:
+        _user = database_hook["usuarios"].find_one( {"email": p["emailUsuario"] } )
+        posts += [{
+            "id": p["id"],
+            "user_name": _user["perfil"]["nombre"] ,
+            "post_time": p["timestamp"],
+            "text": p["contenido"]["texto"],
+            "profile_url": "/user/"+p["emailUsuario"],
+            "profile_img_url": _user["perfil"]["img_url"] ,
+            "comments": p["comentarios"]
+        }]
+    # return jsonify(json.load( open("./ati_2022_1/datos/index.json") ))
+    return jsonify( posts )
+
 # file not found
 @app.errorhandler(404)
 def page_not_found(e):
