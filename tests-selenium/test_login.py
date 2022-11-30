@@ -8,7 +8,7 @@ class testLogin( unittest.TestCase ):
     
     # start driver as an attribute of the class (ir runs before EVERY test)
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        self.driver =  webdriver.Chrome(executable_path=r"C:\driverChrome\chromedriver.exe")
 
     # test a login with correct credentials
     def test_login_correct(self):
