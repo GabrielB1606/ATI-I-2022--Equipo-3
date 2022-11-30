@@ -16,7 +16,7 @@ def sign_in():
 
         img_url = "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
         
-        if form.profile_image.name in request.files:
+        if request.files[form.profile_image.name].filename != "" :
             img_url = form.email.data.lower() + "." + request.files[ form.profile_image.name ].content_type.split("/")[-1]
             image_saver.put( request.files[ form.profile_image.name ].read(), filename=img_url)
             img_url = "/img/"+img_url
