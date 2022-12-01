@@ -129,8 +129,6 @@ def facebook_auth():
     # Find user with email in the database
     findMongoDB = database_hook.usuarios.find_one({"email": profile["email"]})
     
-    #database_hook.usuarios.find_one_and_delete({"email": profile["email"]})
-    #return redirect(url_for('index', key = "Nuevo perfil creado"))
     
     if not findMongoDB:  
 

@@ -18,8 +18,6 @@ class TestRegister(BaseTestClass):
         self.assertEqual(user['email'], 'test@mail.com')
         self.assertEqual(response.request.path, '/')
 
-        database_hook["usuarios"].delete_one({'email':'test@mail.com'})
-
 class TestLoginFacebook(BaseTestClass):
     # Test Correct redirect to Facebook Login in 
     def test_loginFacebook(self):
