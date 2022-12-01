@@ -1,7 +1,8 @@
 from flask import request, render_template, Blueprint, session, redirect
 from config import get_navbar_lang, login_required, database_hook
 import json
-from models.Post import PostForm, Post
+from models.Post import Post
+from models.Form import PostForm
 
 home = Blueprint("home", __name__, static_folder="static", template_folder="templates")
 
