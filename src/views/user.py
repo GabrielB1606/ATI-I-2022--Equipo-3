@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, jsonify
+from flask import Blueprint, request, render_template, redirect, jsonify, session
 from config import database_hook, get_navbar_lang
 import json
 
@@ -13,7 +13,7 @@ def searchUserJSON(name):
     _users = database_hook["usuarios"].find()
     users = []
     for user in _users:
-        if name.lower() in user["perfil"]["nombre"].lower():
+        if user["email"] != session["user"]["email"] and name.lower() in user["perfil"]["nombre"].lower():
             users += [ {"nombre": user["perfil"]["nombre"], "img_url": user["perfil"]["img_url"], "email": user["email"] } ]
     
     return jsonify(users)
