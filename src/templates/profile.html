@@ -26,28 +26,36 @@
             <hr>
 
             <table alt="{{config.profile_info.tab_name}}">
-                <tr alt="{{config.profile_info.birthday}}">
-                    <td><i class="fa-solid fa-gift"></i></td>
-                    <td> {{user_info.fecha_nacimiento}}</td>
-                </tr>
-                <tr alt="{{config.profile_info.video_games}}">
-                    <td><i class="fa-solid fa-gamepad"></i></td>
-                    <td>{{user_info.video_juego|join(', ')}}</td>
-                </tr>
-                <tr alt="{{config.profile_info.music}}">
-                    <td><i class="fa-solid fa-music"></i></td>
-                    <td>{{user_info.musica}}</td>
-                </tr>
-
-                  <tr alt="{{config.profile_info.book}}">
-                    <td><i class="fa-solid fa-book"></i></td>
-                    <td>{{user_info.libro}}</td>
-                  </tr>
-
+                {% if user_info.fecha_nacimiento %}
+                    <tr alt="{{config.profile_info.birthday}}">
+                        <td><i class="fa-solid fa-gift"></i></td>
+                        <td> {{user_info.fecha_nacimiento}}</td>
+                    </tr>
+                {% endif %}
+                {% if user_info.video_juego %}
+                    <tr alt="{{config.profile_info.video_games}}">
+                        <td><i class="fa-solid fa-gamepad"></i></td>
+                        <td>{{user_info.video_juego|join(', ')}}</td>
+                    </tr>
+                {% endif %}
+                {% if user_info.musica %}
+                    <tr alt="{{config.profile_info.music}}">
+                        <td><i class="fa-solid fa-music"></i></td>
+                        <td>{{user_info.musica}}</td>
+                    </tr>
+                {% endif %}
+                {% if user_info.libro %}
+                    <tr alt="{{config.profile_info.book}}">
+                        <td><i class="fa-solid fa-book"></i></td>
+                        <td>{{user_info.libro}}</td>
+                    </tr>
+                {% endif %}
+                {% if user_info.color %}
                   <tr alt="{{config.profile_info.color}}">
                     <td><i class="fa-solid fa-star"></i></td>
                     <td>{{user_info.color}}</td>
                   </tr>
+                {% endif %}
             </table>
 
             <hr>
