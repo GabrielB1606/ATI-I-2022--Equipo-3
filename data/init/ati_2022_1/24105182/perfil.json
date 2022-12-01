@@ -3,7 +3,7 @@
 	"color" : "Verde", 
 	"libro" : "Spiderwick", 
 	"musica" : "Rock", 
-	"video_juego" : ["Fallot New Vegas", "Assassin's Creed IV: Black Flag", "Bioshock Infinite"], 
+	"video_juego" : ["Fallout New Vegas", "Assassin's Creed IV: Black Flag", "Bioshock Infinite"], 
 	"lenguajes" : ["c++", "c", "python", "java", "sql", "pascal"], 
 	"email" : "m.yannis22@gmail.com", 
 	"CI" : "24105182", 
