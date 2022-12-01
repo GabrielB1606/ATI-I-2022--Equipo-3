@@ -28,7 +28,7 @@
                         </a>
                         <ul class="dropdown-menu text-small">
                             <li><a class="dropdown-item" href="{{url_for('profile_configuration.config_page')}}" >{{lang.navbar.settings}}</a></li>
-                            <li><a class="dropdown-item"href="user/{{session.user.email}}">{{lang.navbar.profile}}</a></li>
+                            <li><a class="dropdown-item"href="/user/{{session.user.email}}">{{lang.navbar.profile}}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -61,11 +61,6 @@
                     <input type="search" class="form-control" placeholder="{{lang.navbar.searchbar}}..." aria-label="Search" id="searchbar-users">
                 </form>
                 <ul class="dropdown-menu col-12 " id="search-preview">
-                    <li class="search-prev dropdown-item py-0 my-0">
-                        {% with user_name='Daemon Gordon', profile_url=url_for('profileFriend'), profile_img_url='https://mdbootstrap.com/img/new/avatars/8.jpg'%}
-                            {% include 'userSearch.html' %}
-                        {% endwith %}
-                    </li>
                     
                     <li> <hr class="dropdown-divider"> </li>                            
                     <li><a id="more-results" class="dropdown-item" href="#"> {{lang.navbar.results}} </a></li>
@@ -95,7 +90,7 @@
                         </a>
                         <ul class="dropdown-menu text-small">
                             <li><a class="dropdown-item" href="{{url_for('profile_configuration.config_page')}}" >{{lang.navbar.settings}}</a></li>
-                            <li><a id="dropdown-Profile" class="dropdown-item"href="user/{{session.user.email}}">{{lang.navbar.profile}}</a></li>
+                            <li><a id="dropdown-Profile" class="dropdown-item"href="/user/{{session.user.email}}">{{lang.navbar.profile}}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
