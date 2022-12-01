@@ -13,7 +13,20 @@ def profile():
 def profileUser(email):
     # find user info mongodb
     user_info = database_hook["usuarios"].find_one( {"email": email} )["perfil"]
-    posts = json.load( open("data/dummy/posts_friend.json") )
+
+    _posts = database_hook["posts"].find({"emailUsuario": email.lower() }).sort("id", -1)
+    posts = []
+    for p in _posts:
+        posts += [{
+            "id": p["id"],
+            "user_name": user_info["nombre"] ,
+            "post_time": p["timestamp"],
+            "text": p["contenido"]["texto"],
+            "profile_url": "/user/"+p["emailUsuario"],
+            "profile_img_url": user_info["img_url"] ,
+            "comments": p["comentarios"]
+        }]
+
     # read GET variable
     lan = request.args.get("lang")
     if lan == "es":
