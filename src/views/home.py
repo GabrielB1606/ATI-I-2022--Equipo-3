@@ -86,9 +86,9 @@ def notifications():
     return render_template("notifications.html",lang=lang)
 
 # search all users route
-@home.route('/search')
+@home.route('/search/<name>')
 @login_required
-def search_users():
+def search_users(name):
     # read GET variable
     if request.args.get("lang") == "es":
         # open config file according to the GET variable lang
@@ -96,4 +96,11 @@ def search_users():
     else:
         lang = json.load( open("static/config/en/search.json") )
     get_navbar_lang(lang)
-    return render_template("search.html",lang=lang)
+
+    _users = database_hook["usuarios"].find()
+    users = []
+    for user in _users:
+        if name.lower() in user["perfil"]["nombre"].lower():
+            users += [ {"nombre": user["perfil"]["nombre"], "img_url": user["perfil"]["img_url"], "email": user["email"] } ]
+
+    return render_template("search.html",lang=lang, userList = users)

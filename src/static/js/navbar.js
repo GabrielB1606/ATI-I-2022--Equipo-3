@@ -32,7 +32,8 @@ $("#searchbar-users").on("input", e =>{
                     </a>
                     `
                 )
-            }    
+            }
+            $("#more-results").prop("href", "/search/"+e.target.value);  
         });
 
         $("#search-preview").css("visibility", "visible");
