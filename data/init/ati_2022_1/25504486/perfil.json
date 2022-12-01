@@ -3,7 +3,7 @@
    "descripcion" : "Soy estudiante de 7mo Semestre de computacion, auxiliar docente del laboratorio de postgrado, Jugador de Rugby del equipo de la Universidad Central de Venezuela UCVRFC, apasionado a los videojuegos y el deporte.Trabajo en la empresa Disglobal como supervisor del area de Desarrollo y Soporte Tecnico",     
 	"color" : "Azul",  
 	"libro" : "Tormenta de Espadas ",
-	"musica" : ["Rock", "Rap", "Reggaeton"], 
+	"musica" : "Rock, Rap y Reggaeton", 
 	"video_juego": ["The last of Us", "Call of Duty", "Clash of Clans"],
 	"lenguajes" : 	["C", "C++", "Java"],
 	"email" : "victortafuri2@gmail.com",

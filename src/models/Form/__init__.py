@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import (StringField, TextAreaField, DateField, SubmitField)
 from flask_wtf.file import FileField
-from wtforms.validators import InputRequired, Length, EqualTo
+from wtforms.validators import InputRequired, Length, EqualTo, DataRequired
 from datetime import date
 
 class RegisterForm(FlaskForm):
@@ -18,3 +18,8 @@ class RegisterForm(FlaskForm):
     book = StringField()
     color = StringField()
     submit = SubmitField()
+
+
+class PostForm(FlaskForm):
+    content = TextAreaField("Content", validators=[DataRequired()])
+    submit = SubmitField("Submit")

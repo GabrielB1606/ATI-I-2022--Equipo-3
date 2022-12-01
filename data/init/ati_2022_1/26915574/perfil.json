@@ -4,7 +4,7 @@
     "color": "Verde",
     "libro": "Nada que perder",
     "musica": "Cualquiera",
-    "video_juego": "Call of Duty",
+    "video_juego": ["Call of Duty"],
     "lenguajes": ["Java", "Python", "C", "C++"],
     "email": "valeriaa.2608@gmail.com",
     "ci": "26915574",

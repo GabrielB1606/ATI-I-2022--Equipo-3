@@ -5,3 +5,4 @@ Authlib
 requests
 bottle
 pytest
+flask-socketio

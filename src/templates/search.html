@@ -6,12 +6,13 @@
 <div class="d-flex  justify-content-center">
     <div class="my-3 p-3 rounded shadow-sm col-lg-6">
         <h6 class="border-bottom pb-2 mb-3">{{lang.people}}</h6>
-        
-        {% with user_name='Daemon Gordon',
-        profile_url='http://localhost:5000/friend',
-        profile_img_url='https://mdbootstrap.com/img/new/avatars/8.jpg'%}
-            {% include 'userSearch.html' %}
-        {% endwith %}
+        {% for user in userList %}
+            {% with user_name=user.nombre ,
+            profile_url="/user/"+user.email ,
+            profile_img_url=user.img_url %}
+                {% include 'userSearch.html' %}
+            {% endwith %}
+        {% endfor %}
     </div>
 </div>
 
