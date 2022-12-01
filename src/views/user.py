@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect
+from flask import Blueprint, request, render_template, redirect, jsonify
 from config import database_hook, get_navbar_lang
 import json
 
@@ -7,6 +7,16 @@ users = Blueprint("users", __name__, static_folder="static", template_folder="te
 @users.route('/')
 def profile():
     return redirect("/user/chachy.drs@mail.com")
+
+@users.route('/search/<name>')
+def searchUserJSON(name):
+    _users = database_hook["usuarios"].find()
+    users = []
+    for user in _users:
+        if name.lower() in user["perfil"]["nombre"].lower():
+            users += [ {"nombre": user["perfil"]["nombre"], "img_url": user["perfil"]["img_url"], "email": user["email"] } ]
+    
+    return jsonify(users)
 
 # demo for fetching mongoDB data
 @users.route('/<email>')

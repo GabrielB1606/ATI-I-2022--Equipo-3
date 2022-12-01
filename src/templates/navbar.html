@@ -61,14 +61,14 @@
                     <input type="search" class="form-control" placeholder="{{lang.navbar.searchbar}}..." aria-label="Search" id="searchbar-users">
                 </form>
                 <ul class="dropdown-menu col-12 " id="search-preview">
-                    <li class="dropdown-item py-0 my-0">
+                    <li class="search-prev dropdown-item py-0 my-0">
                         {% with user_name='Daemon Gordon', profile_url=url_for('profileFriend'), profile_img_url='https://mdbootstrap.com/img/new/avatars/8.jpg'%}
                             {% include 'userSearch.html' %}
                         {% endwith %}
                     </li>
                     
-                    <li> <hr class="dropdown-divider"> </li>                            
-                    <li><a class="dropdown-item" href="{{url_for('home.search_users')}}"> {{lang.navbar.results}} </a></li>
+                    <li id="divider"> <hr class="dropdown-divider"> </li>                            
+                    <li id="more-results"><a class="dropdown-item" href="{{url_for('home.search_users')}}"> {{lang.navbar.results}} </a></li>
                 </ul>
 
             </div>
